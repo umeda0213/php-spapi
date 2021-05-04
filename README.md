@@ -21,11 +21,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/Popsicle/spapi.git"
+      "url": "https://github.com/popsicle/spapi.git"
     }
   ],
   "require": {
-    "Popsicle/spapi": "*@dev"
+    "popsicle/spapi": "*@dev"
   }
 }
 ```
