@@ -11,9 +11,9 @@
  */
 
 /**
- * Selling Partner API for Retail Procurement Transaction Status
+ * Selling Partner API for Authorization
  *
- * The Selling Partner API for Retail Procurement Transaction Status provides programmatic access to status information on specific asynchronous POST transactions for vendors.
+ * The Selling Partner API for Authorization helps developers manage authorizations and check the specific permissions associated with a given authorization.
  *
  * OpenAPI spec version: v1
  * 
@@ -252,7 +252,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $message A message that describes the error condition in a human-readable form.
      *
      * @return $this
      */
