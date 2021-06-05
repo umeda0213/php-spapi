@@ -83,6 +83,27 @@ class BuyBoxPriceTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "offer_type"
+     */
+    public function testPropertyOfferType()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_tier"
+     */
+    public function testPropertyQuantityTier()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_discount_type"
+     */
+    public function testPropertyQuantityDiscountType()
+    {
+    }
+
+    /**
      * Test attribute "landed_price"
      */
     public function testPropertyLandedPrice()
@@ -107,6 +128,13 @@ class BuyBoxPriceTypeTest extends \PHPUnit_Framework_TestCase
      * Test attribute "points"
      */
     public function testPropertyPoints()
+    {
+    }
+
+    /**
+     * Test attribute "seller_id"
+     */
+    public function testPropertySellerId()
     {
     }
 }

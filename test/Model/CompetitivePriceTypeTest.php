@@ -104,6 +104,34 @@ class CompetitivePriceTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "offer_type"
+     */
+    public function testPropertyOfferType()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_tier"
+     */
+    public function testPropertyQuantityTier()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_discount_type"
+     */
+    public function testPropertyQuantityDiscountType()
+    {
+    }
+
+    /**
+     * Test attribute "seller_id"
+     */
+    public function testPropertySellerId()
+    {
+    }
+
+    /**
      * Test attribute "belongs_to_requester"
      */
     public function testPropertyBelongsToRequester()

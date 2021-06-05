@@ -76,9 +76,23 @@ class OfferDetailTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "seller_id"
+     */
+    public function testPropertySellerId()
+    {
+    }
+
+    /**
      * Test attribute "my_offer"
      */
     public function testPropertyMyOffer()
+    {
+    }
+
+    /**
+     * Test attribute "offer_type"
+     */
+    public function testPropertyOfferType()
     {
     }
 
@@ -107,6 +121,13 @@ class OfferDetailTest extends \PHPUnit_Framework_TestCase
      * Test attribute "listing_price"
      */
     public function testPropertyListingPrice()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_discount_prices"
+     */
+    public function testPropertyQuantityDiscountPrices()
     {
     }
 

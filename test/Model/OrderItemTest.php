@@ -286,6 +286,13 @@ class OrderItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "store_chain_store_id"
+     */
+    public function testPropertyStoreChainStoreId()
+    {
+    }
+
+    /**
      * Test attribute "deemed_reseller_category"
      */
     public function testPropertyDeemedResellerCategory()

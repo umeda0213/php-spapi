@@ -76,6 +76,13 @@ class OfferTypeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "offer_type"
+     */
+    public function testPropertyOfferType()
+    {
+    }
+
+    /**
      * Test attribute "buying_price"
      */
     public function testPropertyBuyingPrice()
@@ -86,6 +93,20 @@ class OfferTypeTest extends \PHPUnit_Framework_TestCase
      * Test attribute "regular_price"
      */
     public function testPropertyRegularPrice()
+    {
+    }
+
+    /**
+     * Test attribute "business_price"
+     */
+    public function testPropertyBusinessPrice()
+    {
+    }
+
+    /**
+     * Test attribute "quantity_discount_prices"
+     */
+    public function testPropertyQuantityDiscountPrices()
     {
     }
 
