@@ -90,8 +90,8 @@ class Signature
 
         //Compute Canonical Headers
         $canonicalHeaders = [
-            'host' => $host,
-            'user-agent' => $userAgent,
+            'Host' => $host,
+            'User-Agent' => $userAgent,
         ];
 
         // Check and attach access token to request header.
