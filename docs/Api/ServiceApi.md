@@ -12,7 +12,7 @@ Method | HTTP request | Description
 [**rescheduleAppointmentForServiceJobByServiceJobId**](ServiceApi.md#rescheduleappointmentforservicejobbyservicejobid) | **POST** /service/v1/serviceJobs/{serviceJobId}/appointments/{appointmentId} | 
 
 # **addAppointmentForServiceJobByServiceJobId**
-> \Popsicle\Amazon\Model\SetAppointmentResponse addAppointmentForServiceJobByServiceJobId($body, $service_job_id)
+> \Popsicle\Amazon\Model\Services\SetAppointmentResponse addAppointmentForServiceJobByServiceJobId($body, $service_job_id)
 
 
 
@@ -28,7 +28,7 @@ $apiInstance = new Popsicle\Amazon\Api\ServiceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\AddAppointmentRequest(); // \Popsicle\Amazon\Model\AddAppointmentRequest | Add appointment operation input details.
+$body = new \Popsicle\Amazon\Model\Services\AddAppointmentRequest(); // \Popsicle\Amazon\Model\Services\AddAppointmentRequest | Add appointment operation input details.
 $service_job_id = "service_job_id_example"; // string | An Amazon defined service job identifier.
 
 try {
@@ -44,12 +44,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\AddAppointmentRequest**](../Model/AddAppointmentRequest.md)| Add appointment operation input details. |
+ **body** | [**\Popsicle\Amazon\Model\Services\AddAppointmentRequest**](../Model/AddAppointmentRequest.md)| Add appointment operation input details. |
  **service_job_id** | **string**| An Amazon defined service job identifier. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SetAppointmentResponse**](../Model/SetAppointmentResponse.md)
+[**\Popsicle\Amazon\Model\Services\SetAppointmentResponse**](../Model/SetAppointmentResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cancelServiceJobByServiceJobId**
-> \Popsicle\Amazon\Model\CancelServiceJobByServiceJobIdResponse cancelServiceJobByServiceJobId($service_job_id, $cancellation_reason_code)
+> \Popsicle\Amazon\Model\Services\CancelServiceJobByServiceJobIdResponse cancelServiceJobByServiceJobId($service_job_id, $cancellation_reason_code)
 
 
 
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CancelServiceJobByServiceJobIdResponse**](../Model/CancelServiceJobByServiceJobIdResponse.md)
+[**\Popsicle\Amazon\Model\Services\CancelServiceJobByServiceJobIdResponse**](../Model/CancelServiceJobByServiceJobIdResponse.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **completeServiceJobByServiceJobId**
-> \Popsicle\Amazon\Model\CompleteServiceJobByServiceJobIdResponse completeServiceJobByServiceJobId($service_job_id)
+> \Popsicle\Amazon\Model\Services\CompleteServiceJobByServiceJobIdResponse completeServiceJobByServiceJobId($service_job_id)
 
 
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CompleteServiceJobByServiceJobIdResponse**](../Model/CompleteServiceJobByServiceJobIdResponse.md)
+[**\Popsicle\Amazon\Model\Services\CompleteServiceJobByServiceJobIdResponse**](../Model/CompleteServiceJobByServiceJobIdResponse.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getServiceJobByServiceJobId**
-> \Popsicle\Amazon\Model\GetServiceJobByServiceJobIdResponse getServiceJobByServiceJobId($service_job_id)
+> \Popsicle\Amazon\Model\Services\GetServiceJobByServiceJobIdResponse getServiceJobByServiceJobId($service_job_id)
 
 
 
@@ -198,7 +198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetServiceJobByServiceJobIdResponse**](../Model/GetServiceJobByServiceJobIdResponse.md)
+[**\Popsicle\Amazon\Model\Services\GetServiceJobByServiceJobIdResponse**](../Model/GetServiceJobByServiceJobIdResponse.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getServiceJobs**
-> \Popsicle\Amazon\Model\GetServiceJobsResponse getServiceJobs($marketplace_ids, $service_order_ids, $service_job_status, $page_token, $page_size, $sort_field, $sort_order, $created_after, $created_before, $last_updated_after, $last_updated_before, $schedule_start_date, $schedule_end_date)
+> \Popsicle\Amazon\Model\Services\GetServiceJobsResponse getServiceJobs($marketplace_ids, $service_order_ids, $service_job_status, $page_token, $page_size, $sort_field, $sort_order, $created_after, $created_before, $last_updated_after, $last_updated_before, $schedule_start_date, $schedule_end_date)
 
 
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetServiceJobsResponse**](../Model/GetServiceJobsResponse.md)
+[**\Popsicle\Amazon\Model\Services\GetServiceJobsResponse**](../Model/GetServiceJobsResponse.md)
 
 ### Authorization
 
@@ -285,7 +285,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **rescheduleAppointmentForServiceJobByServiceJobId**
-> \Popsicle\Amazon\Model\SetAppointmentResponse rescheduleAppointmentForServiceJobByServiceJobId($body, $service_job_id, $appointment_id)
+> \Popsicle\Amazon\Model\Services\SetAppointmentResponse rescheduleAppointmentForServiceJobByServiceJobId($body, $service_job_id, $appointment_id)
 
 
 
@@ -301,7 +301,7 @@ $apiInstance = new Popsicle\Amazon\Api\ServiceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\RescheduleAppointmentRequest(); // \Popsicle\Amazon\Model\RescheduleAppointmentRequest | Reschedule appointment operation input details.
+$body = new \Popsicle\Amazon\Model\Services\RescheduleAppointmentRequest(); // \Popsicle\Amazon\Model\Services\RescheduleAppointmentRequest | Reschedule appointment operation input details.
 $service_job_id = "service_job_id_example"; // string | An Amazon defined service job identifier.
 $appointment_id = "appointment_id_example"; // string | An existing appointment identifier for the Service Job.
 
@@ -318,13 +318,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\RescheduleAppointmentRequest**](../Model/RescheduleAppointmentRequest.md)| Reschedule appointment operation input details. |
+ **body** | [**\Popsicle\Amazon\Model\Services\RescheduleAppointmentRequest**](../Model/RescheduleAppointmentRequest.md)| Reschedule appointment operation input details. |
  **service_job_id** | **string**| An Amazon defined service job identifier. |
  **appointment_id** | **string**| An existing appointment identifier for the Service Job. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SetAppointmentResponse**](../Model/SetAppointmentResponse.md)
+[**\Popsicle\Amazon\Model\Services\SetAppointmentResponse**](../Model/SetAppointmentResponse.md)
 
 ### Authorization
 

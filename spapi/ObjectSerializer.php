@@ -11,9 +11,9 @@
  */
 
 /**
- * Selling Partner API for Authorization
+ * Selling Partner API for Retail Procurement Transaction Status
  *
- * The Selling Partner API for Authorization helps developers manage authorizations and check the specific permissions associated with a given authorization.
+ * The Selling Partner API for Retail Procurement Transaction Status provides programmatic access to status information on specific asynchronous POST transactions for vendors.
  *
  * OpenAPI spec version: v1
  * 
@@ -247,6 +247,15 @@ class ObjectSerializer
             foreach ($data as $key => $value) {
                 $values[] = self::deserialize($value, $subClass, null);
             }
+
+            return $values;
+        } elseif (method_exists($class, 'getSubClass')) {
+            $subClass = (new $class())->getSubClass();
+            $values = [];
+            foreach ($data as $key => $value) {
+                $values[] = self::deserialize($value, $subClass, null);
+            }
+
             return $values;
         } elseif ($class === 'object') {
             settype($data, 'array');

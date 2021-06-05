@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getMarketplaceParticipations**](SellersApi.md#getmarketplaceparticipations) | **GET** /sellers/v1/marketplaceParticipations | 
 
 # **getMarketplaceParticipations**
-> \Popsicle\Amazon\Model\GetMarketplaceParticipationsResponse getMarketplaceParticipations()
+> \Popsicle\Amazon\Model\Sellers\GetMarketplaceParticipationsResponse getMarketplaceParticipations()
 
 
 
@@ -38,7 +38,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetMarketplaceParticipationsResponse**](../Model/GetMarketplaceParticipationsResponse.md)
+[**\Popsicle\Amazon\Model\Sellers\GetMarketplaceParticipationsResponse**](../Model/GetMarketplaceParticipationsResponse.md)
 
 ### Authorization
 

@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createUploadDestinationForResource**](UploadsApi.md#createuploaddestinationforresource) | **POST** /uploads/2020-11-01/uploadDestinations/{resource} | 
 
 # **createUploadDestinationForResource**
-> \Popsicle\Amazon\Model\CreateUploadDestinationResponse createUploadDestinationForResource($marketplace_ids, $content_md5, $resource, $content_type)
+> \Popsicle\Amazon\Model\Uploads\CreateUploadDestinationResponse createUploadDestinationForResource($marketplace_ids, $content_md5, $resource, $content_type)
 
 
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateUploadDestinationResponse**](../Model/CreateUploadDestinationResponse.md)
+[**\Popsicle\Amazon\Model\Uploads\CreateUploadDestinationResponse**](../Model/CreateUploadDestinationResponse.md)
 
 ### Authorization
 

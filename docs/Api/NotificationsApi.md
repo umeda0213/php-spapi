@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getSubscriptionById**](NotificationsApi.md#getsubscriptionbyid) | **GET** /notifications/v1/subscriptions/{notificationType}/{subscriptionId} | 
 
 # **createDestination**
-> \Popsicle\Amazon\Model\CreateDestinationResponse createDestination($body)
+> \Popsicle\Amazon\Model\Notifications\CreateDestinationResponse createDestination($body)
 
 
 
@@ -30,7 +30,7 @@ $apiInstance = new Popsicle\Amazon\Api\NotificationsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateDestinationRequest(); // \Popsicle\Amazon\Model\CreateDestinationRequest | 
+$body = new \Popsicle\Amazon\Model\Notifications\CreateDestinationRequest(); // \Popsicle\Amazon\Model\Notifications\CreateDestinationRequest | 
 
 try {
     $result = $apiInstance->createDestination($body);
@@ -45,11 +45,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateDestinationRequest**](../Model/CreateDestinationRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Notifications\CreateDestinationRequest**](../Model/CreateDestinationRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateDestinationResponse**](../Model/CreateDestinationResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\CreateDestinationResponse**](../Model/CreateDestinationResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createSubscription**
-> \Popsicle\Amazon\Model\CreateSubscriptionResponse createSubscription($body, $notification_type)
+> \Popsicle\Amazon\Model\Notifications\CreateSubscriptionResponse createSubscription($body, $notification_type)
 
 
 
@@ -79,7 +79,7 @@ $apiInstance = new Popsicle\Amazon\Api\NotificationsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateSubscriptionRequest(); // \Popsicle\Amazon\Model\CreateSubscriptionRequest | 
+$body = new \Popsicle\Amazon\Model\Notifications\CreateSubscriptionRequest(); // \Popsicle\Amazon\Model\Notifications\CreateSubscriptionRequest | 
 $notification_type = "notification_type_example"; // string | The type of notification to which you want to subscribe.   For more information about notification types, see the Notifications API Use Case Guide.
 
 try {
@@ -95,12 +95,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateSubscriptionRequest**](../Model/CreateSubscriptionRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Notifications\CreateSubscriptionRequest**](../Model/CreateSubscriptionRequest.md)|  |
  **notification_type** | **string**| The type of notification to which you want to subscribe.   For more information about notification types, see the Notifications API Use Case Guide. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateSubscriptionResponse**](../Model/CreateSubscriptionResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\CreateSubscriptionResponse**](../Model/CreateSubscriptionResponse.md)
 
 ### Authorization
 
@@ -114,7 +114,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteDestination**
-> \Popsicle\Amazon\Model\DeleteDestinationResponse deleteDestination($destination_id)
+> \Popsicle\Amazon\Model\Notifications\DeleteDestinationResponse deleteDestination($destination_id)
 
 
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\DeleteDestinationResponse**](../Model/DeleteDestinationResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\DeleteDestinationResponse**](../Model/DeleteDestinationResponse.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteSubscriptionById**
-> \Popsicle\Amazon\Model\DeleteSubscriptionByIdResponse deleteSubscriptionById($subscription_id, $notification_type)
+> \Popsicle\Amazon\Model\Notifications\DeleteSubscriptionByIdResponse deleteSubscriptionById($subscription_id, $notification_type)
 
 
 
@@ -200,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\DeleteSubscriptionByIdResponse**](../Model/DeleteSubscriptionByIdResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\DeleteSubscriptionByIdResponse**](../Model/DeleteSubscriptionByIdResponse.md)
 
 ### Authorization
 
@@ -214,7 +214,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDestination**
-> \Popsicle\Amazon\Model\GetDestinationResponse getDestination($destination_id)
+> \Popsicle\Amazon\Model\Notifications\GetDestinationResponse getDestination($destination_id)
 
 
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetDestinationResponse**](../Model/GetDestinationResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\GetDestinationResponse**](../Model/GetDestinationResponse.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getDestinations**
-> \Popsicle\Amazon\Model\GetDestinationsResponse getDestinations()
+> \Popsicle\Amazon\Model\Notifications\GetDestinationsResponse getDestinations()
 
 
 
@@ -294,7 +294,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetDestinationsResponse**](../Model/GetDestinationsResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\GetDestinationsResponse**](../Model/GetDestinationsResponse.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscription**
-> \Popsicle\Amazon\Model\GetSubscriptionResponse getSubscription($notification_type)
+> \Popsicle\Amazon\Model\Notifications\GetSubscriptionResponse getSubscription($notification_type)
 
 
 
@@ -343,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetSubscriptionResponse**](../Model/GetSubscriptionResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\GetSubscriptionResponse**](../Model/GetSubscriptionResponse.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSubscriptionById**
-> \Popsicle\Amazon\Model\GetSubscriptionByIdResponse getSubscriptionById($subscription_id, $notification_type)
+> \Popsicle\Amazon\Model\Notifications\GetSubscriptionByIdResponse getSubscriptionById($subscription_id, $notification_type)
 
 
 
@@ -394,7 +394,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetSubscriptionByIdResponse**](../Model/GetSubscriptionByIdResponse.md)
+[**\Popsicle\Amazon\Model\Notifications\GetSubscriptionByIdResponse**](../Model/GetSubscriptionByIdResponse.md)
 
 ### Authorization
 

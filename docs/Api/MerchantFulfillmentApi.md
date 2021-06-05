@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**getShipment**](MerchantFulfillmentApi.md#getshipment) | **GET** /mfn/v0/shipments/{shipmentId} | 
 
 # **cancelShipment**
-> \Popsicle\Amazon\Model\CancelShipmentResponse cancelShipment($shipment_id)
+> \Popsicle\Amazon\Model\MerchantFulfillment\CancelShipmentResponse cancelShipment($shipment_id)
 
 
 
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **cancelShipmentOld**
-> \Popsicle\Amazon\Model\CancelShipmentResponse cancelShipmentOld($shipment_id)
+> \Popsicle\Amazon\Model\MerchantFulfillment\CancelShipmentResponse cancelShipmentOld($shipment_id)
 
 
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createShipment**
-> \Popsicle\Amazon\Model\CreateShipmentResponse createShipment($body)
+> \Popsicle\Amazon\Model\MerchantFulfillment\CreateShipmentResponse createShipment($body)
 
 
 
@@ -128,7 +128,7 @@ $apiInstance = new Popsicle\Amazon\Api\MerchantFulfillmentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateShipmentRequest(); // \Popsicle\Amazon\Model\CreateShipmentRequest | 
+$body = new \Popsicle\Amazon\Model\MerchantFulfillment\CreateShipmentRequest(); // \Popsicle\Amazon\Model\MerchantFulfillment\CreateShipmentRequest | 
 
 try {
     $result = $apiInstance->createShipment($body);
@@ -143,11 +143,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateShipmentRequest**](../Model/CreateShipmentRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\MerchantFulfillment\CreateShipmentRequest**](../Model/CreateShipmentRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateShipmentResponse**](../Model/CreateShipmentResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\CreateShipmentResponse**](../Model/CreateShipmentResponse.md)
 
 ### Authorization
 
@@ -161,7 +161,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAdditionalSellerInputs**
-> \Popsicle\Amazon\Model\GetAdditionalSellerInputsResponse getAdditionalSellerInputs($body)
+> \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse getAdditionalSellerInputs($body)
 
 
 
@@ -177,7 +177,7 @@ $apiInstance = new Popsicle\Amazon\Api\MerchantFulfillmentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest(); // \Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest | 
+$body = new \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest(); // \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest | 
 
 try {
     $result = $apiInstance->getAdditionalSellerInputs($body);
@@ -192,11 +192,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest**](../Model/GetAdditionalSellerInputsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest**](../Model/GetAdditionalSellerInputsRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetAdditionalSellerInputsResponse**](../Model/GetAdditionalSellerInputsResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse**](../Model/GetAdditionalSellerInputsResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAdditionalSellerInputsOld**
-> \Popsicle\Amazon\Model\GetAdditionalSellerInputsResponse getAdditionalSellerInputsOld($body)
+> \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse getAdditionalSellerInputsOld($body)
 
 
 
@@ -226,7 +226,7 @@ $apiInstance = new Popsicle\Amazon\Api\MerchantFulfillmentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest(); // \Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest | 
+$body = new \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest(); // \Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest | 
 
 try {
     $result = $apiInstance->getAdditionalSellerInputsOld($body);
@@ -241,11 +241,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetAdditionalSellerInputsRequest**](../Model/GetAdditionalSellerInputsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsRequest**](../Model/GetAdditionalSellerInputsRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetAdditionalSellerInputsResponse**](../Model/GetAdditionalSellerInputsResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\GetAdditionalSellerInputsResponse**](../Model/GetAdditionalSellerInputsResponse.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEligibleShipmentServices**
-> \Popsicle\Amazon\Model\GetEligibleShipmentServicesResponse getEligibleShipmentServices($body)
+> \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse getEligibleShipmentServices($body)
 
 
 
@@ -275,7 +275,7 @@ $apiInstance = new Popsicle\Amazon\Api\MerchantFulfillmentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest(); // \Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest | 
+$body = new \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest(); // \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest | 
 
 try {
     $result = $apiInstance->getEligibleShipmentServices($body);
@@ -290,11 +290,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest**](../Model/GetEligibleShipmentServicesRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest**](../Model/GetEligibleShipmentServicesRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetEligibleShipmentServicesResponse**](../Model/GetEligibleShipmentServicesResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse**](../Model/GetEligibleShipmentServicesResponse.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getEligibleShipmentServicesOld**
-> \Popsicle\Amazon\Model\GetEligibleShipmentServicesResponse getEligibleShipmentServicesOld($body)
+> \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse getEligibleShipmentServicesOld($body)
 
 
 
@@ -324,7 +324,7 @@ $apiInstance = new Popsicle\Amazon\Api\MerchantFulfillmentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest(); // \Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest | 
+$body = new \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest(); // \Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest | 
 
 try {
     $result = $apiInstance->getEligibleShipmentServicesOld($body);
@@ -339,11 +339,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetEligibleShipmentServicesRequest**](../Model/GetEligibleShipmentServicesRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesRequest**](../Model/GetEligibleShipmentServicesRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetEligibleShipmentServicesResponse**](../Model/GetEligibleShipmentServicesResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\GetEligibleShipmentServicesResponse**](../Model/GetEligibleShipmentServicesResponse.md)
 
 ### Authorization
 
@@ -357,7 +357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShipment**
-> \Popsicle\Amazon\Model\GetShipmentResponse getShipment($shipment_id)
+> \Popsicle\Amazon\Model\MerchantFulfillment\GetShipmentResponse getShipment($shipment_id)
 
 
 
@@ -392,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShipmentResponse**](../Model/GetShipmentResponse.md)
+[**\Popsicle\Amazon\Model\MerchantFulfillment\GetShipmentResponse**](../Model/GetShipmentResponse.md)
 
 ### Authorization
 

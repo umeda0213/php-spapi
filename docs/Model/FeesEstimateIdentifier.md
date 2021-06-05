@@ -8,9 +8,9 @@ Name | Type | Description | Notes
 **id_type** | **string** | The type of item identifier specified. | [optional] 
 **id_value** | **string** | The item identifier. | [optional] 
 **is_amazon_fulfilled** | **bool** | When true, the offer is fulfilled by Amazon. | [optional] 
-**price_to_estimate_fees** | [**\Popsicle\Amazon\Model\PriceToEstimateFees**](PriceToEstimateFees.md) |  | [optional] 
+**price_to_estimate_fees** | [**\Popsicle\Amazon\Model\ProductFees\PriceToEstimateFees**](PriceToEstimateFees.md) |  | [optional] 
 **seller_input_identifier** | **string** | A unique identifier provided by the caller to track this request. | [optional] 
-**optional_fulfillment_program** | [**\Popsicle\Amazon\Model\OptionalFulfillmentProgram**](OptionalFulfillmentProgram.md) |  | [optional] 
+**optional_fulfillment_program** | [**\Popsicle\Amazon\Model\ProductFees\OptionalFulfillmentProgram**](OptionalFulfillmentProgram.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

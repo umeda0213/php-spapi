@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 **scac_code** | **string** | SCAC code required for NA VOC vendors only. | [optional] 
 **carrier** | **string** | Carrier required for EU VOC vendors only. | [optional] 
 **container_sequence_number** | **int** | An integer that must be submitted for multi-box shipments only, where one item may come in separate packages. | [optional] 
-**dimensions** | [**\Popsicle\Amazon\Model\Dimensions**](Dimensions.md) |  | [optional] 
-**weight** | [**\Popsicle\Amazon\Model\Weight**](Weight.md) |  | [optional] 
-**packed_items** | [**\Popsicle\Amazon\Model\PackedItem[]**](PackedItem.md) | A list of packed items. | 
+**dimensions** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\Dimensions**](Dimensions.md) |  | [optional] 
+**weight** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\Weight**](Weight.md) |  | [optional] 
+**packed_items** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\PackedItem[]**](PackedItem.md) | A list of packed items. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

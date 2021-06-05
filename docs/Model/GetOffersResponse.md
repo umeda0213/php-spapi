@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**payload** | [**\Popsicle\Amazon\Model\GetOffersResult**](GetOffersResult.md) |  | [optional] 
-**errors** | [**\Popsicle\Amazon\Model\ErrorList**](ErrorList.md) |  | [optional] 
+**payload** | [**\Popsicle\Amazon\Model\ProductPricing\GetOffersResult**](GetOffersResult.md) |  | [optional] 
+**errors** | [**\Popsicle\Amazon\Model\ProductPricing\ErrorList**](ErrorList.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

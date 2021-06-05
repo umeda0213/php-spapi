@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getTransaction**](VendorTransactionApi.md#gettransaction) | **GET** /vendor/transactions/v1/transactions/{transactionId} | 
 
 # **getTransaction**
-> \Popsicle\Amazon\Model\GetTransactionResponse getTransaction($transaction_id)
+> \Popsicle\Amazon\Model\VendorTransactionStatus\GetTransactionResponse getTransaction($transaction_id)
 
 
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetTransactionResponse**](../Model/GetTransactionResponse.md)
+[**\Popsicle\Amazon\Model\VendorTransactionStatus\GetTransactionResponse**](../Model/GetTransactionResponse.md)
 
 ### Authorization
 

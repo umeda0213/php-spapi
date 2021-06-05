@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createRestrictedDataToken**](TokensApi.md#createrestricteddatatoken) | **POST** /tokens/2021-03-01/restrictedDataToken | 
 
 # **createRestrictedDataToken**
-> \Popsicle\Amazon\Model\CreateRestrictedDataTokenResponse createRestrictedDataToken($body)
+> \Popsicle\Amazon\Model\Tokens\CreateRestrictedDataTokenResponse createRestrictedDataToken($body)
 
 
 
@@ -23,7 +23,7 @@ $apiInstance = new Popsicle\Amazon\Api\TokensApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateRestrictedDataTokenRequest(); // \Popsicle\Amazon\Model\CreateRestrictedDataTokenRequest | The restricted data token request details.
+$body = new \Popsicle\Amazon\Model\Tokens\CreateRestrictedDataTokenRequest(); // \Popsicle\Amazon\Model\Tokens\CreateRestrictedDataTokenRequest | The restricted data token request details.
 
 try {
     $result = $apiInstance->createRestrictedDataToken($body);
@@ -38,11 +38,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateRestrictedDataTokenRequest**](../Model/CreateRestrictedDataTokenRequest.md)| The restricted data token request details. |
+ **body** | [**\Popsicle\Amazon\Model\Tokens\CreateRestrictedDataTokenRequest**](../Model/CreateRestrictedDataTokenRequest.md)| The restricted data token request details. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateRestrictedDataTokenResponse**](../Model/CreateRestrictedDataTokenResponse.md)
+[**\Popsicle\Amazon\Model\Tokens\CreateRestrictedDataTokenResponse**](../Model/CreateRestrictedDataTokenResponse.md)
 
 ### Authorization
 

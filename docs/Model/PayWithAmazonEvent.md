@@ -4,11 +4,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **seller_order_id** | **string** | An order identifier that is specified by the seller. | [optional] 
-**transaction_posted_date** | [**\Popsicle\Amazon\Model\\DateTime**](\DateTime.md) |  | [optional] 
+**transaction_posted_date** | [**\Popsicle\Amazon\Model\Finances\\DateTime**](\DateTime.md) |  | [optional] 
 **business_object_type** | **string** | The type of business object. | [optional] 
 **sales_channel** | **string** | The sales channel for the transaction. | [optional] 
-**charge** | [**\Popsicle\Amazon\Model\ChargeComponent**](ChargeComponent.md) |  | [optional] 
-**fee_list** | [**\Popsicle\Amazon\Model\FeeComponentList**](FeeComponentList.md) |  | [optional] 
+**charge** | [**\Popsicle\Amazon\Model\Finances\ChargeComponent**](ChargeComponent.md) |  | [optional] 
+**fee_list** | [**\Popsicle\Amazon\Model\Finances\FeeComponentList**](FeeComponentList.md) |  | [optional] 
 **payment_amount_type** | **string** | The type of payment.  Possible values:  * Sales | [optional] 
 **amount_description** | **string** | A short description of this payment event. | [optional] 
 **fulfillment_channel** | **string** | The fulfillment channel.  Possible values:  * AFN - Amazon Fulfillment Network (Fulfillment by Amazon)  * MFN - Merchant Fulfillment Network (self-fulfilled) | [optional] 

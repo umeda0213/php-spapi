@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**updateFulfillmentOrder**](FbaOutboundApi.md#updatefulfillmentorder) | **PUT** /fba/outbound/2020-07-01/fulfillmentOrders/{sellerFulfillmentOrderId} | 
 
 # **cancelFulfillmentOrder**
-> \Popsicle\Amazon\Model\CancelFulfillmentOrderResponse cancelFulfillmentOrder($seller_fulfillment_order_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse cancelFulfillmentOrder($seller_fulfillment_order_id)
 
 
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CancelFulfillmentOrderResponse**](../Model/CancelFulfillmentOrderResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse**](../Model/CancelFulfillmentOrderResponse.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFulfillmentOrder**
-> \Popsicle\Amazon\Model\CreateFulfillmentOrderResponse createFulfillmentOrder($body)
+> \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse createFulfillmentOrder($body)
 
 
 
@@ -83,7 +83,7 @@ $apiInstance = new Popsicle\Amazon\Api\FbaOutboundApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateFulfillmentOrderRequest(); // \Popsicle\Amazon\Model\CreateFulfillmentOrderRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest(); // \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest | 
 
 try {
     $result = $apiInstance->createFulfillmentOrder($body);
@@ -98,11 +98,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateFulfillmentOrderRequest**](../Model/CreateFulfillmentOrderRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest**](../Model/CreateFulfillmentOrderRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateFulfillmentOrderResponse**](../Model/CreateFulfillmentOrderResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse**](../Model/CreateFulfillmentOrderResponse.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFulfillmentReturn**
-> \Popsicle\Amazon\Model\CreateFulfillmentReturnResponse createFulfillmentReturn($body, $seller_fulfillment_order_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse createFulfillmentReturn($body, $seller_fulfillment_order_id)
 
 
 
@@ -132,7 +132,7 @@ $apiInstance = new Popsicle\Amazon\Api\FbaOutboundApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateFulfillmentReturnRequest(); // \Popsicle\Amazon\Model\CreateFulfillmentReturnRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest(); // \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest | 
 $seller_fulfillment_order_id = "seller_fulfillment_order_id_example"; // string | An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer's request to return items.
 
 try {
@@ -148,12 +148,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateFulfillmentReturnRequest**](../Model/CreateFulfillmentReturnRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest**](../Model/CreateFulfillmentReturnRequest.md)|  |
  **seller_fulfillment_order_id** | **string**| An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateFulfillmentReturnResponse**](../Model/CreateFulfillmentReturnResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse**](../Model/CreateFulfillmentReturnResponse.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeatureInventory**
-> \Popsicle\Amazon\Model\GetFeatureInventoryResponse getFeatureInventory($marketplace_id, $feature_name, $next_token)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse getFeatureInventory($marketplace_id, $feature_name, $next_token)
 
 
 
@@ -206,7 +206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFeatureInventoryResponse**](../Model/GetFeatureInventoryResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse**](../Model/GetFeatureInventoryResponse.md)
 
 ### Authorization
 
@@ -220,7 +220,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeatureSKU**
-> \Popsicle\Amazon\Model\GetFeatureSkuResponse getFeatureSKU($marketplace_id, $feature_name, $seller_sku)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse getFeatureSKU($marketplace_id, $feature_name, $seller_sku)
 
 
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFeatureSkuResponse**](../Model/GetFeatureSkuResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse**](../Model/GetFeatureSkuResponse.md)
 
 ### Authorization
 
@@ -273,7 +273,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeatures**
-> \Popsicle\Amazon\Model\GetFeaturesResponse getFeatures($marketplace_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse getFeatures($marketplace_id)
 
 
 
@@ -308,7 +308,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFeaturesResponse**](../Model/GetFeaturesResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse**](../Model/GetFeaturesResponse.md)
 
 ### Authorization
 
@@ -322,7 +322,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFulfillmentOrder**
-> \Popsicle\Amazon\Model\GetFulfillmentOrderResponse getFulfillmentOrder($seller_fulfillment_order_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse getFulfillmentOrder($seller_fulfillment_order_id)
 
 
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFulfillmentOrderResponse**](../Model/GetFulfillmentOrderResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse**](../Model/GetFulfillmentOrderResponse.md)
 
 ### Authorization
 
@@ -371,7 +371,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFulfillmentPreview**
-> \Popsicle\Amazon\Model\GetFulfillmentPreviewResponse getFulfillmentPreview($body)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse getFulfillmentPreview($body)
 
 
 
@@ -387,7 +387,7 @@ $apiInstance = new Popsicle\Amazon\Api\FbaOutboundApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetFulfillmentPreviewRequest(); // \Popsicle\Amazon\Model\GetFulfillmentPreviewRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest(); // \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest | 
 
 try {
     $result = $apiInstance->getFulfillmentPreview($body);
@@ -402,11 +402,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetFulfillmentPreviewRequest**](../Model/GetFulfillmentPreviewRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest**](../Model/GetFulfillmentPreviewRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFulfillmentPreviewResponse**](../Model/GetFulfillmentPreviewResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse**](../Model/GetFulfillmentPreviewResponse.md)
 
 ### Authorization
 
@@ -420,7 +420,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPackageTrackingDetails**
-> \Popsicle\Amazon\Model\GetPackageTrackingDetailsResponse getPackageTrackingDetails($package_number)
+> \Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse getPackageTrackingDetails($package_number)
 
 
 
@@ -455,7 +455,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPackageTrackingDetailsResponse**](../Model/GetPackageTrackingDetailsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse**](../Model/GetPackageTrackingDetailsResponse.md)
 
 ### Authorization
 
@@ -469,7 +469,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAllFulfillmentOrders**
-> \Popsicle\Amazon\Model\ListAllFulfillmentOrdersResponse listAllFulfillmentOrders($query_start_date, $next_token)
+> \Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse listAllFulfillmentOrders($query_start_date, $next_token)
 
 
 
@@ -506,7 +506,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListAllFulfillmentOrdersResponse**](../Model/ListAllFulfillmentOrdersResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse**](../Model/ListAllFulfillmentOrdersResponse.md)
 
 ### Authorization
 
@@ -520,7 +520,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listReturnReasonCodes**
-> \Popsicle\Amazon\Model\ListReturnReasonCodesResponse listReturnReasonCodes($seller_sku, $language, $marketplace_id, $seller_fulfillment_order_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse listReturnReasonCodes($seller_sku, $language, $marketplace_id, $seller_fulfillment_order_id)
 
 
 
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListReturnReasonCodesResponse**](../Model/ListReturnReasonCodesResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse**](../Model/ListReturnReasonCodesResponse.md)
 
 ### Authorization
 
@@ -575,7 +575,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateFulfillmentOrder**
-> \Popsicle\Amazon\Model\UpdateFulfillmentOrderResponse updateFulfillmentOrder($body, $seller_fulfillment_order_id)
+> \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse updateFulfillmentOrder($body, $seller_fulfillment_order_id)
 
 
 
@@ -591,7 +591,7 @@ $apiInstance = new Popsicle\Amazon\Api\FbaOutboundApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\UpdateFulfillmentOrderRequest(); // \Popsicle\Amazon\Model\UpdateFulfillmentOrderRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest(); // \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest | 
 $seller_fulfillment_order_id = "seller_fulfillment_order_id_example"; // string | The identifier assigned to the item by the seller when the fulfillment order was created.
 
 try {
@@ -607,12 +607,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\UpdateFulfillmentOrderRequest**](../Model/UpdateFulfillmentOrderRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest**](../Model/UpdateFulfillmentOrderRequest.md)|  |
  **seller_fulfillment_order_id** | **string**| The identifier assigned to the item by the seller when the fulfillment order was created. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\UpdateFulfillmentOrderResponse**](../Model/UpdateFulfillmentOrderResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse**](../Model/UpdateFulfillmentOrderResponse.md)
 
 ### Authorization
 

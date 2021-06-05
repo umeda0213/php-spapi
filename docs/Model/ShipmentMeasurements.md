@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**gross_shipment_weight** | [**\Popsicle\Amazon\Model\Weight**](Weight.md) |  | [optional] 
-**shipment_volume** | [**\Popsicle\Amazon\Model\Volume**](Volume.md) |  | [optional] 
+**gross_shipment_weight** | [**\Popsicle\Amazon\Model\VendorShipments\Weight**](Weight.md) |  | [optional] 
+**shipment_volume** | [**\Popsicle\Amazon\Model\VendorShipments\Volume**](Volume.md) |  | [optional] 
 **carton_count** | **int** | Number of cartons present in the shipment. Provide the cartonCount only for unpalletized shipments. | [optional] 
 **pallet_count** | **int** | Number of pallets present in the shipment. Provide the palletCount only for palletized shipments. | [optional] 
 

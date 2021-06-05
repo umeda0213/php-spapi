@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**submitShipmentConfirmations**](VendorShippingApi.md#submitshipmentconfirmations) | **POST** /vendor/shipping/v1/shipmentConfirmations | 
 
 # **submitShipmentConfirmations**
-> \Popsicle\Amazon\Model\SubmitShipmentConfirmationsResponse submitShipmentConfirmations($body)
+> \Popsicle\Amazon\Model\VendorShipments\SubmitShipmentConfirmationsResponse submitShipmentConfirmations($body)
 
 
 
@@ -23,7 +23,7 @@ $apiInstance = new Popsicle\Amazon\Api\VendorShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SubmitShipmentConfirmationsRequest(); // \Popsicle\Amazon\Model\SubmitShipmentConfirmationsRequest | 
+$body = new \Popsicle\Amazon\Model\VendorShipments\SubmitShipmentConfirmationsRequest(); // \Popsicle\Amazon\Model\VendorShipments\SubmitShipmentConfirmationsRequest | 
 
 try {
     $result = $apiInstance->submitShipmentConfirmations($body);
@@ -38,11 +38,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SubmitShipmentConfirmationsRequest**](../Model/SubmitShipmentConfirmationsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\VendorShipments\SubmitShipmentConfirmationsRequest**](../Model/SubmitShipmentConfirmationsRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SubmitShipmentConfirmationsResponse**](../Model/SubmitShipmentConfirmationsResponse.md)
+[**\Popsicle\Amazon\Model\VendorShipments\SubmitShipmentConfirmationsResponse**](../Model/SubmitShipmentConfirmationsResponse.md)
 
 ### Authorization
 

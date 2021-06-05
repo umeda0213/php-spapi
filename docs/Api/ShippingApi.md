@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**retrieveShippingLabel**](ShippingApi.md#retrieveshippinglabel) | **POST** /shipping/v1/shipments/{shipmentId}/containers/{trackingId}/label | 
 
 # **cancelShipment**
-> \Popsicle\Amazon\Model\CancelShipmentResponse cancelShipment($shipment_id)
+> \Popsicle\Amazon\Model\Shipping\CancelShipmentResponse cancelShipment($shipment_id)
 
 
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\CancelShipmentResponse**](../Model/CancelShipmentResponse.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createShipment**
-> \Popsicle\Amazon\Model\CreateShipmentResponse createShipment($body)
+> \Popsicle\Amazon\Model\Shipping\CreateShipmentResponse createShipment($body)
 
 
 
@@ -80,7 +80,7 @@ $apiInstance = new Popsicle\Amazon\Api\ShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateShipmentRequest(); // \Popsicle\Amazon\Model\CreateShipmentRequest | 
+$body = new \Popsicle\Amazon\Model\Shipping\CreateShipmentRequest(); // \Popsicle\Amazon\Model\Shipping\CreateShipmentRequest | 
 
 try {
     $result = $apiInstance->createShipment($body);
@@ -95,11 +95,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateShipmentRequest**](../Model/CreateShipmentRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Shipping\CreateShipmentRequest**](../Model/CreateShipmentRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateShipmentResponse**](../Model/CreateShipmentResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\CreateShipmentResponse**](../Model/CreateShipmentResponse.md)
 
 ### Authorization
 
@@ -113,7 +113,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAccount**
-> \Popsicle\Amazon\Model\GetAccountResponse getAccount()
+> \Popsicle\Amazon\Model\Shipping\GetAccountResponse getAccount()
 
 
 
@@ -144,7 +144,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetAccountResponse**](../Model/GetAccountResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\GetAccountResponse**](../Model/GetAccountResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getRates**
-> \Popsicle\Amazon\Model\GetRatesResponse getRates($body)
+> \Popsicle\Amazon\Model\Shipping\GetRatesResponse getRates($body)
 
 
 
@@ -174,7 +174,7 @@ $apiInstance = new Popsicle\Amazon\Api\ShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\GetRatesRequest(); // \Popsicle\Amazon\Model\GetRatesRequest | 
+$body = new \Popsicle\Amazon\Model\Shipping\GetRatesRequest(); // \Popsicle\Amazon\Model\Shipping\GetRatesRequest | 
 
 try {
     $result = $apiInstance->getRates($body);
@@ -189,11 +189,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\GetRatesRequest**](../Model/GetRatesRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Shipping\GetRatesRequest**](../Model/GetRatesRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetRatesResponse**](../Model/GetRatesResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\GetRatesResponse**](../Model/GetRatesResponse.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShipment**
-> \Popsicle\Amazon\Model\GetShipmentResponse getShipment($shipment_id)
+> \Popsicle\Amazon\Model\Shipping\GetShipmentResponse getShipment($shipment_id)
 
 
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShipmentResponse**](../Model/GetShipmentResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\GetShipmentResponse**](../Model/GetShipmentResponse.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTrackingInformation**
-> \Popsicle\Amazon\Model\GetTrackingInformationResponse getTrackingInformation($tracking_id)
+> \Popsicle\Amazon\Model\Shipping\GetTrackingInformationResponse getTrackingInformation($tracking_id)
 
 
 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetTrackingInformationResponse**](../Model/GetTrackingInformationResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\GetTrackingInformationResponse**](../Model/GetTrackingInformationResponse.md)
 
 ### Authorization
 
@@ -305,7 +305,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **purchaseLabels**
-> \Popsicle\Amazon\Model\PurchaseLabelsResponse purchaseLabels($body, $shipment_id)
+> \Popsicle\Amazon\Model\Shipping\PurchaseLabelsResponse purchaseLabels($body, $shipment_id)
 
 
 
@@ -321,7 +321,7 @@ $apiInstance = new Popsicle\Amazon\Api\ShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PurchaseLabelsRequest(); // \Popsicle\Amazon\Model\PurchaseLabelsRequest | 
+$body = new \Popsicle\Amazon\Model\Shipping\PurchaseLabelsRequest(); // \Popsicle\Amazon\Model\Shipping\PurchaseLabelsRequest | 
 $shipment_id = "shipment_id_example"; // string | 
 
 try {
@@ -337,12 +337,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PurchaseLabelsRequest**](../Model/PurchaseLabelsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Shipping\PurchaseLabelsRequest**](../Model/PurchaseLabelsRequest.md)|  |
  **shipment_id** | **string**|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PurchaseLabelsResponse**](../Model/PurchaseLabelsResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\PurchaseLabelsResponse**](../Model/PurchaseLabelsResponse.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **purchaseShipment**
-> \Popsicle\Amazon\Model\PurchaseShipmentResponse purchaseShipment($body)
+> \Popsicle\Amazon\Model\Shipping\PurchaseShipmentResponse purchaseShipment($body)
 
 
 
@@ -372,7 +372,7 @@ $apiInstance = new Popsicle\Amazon\Api\ShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PurchaseShipmentRequest(); // \Popsicle\Amazon\Model\PurchaseShipmentRequest | 
+$body = new \Popsicle\Amazon\Model\Shipping\PurchaseShipmentRequest(); // \Popsicle\Amazon\Model\Shipping\PurchaseShipmentRequest | 
 
 try {
     $result = $apiInstance->purchaseShipment($body);
@@ -387,11 +387,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PurchaseShipmentRequest**](../Model/PurchaseShipmentRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Shipping\PurchaseShipmentRequest**](../Model/PurchaseShipmentRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PurchaseShipmentResponse**](../Model/PurchaseShipmentResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\PurchaseShipmentResponse**](../Model/PurchaseShipmentResponse.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **retrieveShippingLabel**
-> \Popsicle\Amazon\Model\RetrieveShippingLabelResponse retrieveShippingLabel($body, $shipment_id, $tracking_id)
+> \Popsicle\Amazon\Model\Shipping\RetrieveShippingLabelResponse retrieveShippingLabel($body, $shipment_id, $tracking_id)
 
 
 
@@ -421,7 +421,7 @@ $apiInstance = new Popsicle\Amazon\Api\ShippingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\RetrieveShippingLabelRequest(); // \Popsicle\Amazon\Model\RetrieveShippingLabelRequest | 
+$body = new \Popsicle\Amazon\Model\Shipping\RetrieveShippingLabelRequest(); // \Popsicle\Amazon\Model\Shipping\RetrieveShippingLabelRequest | 
 $shipment_id = "shipment_id_example"; // string | 
 $tracking_id = "tracking_id_example"; // string | 
 
@@ -438,13 +438,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\RetrieveShippingLabelRequest**](../Model/RetrieveShippingLabelRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Shipping\RetrieveShippingLabelRequest**](../Model/RetrieveShippingLabelRequest.md)|  |
  **shipment_id** | **string**|  |
  **tracking_id** | **string**|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\RetrieveShippingLabelResponse**](../Model/RetrieveShippingLabelResponse.md)
+[**\Popsicle\Amazon\Model\Shipping\RetrieveShippingLabelResponse**](../Model/RetrieveShippingLabelResponse.md)
 
 ### Authorization
 

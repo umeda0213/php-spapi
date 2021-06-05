@@ -34,6 +34,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Popsicle\Amazon\ApiException;
+use Popsicle\Amazon\ApiRequest;
 use Popsicle\Amazon\Configuration;
 use Popsicle\Amazon\HeaderSelector;
 use Popsicle\Amazon\ObjectSerializer;
@@ -48,6 +49,8 @@ use Popsicle\Amazon\ObjectSerializer;
  */
 class FeesApi
 {
+    use ApiRequest;
+
     /**
      * @var ClientInterface
      */
@@ -89,12 +92,12 @@ class FeesApi
     /**
      * Operation getMyFeesEstimateForASIN
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body body (required)
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\GetMyFeesEstimateResponse
+     * @return \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse
      */
     public function getMyFeesEstimateForASIN($body, $asin)
     {
@@ -105,131 +108,19 @@ class FeesApi
     /**
      * Operation getMyFeesEstimateForASINWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\GetMyFeesEstimateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMyFeesEstimateForASINWithHttpInfo($body, $asin)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse';
+        $returnType = '\Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse';
         $request = $this->getMyFeesEstimateForASINRequest($body, $asin);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
+        return $this->sendRequest($request, $returnType);
     }
 
     /**
@@ -237,7 +128,7 @@ class FeesApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      *
      * @throws \InvalidArgumentException
@@ -258,7 +149,7 @@ class FeesApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      *
      * @throws \InvalidArgumentException
@@ -266,50 +157,16 @@ class FeesApi
      */
     public function getMyFeesEstimateForASINAsyncWithHttpInfo($body, $asin)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse';
+        $returnType = '\Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse';
         $request = $this->getMyFeesEstimateForASINRequest($body, $asin);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'getMyFeesEstimateForASIN'
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      *
      * @throws \InvalidArgumentException
@@ -347,82 +204,19 @@ class FeesApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation getMyFeesEstimateForSKU
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body body (required)
      * @param  string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\GetMyFeesEstimateResponse
+     * @return \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse
      */
     public function getMyFeesEstimateForSKU($body, $seller_sku)
     {
@@ -433,131 +227,19 @@ class FeesApi
     /**
      * Operation getMyFeesEstimateForSKUWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\GetMyFeesEstimateResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMyFeesEstimateForSKUWithHttpInfo($body, $seller_sku)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse';
+        $returnType = '\Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse';
         $request = $this->getMyFeesEstimateForSKURequest($body, $seller_sku);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
+        return $this->sendRequest($request, $returnType);
     }
 
     /**
@@ -565,7 +247,7 @@ class FeesApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (required)
      *
      * @throws \InvalidArgumentException
@@ -586,7 +268,7 @@ class FeesApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (required)
      *
      * @throws \InvalidArgumentException
@@ -594,50 +276,16 @@ class FeesApi
      */
     public function getMyFeesEstimateForSKUAsyncWithHttpInfo($body, $seller_sku)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMyFeesEstimateResponse';
+        $returnType = '\Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateResponse';
         $request = $this->getMyFeesEstimateForSKURequest($body, $seller_sku);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'getMyFeesEstimateForSKU'
      *
-     * @param  \Popsicle\Amazon\Model\GetMyFeesEstimateRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\ProductFees\GetMyFeesEstimateRequest $body (required)
      * @param  string $seller_sku Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (required)
      *
      * @throws \InvalidArgumentException
@@ -675,89 +323,8 @@ class FeesApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
-    /**
-     * Create http client option
-     *
-     * @throws \RuntimeException on file opening failure
-     * @return array of http client options
-     */
-    protected function createHttpClientOption()
-    {
-        $options = [];
-        if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-            }
-        }
-
-        return $options;
-    }
 }

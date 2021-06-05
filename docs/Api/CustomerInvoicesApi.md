@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getCustomerInvoices**](CustomerInvoicesApi.md#getcustomerinvoices) | **GET** /vendor/directFulfillment/shipping/v1/customerInvoices | 
 
 # **getCustomerInvoice**
-> \Popsicle\Amazon\Model\GetCustomerInvoiceResponse getCustomerInvoice($purchase_order_number)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetCustomerInvoiceResponse getCustomerInvoice($purchase_order_number)
 
 
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetCustomerInvoiceResponse**](../Model/GetCustomerInvoiceResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetCustomerInvoiceResponse**](../Model/GetCustomerInvoiceResponse.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getCustomerInvoices**
-> \Popsicle\Amazon\Model\GetCustomerInvoicesResponse getCustomerInvoices($created_after, $created_before, $ship_from_party_id, $limit, $sort_order, $next_token)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetCustomerInvoicesResponse getCustomerInvoices($created_after, $created_before, $ship_from_party_id, $limit, $sort_order, $next_token)
 
 
 
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetCustomerInvoicesResponse**](../Model/GetCustomerInvoicesResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetCustomerInvoicesResponse**](../Model/GetCustomerInvoicesResponse.md)
 
 ### Authorization
 

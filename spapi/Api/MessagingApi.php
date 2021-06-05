@@ -34,6 +34,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Popsicle\Amazon\ApiException;
+use Popsicle\Amazon\ApiRequest;
 use Popsicle\Amazon\Configuration;
 use Popsicle\Amazon\HeaderSelector;
 use Popsicle\Amazon\ObjectSerializer;
@@ -48,6 +49,8 @@ use Popsicle\Amazon\ObjectSerializer;
  */
 class MessagingApi
 {
+    use ApiRequest;
+
     /**
      * @var ClientInterface
      */
@@ -89,13 +92,13 @@ class MessagingApi
     /**
      * Operation confirmCustomizationDetails
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse
      */
     public function confirmCustomizationDetails($body, $marketplace_ids, $amazon_order_id)
     {
@@ -106,148 +109,27 @@ class MessagingApi
     /**
      * Operation confirmCustomizationDetailsWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function confirmCustomizationDetailsWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse';
         $request = $this->confirmCustomizationDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation confirmCustomizationDetailsAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -269,7 +151,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -278,50 +160,16 @@ class MessagingApi
      */
     public function confirmCustomizationDetailsAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse';
         $request = $this->confirmCustomizationDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'confirmCustomizationDetails'
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -373,83 +221,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createAmazonMotors
      *
-     * @param  \Popsicle\Amazon\Model\CreateAmazonMotorsRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateAmazonMotorsResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse
      */
     public function createAmazonMotors($body, $marketplace_ids, $amazon_order_id)
     {
@@ -460,148 +245,27 @@ class MessagingApi
     /**
      * Operation createAmazonMotorsWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateAmazonMotorsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateAmazonMotorsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createAmazonMotorsWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse';
         $request = $this->createAmazonMotorsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createAmazonMotorsAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateAmazonMotorsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -623,7 +287,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateAmazonMotorsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -632,50 +296,16 @@ class MessagingApi
      */
     public function createAmazonMotorsAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateAmazonMotorsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse';
         $request = $this->createAmazonMotorsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createAmazonMotors'
      *
-     * @param  \Popsicle\Amazon\Model\CreateAmazonMotorsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -727,83 +357,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createConfirmDeliveryDetails
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse
      */
     public function createConfirmDeliveryDetails($body, $marketplace_ids, $amazon_order_id)
     {
@@ -814,148 +381,27 @@ class MessagingApi
     /**
      * Operation createConfirmDeliveryDetailsWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createConfirmDeliveryDetailsWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse';
         $request = $this->createConfirmDeliveryDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createConfirmDeliveryDetailsAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -977,7 +423,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -986,50 +432,16 @@ class MessagingApi
      */
     public function createConfirmDeliveryDetailsAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse';
         $request = $this->createConfirmDeliveryDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createConfirmDeliveryDetails'
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1081,83 +493,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createConfirmOrderDetails
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse
      */
     public function createConfirmOrderDetails($body, $marketplace_ids, $amazon_order_id)
     {
@@ -1168,148 +517,27 @@ class MessagingApi
     /**
      * Operation createConfirmOrderDetailsWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createConfirmOrderDetailsWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse';
         $request = $this->createConfirmOrderDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createConfirmOrderDetailsAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1331,7 +559,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1340,50 +568,16 @@ class MessagingApi
      */
     public function createConfirmOrderDetailsAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse';
         $request = $this->createConfirmOrderDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createConfirmOrderDetails'
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1435,83 +629,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createConfirmServiceDetails
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse
      */
     public function createConfirmServiceDetails($body, $marketplace_ids, $amazon_order_id)
     {
@@ -1522,148 +653,27 @@ class MessagingApi
     /**
      * Operation createConfirmServiceDetailsWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createConfirmServiceDetailsWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse';
         $request = $this->createConfirmServiceDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createConfirmServiceDetailsAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1685,7 +695,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1694,50 +704,16 @@ class MessagingApi
      */
     public function createConfirmServiceDetailsAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse';
         $request = $this->createConfirmServiceDetailsRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createConfirmServiceDetails'
      *
-     * @param  \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -1789,83 +765,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createDigitalAccessKey
      *
-     * @param  \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse
      */
     public function createDigitalAccessKey($body, $marketplace_ids, $amazon_order_id)
     {
@@ -1876,148 +789,27 @@ class MessagingApi
     /**
      * Operation createDigitalAccessKeyWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createDigitalAccessKeyWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse';
         $request = $this->createDigitalAccessKeyRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createDigitalAccessKeyAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2039,7 +831,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2048,50 +840,16 @@ class MessagingApi
      */
     public function createDigitalAccessKeyAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse';
         $request = $this->createDigitalAccessKeyRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createDigitalAccessKey'
      *
-     * @param  \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2143,83 +901,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createLegalDisclosure
      *
-     * @param  \Popsicle\Amazon\Model\CreateLegalDisclosureRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateLegalDisclosureResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse
      */
     public function createLegalDisclosure($body, $marketplace_ids, $amazon_order_id)
     {
@@ -2230,148 +925,27 @@ class MessagingApi
     /**
      * Operation createLegalDisclosureWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateLegalDisclosureRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateLegalDisclosureResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createLegalDisclosureWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse';
         $request = $this->createLegalDisclosureRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createLegalDisclosureAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateLegalDisclosureRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2393,7 +967,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateLegalDisclosureRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2402,50 +976,16 @@ class MessagingApi
      */
     public function createLegalDisclosureAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateLegalDisclosureResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse';
         $request = $this->createLegalDisclosureRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createLegalDisclosure'
      *
-     * @param  \Popsicle\Amazon\Model\CreateLegalDisclosureRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -2497,71 +1037,8 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -2572,7 +1049,7 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse
      */
     public function createNegativeFeedbackRemoval($amazon_order_id, $marketplace_ids)
     {
@@ -2588,135 +1065,14 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createNegativeFeedbackRemovalWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse';
         $request = $this->createNegativeFeedbackRemovalRequest($amazon_order_id, $marketplace_ids);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createNegativeFeedbackRemovalAsync
@@ -2752,44 +1108,10 @@ class MessagingApi
      */
     public function createNegativeFeedbackRemovalAsyncWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse';
         $request = $this->createNegativeFeedbackRemovalRequest($amazon_order_id, $marketplace_ids);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
@@ -2840,80 +1162,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createUnexpectedProblem
      *
-     * @param  \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateUnexpectedProblemResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse
      */
     public function createUnexpectedProblem($body, $marketplace_ids, $amazon_order_id)
     {
@@ -2924,148 +1186,27 @@ class MessagingApi
     /**
      * Operation createUnexpectedProblemWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateUnexpectedProblemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createUnexpectedProblemWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse';
         $request = $this->createUnexpectedProblemRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createUnexpectedProblemAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3087,7 +1228,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3096,50 +1237,16 @@ class MessagingApi
      */
     public function createUnexpectedProblemAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse';
         $request = $this->createUnexpectedProblemRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createUnexpectedProblem'
      *
-     * @param  \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3191,83 +1298,20 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
      * Operation createWarranty
      *
-     * @param  \Popsicle\Amazon\Model\CreateWarrantyRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest $body body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\CreateWarrantyResponse
+     * @return \Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse
      */
     public function createWarranty($body, $marketplace_ids, $amazon_order_id)
     {
@@ -3278,148 +1322,27 @@ class MessagingApi
     /**
      * Operation createWarrantyWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\CreateWarrantyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\CreateWarrantyResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createWarrantyWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateWarrantyResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse';
         $request = $this->createWarrantyRequest($body, $marketplace_ids, $amazon_order_id);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\CreateWarrantyResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
+        return $this->sendRequest($request, $returnType);    }
 
     /**
      * Operation createWarrantyAsync
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateWarrantyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3441,7 +1364,7 @@ class MessagingApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\CreateWarrantyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3450,50 +1373,16 @@ class MessagingApi
      */
     public function createWarrantyAsyncWithHttpInfo($body, $marketplace_ids, $amazon_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\CreateWarrantyResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse';
         $request = $this->createWarrantyRequest($body, $marketplace_ids, $amazon_order_id);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
      * Create request for operation 'createWarranty'
      *
-     * @param  \Popsicle\Amazon\Model\CreateWarrantyRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest $body (required)
      * @param  string[] $marketplace_ids A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. (required)
      * @param  string $amazon_order_id An Amazon order identifier. This specifies the order for which a message is sent. (required)
      *
@@ -3545,71 +1434,8 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'POST', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                ['application/json']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -3620,7 +1446,7 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\GetAttributesResponse
+     * @return \Popsicle\Amazon\Model\Messaging\GetAttributesResponse
      */
     public function getAttributes($amazon_order_id, $marketplace_ids)
     {
@@ -3636,136 +1462,15 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\GetAttributesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\GetAttributesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getAttributesWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetAttributesResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\GetAttributesResponse';
         $request = $this->getAttributesRequest($amazon_order_id, $marketplace_ids);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetAttributesResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
+         return $this->sendRequest($request, $returnType);
     }
-
     /**
      * Operation getAttributesAsync
      *
@@ -3800,44 +1505,10 @@ class MessagingApi
      */
     public function getAttributesAsyncWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetAttributesResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\GetAttributesResponse';
         $request = $this->getAttributesRequest($amazon_order_id, $marketplace_ids);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
@@ -3888,68 +1559,8 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
     /**
@@ -3960,7 +1571,7 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse
+     * @return \Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse
      */
     public function getMessagingActionsForOrder($amazon_order_id, $marketplace_ids)
     {
@@ -3976,136 +1587,15 @@ class MessagingApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getMessagingActionsForOrderWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse';
         $request = $this->getMessagingActionsForOrderRequest($amazon_order_id, $marketplace_ids);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
+         return $this->sendRequest($request, $returnType);
     }
-
     /**
      * Operation getMessagingActionsForOrderAsync
      *
@@ -4140,44 +1630,10 @@ class MessagingApi
      */
     public function getMessagingActionsForOrderAsyncWithHttpInfo($amazon_order_id, $marketplace_ids)
     {
-        $returnType = '\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse';
         $request = $this->getMessagingActionsForOrderRequest($amazon_order_id, $marketplace_ids);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
@@ -4228,86 +1684,8 @@ class MessagingApi
             );
         }
 
-        // body params
-        $_tempBody = null;
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
 
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/hal+json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/hal+json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
     }
 
-    /**
-     * Create http client option
-     *
-     * @throws \RuntimeException on file opening failure
-     * @return array of http client options
-     */
-    protected function createHttpClientOption()
-    {
-        $options = [];
-        if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-            }
-        }
-
-        return $options;
-    }
 }

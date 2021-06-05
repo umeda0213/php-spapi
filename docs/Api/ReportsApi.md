@@ -111,7 +111,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReport**
-> \Popsicle\Amazon\Model\CreateReportResponse createReport($body)
+> \Popsicle\Amazon\Model\Reports\CreateReportResponse createReport($body)
 
 
 
@@ -127,7 +127,7 @@ $apiInstance = new Popsicle\Amazon\Api\ReportsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateReportSpecification(); // \Popsicle\Amazon\Model\CreateReportSpecification | 
+$body = new \Popsicle\Amazon\Model\Reports\CreateReportSpecification(); // \Popsicle\Amazon\Model\Reports\CreateReportSpecification | 
 
 try {
     $result = $apiInstance->createReport($body);
@@ -142,11 +142,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateReportSpecification**](../Model/CreateReportSpecification.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Reports\CreateReportSpecification**](../Model/CreateReportSpecification.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateReportResponse**](../Model/CreateReportResponse.md)
+[**\Popsicle\Amazon\Model\Reports\CreateReportResponse**](../Model/CreateReportResponse.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createReportSchedule**
-> \Popsicle\Amazon\Model\CreateReportScheduleResponse createReportSchedule($body)
+> \Popsicle\Amazon\Model\Reports\CreateReportScheduleResponse createReportSchedule($body)
 
 
 
@@ -176,7 +176,7 @@ $apiInstance = new Popsicle\Amazon\Api\ReportsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateReportScheduleSpecification(); // \Popsicle\Amazon\Model\CreateReportScheduleSpecification | 
+$body = new \Popsicle\Amazon\Model\Reports\CreateReportScheduleSpecification(); // \Popsicle\Amazon\Model\Reports\CreateReportScheduleSpecification | 
 
 try {
     $result = $apiInstance->createReportSchedule($body);
@@ -191,11 +191,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateReportScheduleSpecification**](../Model/CreateReportScheduleSpecification.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Reports\CreateReportScheduleSpecification**](../Model/CreateReportScheduleSpecification.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateReportScheduleResponse**](../Model/CreateReportScheduleResponse.md)
+[**\Popsicle\Amazon\Model\Reports\CreateReportScheduleResponse**](../Model/CreateReportScheduleResponse.md)
 
 ### Authorization
 
@@ -209,7 +209,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReport**
-> \Popsicle\Amazon\Model\Report getReport($report_id)
+> \Popsicle\Amazon\Model\Reports\Report getReport($report_id)
 
 
 
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\Report**](../Model/Report.md)
+[**\Popsicle\Amazon\Model\Reports\Report**](../Model/Report.md)
 
 ### Authorization
 
@@ -258,7 +258,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportDocument**
-> \Popsicle\Amazon\Model\ReportDocument getReportDocument($report_document_id)
+> \Popsicle\Amazon\Model\Reports\ReportDocument getReportDocument($report_document_id)
 
 
 
@@ -293,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ReportDocument**](../Model/ReportDocument.md)
+[**\Popsicle\Amazon\Model\Reports\ReportDocument**](../Model/ReportDocument.md)
 
 ### Authorization
 
@@ -307,7 +307,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportSchedule**
-> \Popsicle\Amazon\Model\ReportSchedule getReportSchedule($report_schedule_id)
+> \Popsicle\Amazon\Model\Reports\ReportSchedule getReportSchedule($report_schedule_id)
 
 
 
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ReportSchedule**](../Model/ReportSchedule.md)
+[**\Popsicle\Amazon\Model\Reports\ReportSchedule**](../Model/ReportSchedule.md)
 
 ### Authorization
 
@@ -356,7 +356,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReportSchedules**
-> \Popsicle\Amazon\Model\ReportScheduleList getReportSchedules($report_types)
+> \Popsicle\Amazon\Model\Reports\ReportScheduleList getReportSchedules($report_types)
 
 
 
@@ -391,7 +391,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ReportScheduleList**](../Model/ReportScheduleList.md)
+[**\Popsicle\Amazon\Model\Reports\ReportScheduleList**](../Model/ReportScheduleList.md)
 
 ### Authorization
 
@@ -405,7 +405,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getReports**
-> \Popsicle\Amazon\Model\GetReportsResponse getReports($report_types, $processing_statuses, $marketplace_ids, $page_size, $created_since, $created_until, $next_token)
+> \Popsicle\Amazon\Model\Reports\GetReportsResponse getReports($report_types, $processing_statuses, $marketplace_ids, $page_size, $created_since, $created_until, $next_token)
 
 
 
@@ -452,7 +452,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetReportsResponse**](../Model/GetReportsResponse.md)
+[**\Popsicle\Amazon\Model\Reports\GetReportsResponse**](../Model/GetReportsResponse.md)
 
 ### Authorization
 

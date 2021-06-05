@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**submitInventoryUpdate**](UpdateInventoryApi.md#submitinventoryupdate) | **POST** /vendor/directFulfillment/inventory/v1/warehouses/{warehouseId}/items | 
 
 # **submitInventoryUpdate**
-> \Popsicle\Amazon\Model\SubmitInventoryUpdateResponse submitInventoryUpdate($body, $warehouse_id)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentInventoryV1\SubmitInventoryUpdateResponse submitInventoryUpdate($body, $warehouse_id)
 
 
 
@@ -23,7 +23,7 @@ $apiInstance = new Popsicle\Amazon\Api\UpdateInventoryApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SubmitInventoryUpdateRequest(); // \Popsicle\Amazon\Model\SubmitInventoryUpdateRequest | 
+$body = new \Popsicle\Amazon\Model\VendorDirectFulfillmentInventoryV1\SubmitInventoryUpdateRequest(); // \Popsicle\Amazon\Model\VendorDirectFulfillmentInventoryV1\SubmitInventoryUpdateRequest | 
 $warehouse_id = "warehouse_id_example"; // string | Identifier for the warehouse for which to update inventory.
 
 try {
@@ -39,12 +39,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SubmitInventoryUpdateRequest**](../Model/SubmitInventoryUpdateRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentInventoryV1\SubmitInventoryUpdateRequest**](../Model/SubmitInventoryUpdateRequest.md)|  |
  **warehouse_id** | **string**| Identifier for the warehouse for which to update inventory. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SubmitInventoryUpdateResponse**](../Model/SubmitInventoryUpdateResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentInventoryV1\SubmitInventoryUpdateResponse**](../Model/SubmitInventoryUpdateResponse.md)
 
 ### Authorization
 

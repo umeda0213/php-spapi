@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**submitShippingLabelRequest**](VendorShippingLabelsApi.md#submitshippinglabelrequest) | **POST** /vendor/directFulfillment/shipping/v1/shippingLabels | 
 
 # **getShippingLabel**
-> \Popsicle\Amazon\Model\GetShippingLabelResponse getShippingLabel($purchase_order_number)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetShippingLabelResponse getShippingLabel($purchase_order_number)
 
 
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShippingLabelResponse**](../Model/GetShippingLabelResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetShippingLabelResponse**](../Model/GetShippingLabelResponse.md)
 
 ### Authorization
 
@@ -58,7 +58,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShippingLabels**
-> \Popsicle\Amazon\Model\GetShippingLabelListResponse getShippingLabels($created_after, $created_before, $ship_from_party_id, $limit, $sort_order, $next_token)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetShippingLabelListResponse getShippingLabels($created_after, $created_before, $ship_from_party_id, $limit, $sort_order, $next_token)
 
 
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShippingLabelListResponse**](../Model/GetShippingLabelListResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\GetShippingLabelListResponse**](../Model/GetShippingLabelListResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **submitShippingLabelRequest**
-> \Popsicle\Amazon\Model\SubmitShippingLabelsResponse submitShippingLabelRequest($body)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\SubmitShippingLabelsResponse submitShippingLabelRequest($body)
 
 
 
@@ -133,7 +133,7 @@ $apiInstance = new Popsicle\Amazon\Api\VendorShippingLabelsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SubmitShippingLabelsRequest(); // \Popsicle\Amazon\Model\SubmitShippingLabelsRequest | 
+$body = new \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\SubmitShippingLabelsRequest(); // \Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\SubmitShippingLabelsRequest | 
 
 try {
     $result = $apiInstance->submitShippingLabelRequest($body);
@@ -148,11 +148,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SubmitShippingLabelsRequest**](../Model/SubmitShippingLabelsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\SubmitShippingLabelsRequest**](../Model/SubmitShippingLabelsRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SubmitShippingLabelsResponse**](../Model/SubmitShippingLabelsResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\SubmitShippingLabelsResponse**](../Model/SubmitShippingLabelsResponse.md)
 
 ### Authorization
 

@@ -12,11 +12,11 @@ Method | HTTP request | Description
 [**getOrders**](OrdersV0Api.md#getorders) | **GET** /orders/v0/orders | 
 
 # **getOrder**
-> \Popsicle\Amazon\Model\GetOrderResponse getOrder($order_id)
+> \Popsicle\Amazon\Model\Orders\GetOrderResponse getOrder($order_id)
 
 
 
-Returns the order indicated by the specified order ID.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns the order indicated by the specified order ID.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderResponse**](../Model/GetOrderResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrderResponse**](../Model/GetOrderResponse.md)
 
 ### Authorization
 
@@ -61,11 +61,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderAddress**
-> \Popsicle\Amazon\Model\GetOrderAddressResponse getOrderAddress($order_id)
+> \Popsicle\Amazon\Model\Orders\GetOrderAddressResponse getOrderAddress($order_id)
 
 
 
-Returns the shipping address for the order indicated by the specified order ID.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns the shipping address for the order indicated by the specified order ID.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderAddressResponse**](../Model/GetOrderAddressResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrderAddressResponse**](../Model/GetOrderAddressResponse.md)
 
 ### Authorization
 
@@ -110,11 +110,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderBuyerInfo**
-> \Popsicle\Amazon\Model\GetOrderBuyerInfoResponse getOrderBuyerInfo($order_id)
+> \Popsicle\Amazon\Model\Orders\GetOrderBuyerInfoResponse getOrderBuyerInfo($order_id)
 
 
 
-Returns buyer information for the order indicated by the specified order ID.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns buyer information for the order indicated by the specified order ID.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -145,7 +145,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderBuyerInfoResponse**](../Model/GetOrderBuyerInfoResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrderBuyerInfoResponse**](../Model/GetOrderBuyerInfoResponse.md)
 
 ### Authorization
 
@@ -159,11 +159,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderItems**
-> \Popsicle\Amazon\Model\GetOrderItemsResponse getOrderItems($order_id, $next_token)
+> \Popsicle\Amazon\Model\Orders\GetOrderItemsResponse getOrderItems($order_id, $next_token)
 
 
 
-Returns detailed order item information for the order indicated by the specified order ID. If NextToken is provided, it's used to retrieve the next page of order items.  Note: When an order is in the Pending state (the order has been placed but payment has not been authorized), the getOrderItems operation does not return information about pricing, taxes, shipping charges, gift status or promotions for the order items in the order. After an order leaves the Pending state (this occurs when payment has been authorized) and enters the Unshipped, Partially Shipped, or Shipped state, the getOrderItems operation returns information about pricing, taxes, shipping charges, gift status and promotions for the order items in the order.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns detailed order item information for the order indicated by the specified order ID. If NextToken is provided, it's used to retrieve the next page of order items.  Note: When an order is in the Pending state (the order has been placed but payment has not been authorized), the getOrderItems operation does not return information about pricing, taxes, shipping charges, gift status or promotions for the order items in the order. After an order leaves the Pending state (this occurs when payment has been authorized) and enters the Unshipped, Partially Shipped, or Shipped state, the getOrderItems operation returns information about pricing, taxes, shipping charges, gift status and promotions for the order items in the order.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -196,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderItemsResponse**](../Model/GetOrderItemsResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrderItemsResponse**](../Model/GetOrderItemsResponse.md)
 
 ### Authorization
 
@@ -210,11 +210,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrderItemsBuyerInfo**
-> \Popsicle\Amazon\Model\GetOrderItemsBuyerInfoResponse getOrderItemsBuyerInfo($order_id, $next_token)
+> \Popsicle\Amazon\Model\Orders\GetOrderItemsBuyerInfoResponse getOrderItemsBuyerInfo($order_id, $next_token)
 
 
 
-Returns buyer information in the order items of the order indicated by the specified order ID.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns buyer information in the order items of the order indicated by the specified order ID.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderItemsBuyerInfoResponse**](../Model/GetOrderItemsBuyerInfoResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrderItemsBuyerInfoResponse**](../Model/GetOrderItemsBuyerInfoResponse.md)
 
 ### Authorization
 
@@ -261,11 +261,11 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getOrders**
-> \Popsicle\Amazon\Model\GetOrdersResponse getOrders($marketplace_ids, $created_after, $created_before, $last_updated_after, $last_updated_before, $order_statuses, $fulfillment_channels, $payment_methods, $buyer_email, $seller_order_id, $max_results_per_page, $easy_ship_shipment_statuses, $next_token, $amazon_order_ids)
+> \Popsicle\Amazon\Model\Orders\GetOrdersResponse getOrders($marketplace_ids, $created_after, $created_before, $last_updated_after, $last_updated_before, $order_statuses, $fulfillment_channels, $payment_methods, $buyer_email, $seller_order_id, $max_results_per_page, $easy_ship_shipment_statuses, $next_token, $amazon_order_ids, $actual_fulfillment_supply_source_id, $is_ispu, $store_chain_store_id)
 
 
 
-Returns orders created or updated during the time frame indicated by the specified parameters. You can also apply a range of filtering criteria to narrow the list of orders returned. If NextToken is present, that will be used to retrieve the orders instead of other criteria.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 1 | 1 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Returns orders created or updated during the time frame indicated by the specified parameters. You can also apply a range of filtering criteria to narrow the list of orders returned. If NextToken is present, that will be used to retrieve the orders instead of other criteria.  **Usage Plans:**  | Plan type | Rate (requests per second) | Burst | | ---- | ---- | ---- | |Default| 0.0055 | 20 | |Selling partner specific| Variable | Variable |  The x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
@@ -291,9 +291,12 @@ $max_results_per_page = 56; // int | A number that indicates the maximum number 
 $easy_ship_shipment_statuses = array("easy_ship_shipment_statuses_example"); // string[] | A list of EasyShipShipmentStatus values. Used to select Easy Ship orders with statuses that match the specified  values. If EasyShipShipmentStatus is specified, only Amazon Easy Ship orders are returned.Possible values: PendingPickUp (Amazon has not yet picked up the package from the seller). LabelCanceled (The seller canceled the pickup). PickedUp (Amazon has picked up the package from the seller). AtOriginFC (The packaged is at the origin fulfillment center). AtDestinationFC (The package is at the destination fulfillment center). OutForDelivery (The package is out for delivery). Damaged (The package was damaged by the carrier). Delivered (The package has been delivered to the buyer). RejectedByBuyer (The package has been rejected by the buyer). Undeliverable (The package cannot be delivered). ReturnedToSeller (The package was not delivered to the buyer and was returned to the seller). ReturningToSeller (The package was not delivered to the buyer and is being returned to the seller).
 $next_token = "next_token_example"; // string | A string token returned in the response of your previous request.
 $amazon_order_ids = array("amazon_order_ids_example"); // string[] | A list of AmazonOrderId values. An AmazonOrderId is an Amazon-defined order identifier, in 3-7-7 format.
+$actual_fulfillment_supply_source_id = "actual_fulfillment_supply_source_id_example"; // string | Denotes the recommended sourceId where the order should be fulfilled from.
+$is_ispu = true; // bool | When true, this order is marked to be picked up from a store rather than delivered.
+$store_chain_store_id = "store_chain_store_id_example"; // string | The store chain store identifier. Linked to a specific store in a store chain.
 
 try {
-    $result = $apiInstance->getOrders($marketplace_ids, $created_after, $created_before, $last_updated_after, $last_updated_before, $order_statuses, $fulfillment_channels, $payment_methods, $buyer_email, $seller_order_id, $max_results_per_page, $easy_ship_shipment_statuses, $next_token, $amazon_order_ids);
+    $result = $apiInstance->getOrders($marketplace_ids, $created_after, $created_before, $last_updated_after, $last_updated_before, $order_statuses, $fulfillment_channels, $payment_methods, $buyer_email, $seller_order_id, $max_results_per_page, $easy_ship_shipment_statuses, $next_token, $amazon_order_ids, $actual_fulfillment_supply_source_id, $is_ispu, $store_chain_store_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling OrdersV0Api->getOrders: ', $e->getMessage(), PHP_EOL;
@@ -319,10 +322,13 @@ Name | Type | Description  | Notes
  **easy_ship_shipment_statuses** | [**string[]**](../Model/string.md)| A list of EasyShipShipmentStatus values. Used to select Easy Ship orders with statuses that match the specified  values. If EasyShipShipmentStatus is specified, only Amazon Easy Ship orders are returned.Possible values: PendingPickUp (Amazon has not yet picked up the package from the seller). LabelCanceled (The seller canceled the pickup). PickedUp (Amazon has picked up the package from the seller). AtOriginFC (The packaged is at the origin fulfillment center). AtDestinationFC (The package is at the destination fulfillment center). OutForDelivery (The package is out for delivery). Damaged (The package was damaged by the carrier). Delivered (The package has been delivered to the buyer). RejectedByBuyer (The package has been rejected by the buyer). Undeliverable (The package cannot be delivered). ReturnedToSeller (The package was not delivered to the buyer and was returned to the seller). ReturningToSeller (The package was not delivered to the buyer and is being returned to the seller). | [optional]
  **next_token** | **string**| A string token returned in the response of your previous request. | [optional]
  **amazon_order_ids** | [**string[]**](../Model/string.md)| A list of AmazonOrderId values. An AmazonOrderId is an Amazon-defined order identifier, in 3-7-7 format. | [optional]
+ **actual_fulfillment_supply_source_id** | **string**| Denotes the recommended sourceId where the order should be fulfilled from. | [optional]
+ **is_ispu** | **bool**| When true, this order is marked to be picked up from a store rather than delivered. | [optional]
+ **store_chain_store_id** | **string**| The store chain store identifier. Linked to a specific store in a store chain. | [optional]
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrdersResponse**](../Model/GetOrdersResponse.md)
+[**\Popsicle\Amazon\Model\Orders\GetOrdersResponse**](../Model/GetOrdersResponse.md)
 
 ### Authorization
 

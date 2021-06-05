@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **function_code** | **string** | Provide the function code. | 
-**location_identification** | [**\Popsicle\Amazon\Model\Location**](Location.md) |  | [optional] 
+**location_identification** | [**\Popsicle\Amazon\Model\VendorShipments\Location**](Location.md) |  | [optional] 
 **arrival_time** | [**\DateTime**](\DateTime.md) | Date and time of the arrival of the cargo. | [optional] 
 **departure_time** | [**\DateTime**](\DateTime.md) | Date and time of the departure of the cargo. | [optional] 
 

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shipment_confirmations** | [**\Popsicle\Amazon\Model\ShipmentConfirmation[]**](ShipmentConfirmation.md) |  | [optional] 
+**shipment_confirmations** | [**\Popsicle\Amazon\Model\VendorShipments\ShipmentConfirmation[]**](ShipmentConfirmation.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

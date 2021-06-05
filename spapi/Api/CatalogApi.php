@@ -34,6 +34,7 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use Popsicle\Amazon\ApiException;
+use Popsicle\Amazon\ApiRequest;
 use Popsicle\Amazon\Configuration;
 use Popsicle\Amazon\HeaderSelector;
 use Popsicle\Amazon\ObjectSerializer;
@@ -48,6 +49,8 @@ use Popsicle\Amazon\ObjectSerializer;
  */
 class CatalogApi
 {
+    use ApiRequest;
+
     /**
      * @var ClientInterface
      */
@@ -91,15 +94,16 @@ class CatalogApi
      *
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
-     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. (optional)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\Item
+     * @return \Popsicle\Amazon\Model\Catalog\Item
      */
-    public function getCatalogItem($asin, $marketplace_ids, $included_data = null)
+    public function getCatalogItem($asin, $marketplace_ids, $included_data = null, $locale = null)
     {
-        list($response) = $this->getCatalogItemWithHttpInfo($asin, $marketplace_ids, $included_data);
+        list($response) = $this->getCatalogItemWithHttpInfo($asin, $marketplace_ids, $included_data, $locale);
         return $response;
     }
 
@@ -108,140 +112,20 @@ class CatalogApi
      *
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
-     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. (optional)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\Item, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\Catalog\Item, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCatalogItemWithHttpInfo($asin, $marketplace_ids, $included_data = null)
+    public function getCatalogItemWithHttpInfo($asin, $marketplace_ids, $included_data = null, $locale = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\Item';
-        $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data);
+        $returnType = '\Popsicle\Amazon\Model\Catalog\Item';
+        $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data, $locale);
 
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\Item',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 400:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 413:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 415:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 429:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 500:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 503:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\ErrorList',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
+         return $this->sendRequest($request, $returnType);
     }
-
     /**
      * Operation getCatalogItemAsync
      *
@@ -249,14 +133,15 @@ class CatalogApi
      *
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
-     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. (optional)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemAsync($asin, $marketplace_ids, $included_data = null)
+    public function getCatalogItemAsync($asin, $marketplace_ids, $included_data = null, $locale = null)
     {
-        return $this->getCatalogItemAsyncWithHttpInfo($asin, $marketplace_ids, $included_data)
+        return $this->getCatalogItemAsyncWithHttpInfo($asin, $marketplace_ids, $included_data, $locale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -271,51 +156,18 @@ class CatalogApi
      *
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
-     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. (optional)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCatalogItemAsyncWithHttpInfo($asin, $marketplace_ids, $included_data = null)
+    public function getCatalogItemAsyncWithHttpInfo($asin, $marketplace_ids, $included_data = null, $locale = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\Item';
-        $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data);
+        $returnType = '\Popsicle\Amazon\Model\Catalog\Item';
+        $request = $this->getCatalogItemRequest($asin, $marketplace_ids, $included_data, $locale);
 
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
+        return $this->sendRequestAsync($request, $returnType);
     }
 
     /**
@@ -323,12 +175,13 @@ class CatalogApi
      *
      * @param  string $asin The Amazon Standard Identification Number (ASIN) of the item. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers. Data sets in the response contain data only for the specified marketplaces. (required)
-     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. (optional)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCatalogItemRequest($asin, $marketplace_ids, $included_data = null)
+    protected function getCatalogItemRequest($asin, $marketplace_ids, $included_data = null, $locale = null)
     {
         // verify the required parameter 'asin' is set
         if ($asin === null || (is_array($asin) && count($asin) === 0)) {
@@ -364,6 +217,10 @@ class CatalogApi
         if ($included_data !== null) {
             $queryParams['includedData'] = ObjectSerializer::toQueryValue($included_data, null);
         }
+        // query params
+        if ($locale !== null) {
+            $queryParams['locale'] = ObjectSerializer::toQueryValue($locale, null);
+        }
 
         // path params
         if ($asin !== null) {
@@ -374,86 +231,202 @@ class CatalogApi
             );
         }
 
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
     }
 
     /**
-     * Create http client option
+     * Operation searchCatalogItems
      *
-     * @throws \RuntimeException on file opening failure
-     * @return array of http client options
+     * @param  string[] $keywords A comma-delimited list of words or item identifiers to search the Amazon catalog for. (required)
+     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string[] $brand_names A comma-delimited list of brand names to limit the search to. (optional)
+     * @param  string[] $classification_ids A comma-delimited list of classification identifiers to limit the search to. (optional)
+     * @param  int $page_size Number of results to be returned per page. (optional, default to 10)
+     * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
+     * @param  string $keywords_locale The language the keywords are provided in. Defaults to the primary locale of the marketplace. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws \Popsicle\Amazon\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Popsicle\Amazon\Model\Catalog\ItemSearchResults
      */
-    protected function createHttpClientOption()
+    public function searchCatalogItems($keywords, $marketplace_ids, $included_data = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null, $locale = null)
     {
-        $options = [];
-        if ($this->config->getDebug()) {
-            $options[RequestOptions::DEBUG] = fopen($this->config->getDebugFile(), 'a');
-            if (!$options[RequestOptions::DEBUG]) {
-                throw new \RuntimeException('Failed to open the debug file: ' . $this->config->getDebugFile());
-            }
+        list($response) = $this->searchCatalogItemsWithHttpInfo($keywords, $marketplace_ids, $included_data, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale, $locale);
+        return $response;
+    }
+
+    /**
+     * Operation searchCatalogItemsWithHttpInfo
+     *
+     * @param  string[] $keywords A comma-delimited list of words or item identifiers to search the Amazon catalog for. (required)
+     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string[] $brand_names A comma-delimited list of brand names to limit the search to. (optional)
+     * @param  string[] $classification_ids A comma-delimited list of classification identifiers to limit the search to. (optional)
+     * @param  int $page_size Number of results to be returned per page. (optional, default to 10)
+     * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
+     * @param  string $keywords_locale The language the keywords are provided in. Defaults to the primary locale of the marketplace. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws \Popsicle\Amazon\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Popsicle\Amazon\Model\Catalog\ItemSearchResults, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function searchCatalogItemsWithHttpInfo($keywords, $marketplace_ids, $included_data = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null, $locale = null)
+    {
+        $returnType = '\Popsicle\Amazon\Model\Catalog\ItemSearchResults';
+        $request = $this->searchCatalogItemsRequest($keywords, $marketplace_ids, $included_data, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale, $locale);
+
+         return $this->sendRequest($request, $returnType);
+    }
+    /**
+     * Operation searchCatalogItemsAsync
+     *
+     * 
+     *
+     * @param  string[] $keywords A comma-delimited list of words or item identifiers to search the Amazon catalog for. (required)
+     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string[] $brand_names A comma-delimited list of brand names to limit the search to. (optional)
+     * @param  string[] $classification_ids A comma-delimited list of classification identifiers to limit the search to. (optional)
+     * @param  int $page_size Number of results to be returned per page. (optional, default to 10)
+     * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
+     * @param  string $keywords_locale The language the keywords are provided in. Defaults to the primary locale of the marketplace. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchCatalogItemsAsync($keywords, $marketplace_ids, $included_data = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null, $locale = null)
+    {
+        return $this->searchCatalogItemsAsyncWithHttpInfo($keywords, $marketplace_ids, $included_data, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale, $locale)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation searchCatalogItemsAsyncWithHttpInfo
+     *
+     * 
+     *
+     * @param  string[] $keywords A comma-delimited list of words or item identifiers to search the Amazon catalog for. (required)
+     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string[] $brand_names A comma-delimited list of brand names to limit the search to. (optional)
+     * @param  string[] $classification_ids A comma-delimited list of classification identifiers to limit the search to. (optional)
+     * @param  int $page_size Number of results to be returned per page. (optional, default to 10)
+     * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
+     * @param  string $keywords_locale The language the keywords are provided in. Defaults to the primary locale of the marketplace. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function searchCatalogItemsAsyncWithHttpInfo($keywords, $marketplace_ids, $included_data = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null, $locale = null)
+    {
+        $returnType = '\Popsicle\Amazon\Model\Catalog\ItemSearchResults';
+        $request = $this->searchCatalogItemsRequest($keywords, $marketplace_ids, $included_data, $brand_names, $classification_ids, $page_size, $page_token, $keywords_locale, $locale);
+
+        return $this->sendRequestAsync($request, $returnType);
+    }
+
+    /**
+     * Create request for operation 'searchCatalogItems'
+     *
+     * @param  string[] $keywords A comma-delimited list of words or item identifiers to search the Amazon catalog for. (required)
+     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $included_data A comma-delimited list of data sets to include in the response. Default: summaries. (optional)
+     * @param  string[] $brand_names A comma-delimited list of brand names to limit the search to. (optional)
+     * @param  string[] $classification_ids A comma-delimited list of classification identifiers to limit the search to. (optional)
+     * @param  int $page_size Number of results to be returned per page. (optional, default to 10)
+     * @param  string $page_token A token to fetch a certain page when there are multiple pages worth of results. (optional)
+     * @param  string $keywords_locale The language the keywords are provided in. Defaults to the primary locale of the marketplace. (optional)
+     * @param  string $locale Locale for retrieving localized summaries. Defaults to the primary locale of the marketplace. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function searchCatalogItemsRequest($keywords, $marketplace_ids, $included_data = null, $brand_names = null, $classification_ids = null, $page_size = '10', $page_token = null, $keywords_locale = null, $locale = null)
+    {
+        // verify the required parameter 'keywords' is set
+        if ($keywords === null || (is_array($keywords) && count($keywords) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $keywords when calling searchCatalogItems'
+            );
+        }
+        // verify the required parameter 'marketplace_ids' is set
+        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $marketplace_ids when calling searchCatalogItems'
+            );
         }
 
-        return $options;
+        $resourcePath = '/catalog/2020-12-01/items';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if (is_array($keywords)) {
+            $keywords = ObjectSerializer::serializeCollection($keywords, 'csv', true);
+        }
+        if ($keywords !== null) {
+            $queryParams['keywords'] = ObjectSerializer::toQueryValue($keywords, null);
+        }
+        // query params
+        if (is_array($marketplace_ids)) {
+            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        }
+        if ($marketplace_ids !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids, null);
+        }
+        // query params
+        if (is_array($included_data)) {
+            $included_data = ObjectSerializer::serializeCollection($included_data, 'csv', true);
+        }
+        if ($included_data !== null) {
+            $queryParams['includedData'] = ObjectSerializer::toQueryValue($included_data, null);
+        }
+        // query params
+        if (is_array($brand_names)) {
+            $brand_names = ObjectSerializer::serializeCollection($brand_names, 'csv', true);
+        }
+        if ($brand_names !== null) {
+            $queryParams['brandNames'] = ObjectSerializer::toQueryValue($brand_names, null);
+        }
+        // query params
+        if (is_array($classification_ids)) {
+            $classification_ids = ObjectSerializer::serializeCollection($classification_ids, 'csv', true);
+        }
+        if ($classification_ids !== null) {
+            $queryParams['classificationIds'] = ObjectSerializer::toQueryValue($classification_ids, null);
+        }
+        // query params
+        if ($page_size !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size, null);
+        }
+        // query params
+        if ($page_token !== null) {
+            $queryParams['pageToken'] = ObjectSerializer::toQueryValue($page_token, null);
+        }
+        // query params
+        if ($keywords_locale !== null) {
+            $queryParams['keywordsLocale'] = ObjectSerializer::toQueryValue($keywords_locale, null);
+        }
+        // query params
+        if ($locale !== null) {
+            $queryParams['locale'] = ObjectSerializer::toQueryValue($locale, null);
+        }
+
+
+        return $this->generateRequest($multipart, $formParams, $queryParams, $resourcePath, $headerParams, 'GET', $httpBody);
     }
+
 }

@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifiers** | [**\Popsicle\Amazon\Model\IdentifierType**](IdentifierType.md) |  | [optional] 
+**identifiers** | [**\Popsicle\Amazon\Model\CatalogV0\IdentifierType**](IdentifierType.md) |  | [optional] 
 **color** | **string** | The color variation of the item. | [optional] 
 **edition** | **string** | The edition variation of the item. | [optional] 
 **flavor** | **string** | The flavor variation of the item. | [optional] 
@@ -21,11 +21,11 @@ Name | Type | Description | Notes
 **scent** | **string** | The scent variation of an item. | [optional] 
 **size** | **string** | The size variation of an item. | [optional] 
 **size_per_pearl** | **string** | The size per pearl variation of an item. | [optional] 
-**golf_club_loft** | [**\Popsicle\Amazon\Model\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
-**total_diamond_weight** | [**\Popsicle\Amazon\Model\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
-**total_gem_weight** | [**\Popsicle\Amazon\Model\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
+**golf_club_loft** | [**\Popsicle\Amazon\Model\CatalogV0\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
+**total_diamond_weight** | [**\Popsicle\Amazon\Model\CatalogV0\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
+**total_gem_weight** | [**\Popsicle\Amazon\Model\CatalogV0\DecimalWithUnits**](DecimalWithUnits.md) |  | [optional] 
 **package_quantity** | **int** | The package quantity variation of an item. | [optional] 
-**item_dimensions** | [**\Popsicle\Amazon\Model\DimensionType**](DimensionType.md) |  | [optional] 
+**item_dimensions** | [**\Popsicle\Amazon\Model\CatalogV0\DimensionType**](DimensionType.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

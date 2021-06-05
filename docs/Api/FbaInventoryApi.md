@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getInventorySummaries**](FbaInventoryApi.md#getinventorysummaries) | **GET** /fba/inventory/v1/summaries | 
 
 # **getInventorySummaries**
-> \Popsicle\Amazon\Model\GetInventorySummariesResponse getInventorySummaries($granularity_type, $granularity_id, $marketplace_ids, $details, $start_date_time, $seller_skus, $next_token)
+> \Popsicle\Amazon\Model\FbaInventory\GetInventorySummariesResponse getInventorySummaries($granularity_type, $granularity_id, $marketplace_ids, $details, $start_date_time, $seller_skus, $next_token)
 
 
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetInventorySummariesResponse**](../Model/GetInventorySummariesResponse.md)
+[**\Popsicle\Amazon\Model\FbaInventory\GetInventorySummariesResponse**](../Model/GetInventorySummariesResponse.md)
 
 ### Authorization
 

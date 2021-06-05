@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**getMessagingActionsForOrder**](MessagingApi.md#getmessagingactionsfororder) | **GET** /messaging/v1/orders/{amazonOrderId} | 
 
 # **confirmCustomizationDetails**
-> \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse confirmCustomizationDetails($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse confirmCustomizationDetails($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -34,7 +34,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest(); // \Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest(); // \Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -51,13 +51,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsRequest**](../Model/CreateConfirmCustomizationDetailsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsRequest**](../Model/CreateConfirmCustomizationDetailsRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateConfirmCustomizationDetailsResponse**](../Model/CreateConfirmCustomizationDetailsResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateConfirmCustomizationDetailsResponse**](../Model/CreateConfirmCustomizationDetailsResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createAmazonMotors**
-> \Popsicle\Amazon\Model\CreateAmazonMotorsResponse createAmazonMotors($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse createAmazonMotors($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -87,7 +87,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateAmazonMotorsRequest(); // \Popsicle\Amazon\Model\CreateAmazonMotorsRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest(); // \Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -104,13 +104,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateAmazonMotorsRequest**](../Model/CreateAmazonMotorsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsRequest**](../Model/CreateAmazonMotorsRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateAmazonMotorsResponse**](../Model/CreateAmazonMotorsResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateAmazonMotorsResponse**](../Model/CreateAmazonMotorsResponse.md)
 
 ### Authorization
 
@@ -124,7 +124,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createConfirmDeliveryDetails**
-> \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse createConfirmDeliveryDetails($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse createConfirmDeliveryDetails($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -140,7 +140,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest(); // \Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest(); // \Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -157,13 +157,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsRequest**](../Model/CreateConfirmDeliveryDetailsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsRequest**](../Model/CreateConfirmDeliveryDetailsRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateConfirmDeliveryDetailsResponse**](../Model/CreateConfirmDeliveryDetailsResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateConfirmDeliveryDetailsResponse**](../Model/CreateConfirmDeliveryDetailsResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createConfirmOrderDetails**
-> \Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse createConfirmOrderDetails($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse createConfirmOrderDetails($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -193,7 +193,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest(); // \Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest(); // \Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -210,13 +210,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateConfirmOrderDetailsRequest**](../Model/CreateConfirmOrderDetailsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsRequest**](../Model/CreateConfirmOrderDetailsRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateConfirmOrderDetailsResponse**](../Model/CreateConfirmOrderDetailsResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateConfirmOrderDetailsResponse**](../Model/CreateConfirmOrderDetailsResponse.md)
 
 ### Authorization
 
@@ -230,7 +230,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createConfirmServiceDetails**
-> \Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse createConfirmServiceDetails($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse createConfirmServiceDetails($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -246,7 +246,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest(); // \Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest(); // \Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -263,13 +263,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateConfirmServiceDetailsRequest**](../Model/CreateConfirmServiceDetailsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsRequest**](../Model/CreateConfirmServiceDetailsRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateConfirmServiceDetailsResponse**](../Model/CreateConfirmServiceDetailsResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateConfirmServiceDetailsResponse**](../Model/CreateConfirmServiceDetailsResponse.md)
 
 ### Authorization
 
@@ -283,7 +283,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createDigitalAccessKey**
-> \Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse createDigitalAccessKey($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse createDigitalAccessKey($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -299,7 +299,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest(); // \Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest(); // \Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -316,13 +316,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateDigitalAccessKeyRequest**](../Model/CreateDigitalAccessKeyRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyRequest**](../Model/CreateDigitalAccessKeyRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateDigitalAccessKeyResponse**](../Model/CreateDigitalAccessKeyResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateDigitalAccessKeyResponse**](../Model/CreateDigitalAccessKeyResponse.md)
 
 ### Authorization
 
@@ -336,7 +336,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createLegalDisclosure**
-> \Popsicle\Amazon\Model\CreateLegalDisclosureResponse createLegalDisclosure($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse createLegalDisclosure($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -352,7 +352,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateLegalDisclosureRequest(); // \Popsicle\Amazon\Model\CreateLegalDisclosureRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest(); // \Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -369,13 +369,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateLegalDisclosureRequest**](../Model/CreateLegalDisclosureRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureRequest**](../Model/CreateLegalDisclosureRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateLegalDisclosureResponse**](../Model/CreateLegalDisclosureResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateLegalDisclosureResponse**](../Model/CreateLegalDisclosureResponse.md)
 
 ### Authorization
 
@@ -389,7 +389,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createNegativeFeedbackRemoval**
-> \Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse createNegativeFeedbackRemoval($amazon_order_id, $marketplace_ids)
+> \Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse createNegativeFeedbackRemoval($amazon_order_id, $marketplace_ids)
 
 
 
@@ -426,7 +426,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateNegativeFeedbackRemovalResponse**](../Model/CreateNegativeFeedbackRemovalResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateNegativeFeedbackRemovalResponse**](../Model/CreateNegativeFeedbackRemovalResponse.md)
 
 ### Authorization
 
@@ -440,7 +440,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createUnexpectedProblem**
-> \Popsicle\Amazon\Model\CreateUnexpectedProblemResponse createUnexpectedProblem($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse createUnexpectedProblem($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -456,7 +456,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest(); // \Popsicle\Amazon\Model\CreateUnexpectedProblemRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest(); // \Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -473,13 +473,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateUnexpectedProblemRequest**](../Model/CreateUnexpectedProblemRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemRequest**](../Model/CreateUnexpectedProblemRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateUnexpectedProblemResponse**](../Model/CreateUnexpectedProblemResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateUnexpectedProblemResponse**](../Model/CreateUnexpectedProblemResponse.md)
 
 ### Authorization
 
@@ -493,7 +493,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createWarranty**
-> \Popsicle\Amazon\Model\CreateWarrantyResponse createWarranty($body, $marketplace_ids, $amazon_order_id)
+> \Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse createWarranty($body, $marketplace_ids, $amazon_order_id)
 
 
 
@@ -509,7 +509,7 @@ $apiInstance = new Popsicle\Amazon\Api\MessagingApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateWarrantyRequest(); // \Popsicle\Amazon\Model\CreateWarrantyRequest | 
+$body = new \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest(); // \Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest | 
 $marketplace_ids = array("marketplace_ids_example"); // string[] | A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified.
 $amazon_order_id = "amazon_order_id_example"; // string | An Amazon order identifier. This specifies the order for which a message is sent.
 
@@ -526,13 +526,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateWarrantyRequest**](../Model/CreateWarrantyRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Messaging\CreateWarrantyRequest**](../Model/CreateWarrantyRequest.md)|  |
  **marketplace_ids** | [**string[]**](../Model/string.md)| A marketplace identifier. This specifies the marketplace in which the order was placed. Only one marketplace can be specified. |
  **amazon_order_id** | **string**| An Amazon order identifier. This specifies the order for which a message is sent. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateWarrantyResponse**](../Model/CreateWarrantyResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\CreateWarrantyResponse**](../Model/CreateWarrantyResponse.md)
 
 ### Authorization
 
@@ -546,7 +546,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getAttributes**
-> \Popsicle\Amazon\Model\GetAttributesResponse getAttributes($amazon_order_id, $marketplace_ids)
+> \Popsicle\Amazon\Model\Messaging\GetAttributesResponse getAttributes($amazon_order_id, $marketplace_ids)
 
 
 
@@ -583,7 +583,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetAttributesResponse**](../Model/GetAttributesResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\GetAttributesResponse**](../Model/GetAttributesResponse.md)
 
 ### Authorization
 
@@ -597,7 +597,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getMessagingActionsForOrder**
-> \Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse getMessagingActionsForOrder($amazon_order_id, $marketplace_ids)
+> \Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse getMessagingActionsForOrder($amazon_order_id, $marketplace_ids)
 
 
 
@@ -634,7 +634,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetMessagingActionsForOrderResponse**](../Model/GetMessagingActionsForOrderResponse.md)
+[**\Popsicle\Amazon\Model\Messaging\GetMessagingActionsForOrderResponse**](../Model/GetMessagingActionsForOrderResponse.md)
 
 ### Authorization
 

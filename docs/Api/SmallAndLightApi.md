@@ -61,7 +61,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSmallAndLightEligibilityBySellerSKU**
-> \Popsicle\Amazon\Model\SmallAndLightEligibility getSmallAndLightEligibilityBySellerSKU($seller_sku, $marketplace_ids)
+> \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEligibility getSmallAndLightEligibilityBySellerSKU($seller_sku, $marketplace_ids)
 
 
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SmallAndLightEligibility**](../Model/SmallAndLightEligibility.md)
+[**\Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEligibility**](../Model/SmallAndLightEligibility.md)
 
 ### Authorization
 
@@ -112,7 +112,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSmallAndLightEnrollmentBySellerSKU**
-> \Popsicle\Amazon\Model\SmallAndLightEnrollment getSmallAndLightEnrollmentBySellerSKU($seller_sku, $marketplace_ids)
+> \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEnrollment getSmallAndLightEnrollmentBySellerSKU($seller_sku, $marketplace_ids)
 
 
 
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SmallAndLightEnrollment**](../Model/SmallAndLightEnrollment.md)
+[**\Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEnrollment**](../Model/SmallAndLightEnrollment.md)
 
 ### Authorization
 
@@ -163,7 +163,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSmallAndLightFeePreview**
-> \Popsicle\Amazon\Model\SmallAndLightFeePreviews getSmallAndLightFeePreview($body)
+> \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightFeePreviews getSmallAndLightFeePreview($body)
 
 
 
@@ -179,7 +179,7 @@ $apiInstance = new Popsicle\Amazon\Api\SmallAndLightApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SmallAndLightFeePreviewRequest(); // \Popsicle\Amazon\Model\SmallAndLightFeePreviewRequest | 
+$body = new \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightFeePreviewRequest(); // \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightFeePreviewRequest | 
 
 try {
     $result = $apiInstance->getSmallAndLightFeePreview($body);
@@ -194,11 +194,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SmallAndLightFeePreviewRequest**](../Model/SmallAndLightFeePreviewRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightFeePreviewRequest**](../Model/SmallAndLightFeePreviewRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SmallAndLightFeePreviews**](../Model/SmallAndLightFeePreviews.md)
+[**\Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightFeePreviews**](../Model/SmallAndLightFeePreviews.md)
 
 ### Authorization
 
@@ -212,7 +212,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putSmallAndLightEnrollmentBySellerSKU**
-> \Popsicle\Amazon\Model\SmallAndLightEnrollment putSmallAndLightEnrollmentBySellerSKU($seller_sku, $marketplace_ids)
+> \Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEnrollment putSmallAndLightEnrollmentBySellerSKU($seller_sku, $marketplace_ids)
 
 
 
@@ -249,7 +249,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SmallAndLightEnrollment**](../Model/SmallAndLightEnrollment.md)
+[**\Popsicle\Amazon\Model\FbaSmallAndLight\SmallAndLightEnrollment**](../Model/SmallAndLightEnrollment.md)
 
 ### Authorization
 

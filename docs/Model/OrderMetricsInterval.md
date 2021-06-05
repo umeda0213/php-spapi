@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **unit_count** | **int** | The number of units in orders based on the specified filters. | 
 **order_item_count** | **int** | The number of order items based on the specified filters. | 
 **order_count** | **int** | The number of orders based on the specified filters. | 
-**average_unit_price** | [**\Popsicle\Amazon\Model\Money**](Money.md) |  | 
-**total_sales** | [**\Popsicle\Amazon\Model\Money**](Money.md) |  | 
+**average_unit_price** | [**\Popsicle\Amazon\Model\Sales\Money**](Money.md) |  | 
+**total_sales** | [**\Popsicle\Amazon\Model\Sales\Money**](Money.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

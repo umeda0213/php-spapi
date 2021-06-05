@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**voidTransport**](FbaInboundApi.md#voidtransport) | **POST** /fba/inbound/v0/shipments/{shipmentId}/transport/void | 
 
 # **confirmPreorder**
-> \Popsicle\Amazon\Model\ConfirmPreorderResponse confirmPreorder($shipment_id, $need_by_date, $marketplace_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\ConfirmPreorderResponse confirmPreorder($shipment_id, $need_by_date, $marketplace_id)
 
 
 
@@ -34,7 +34,7 @@ Returns information needed to confirm a shipment for pre-order. Call this operat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ConfirmPreorderResponse**](../Model/ConfirmPreorderResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\ConfirmPreorderResponse**](../Model/ConfirmPreorderResponse.md)
 
 ### Authorization
 
@@ -76,7 +76,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **confirmTransport**
-> \Popsicle\Amazon\Model\ConfirmTransportResponse confirmTransport($shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\ConfirmTransportResponse confirmTransport($shipment_id)
 
 
 
@@ -87,7 +87,7 @@ Confirms that the seller accepts the Amazon-partnered shipping estimate, agrees 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ConfirmTransportResponse**](../Model/ConfirmTransportResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\ConfirmTransportResponse**](../Model/ConfirmTransportResponse.md)
 
 ### Authorization
 
@@ -125,7 +125,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInboundShipment**
-> \Popsicle\Amazon\Model\InboundShipmentResponse createInboundShipment($body, $shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentResponse createInboundShipment($body, $shipment_id)
 
 
 
@@ -136,12 +136,12 @@ Returns a new inbound shipment based on the specified shipmentId that was return
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\InboundShipmentRequest(); // \Popsicle\Amazon\Model\InboundShipmentRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest(); // \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest | 
 $shipment_id = "shipment_id_example"; // string | A shipment identifier originally returned by the createInboundShipmentPlan operation.
 
 try {
@@ -157,12 +157,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\InboundShipmentRequest**](../Model/InboundShipmentRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest**](../Model/InboundShipmentRequest.md)|  |
  **shipment_id** | **string**| A shipment identifier originally returned by the createInboundShipmentPlan operation. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\InboundShipmentResponse**](../Model/InboundShipmentResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentResponse**](../Model/InboundShipmentResponse.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createInboundShipmentPlan**
-> \Popsicle\Amazon\Model\CreateInboundShipmentPlanResponse createInboundShipmentPlan($body)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\CreateInboundShipmentPlanResponse createInboundShipmentPlan($body)
 
 
 
@@ -187,12 +187,12 @@ Returns one or more inbound shipment plans, which provide the information you ne
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateInboundShipmentPlanRequest(); // \Popsicle\Amazon\Model\CreateInboundShipmentPlanRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInboundV0\CreateInboundShipmentPlanRequest(); // \Popsicle\Amazon\Model\FulfillmentInboundV0\CreateInboundShipmentPlanRequest | 
 
 try {
     $result = $apiInstance->createInboundShipmentPlan($body);
@@ -207,11 +207,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateInboundShipmentPlanRequest**](../Model/CreateInboundShipmentPlanRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInboundV0\CreateInboundShipmentPlanRequest**](../Model/CreateInboundShipmentPlanRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateInboundShipmentPlanResponse**](../Model/CreateInboundShipmentPlanResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\CreateInboundShipmentPlanResponse**](../Model/CreateInboundShipmentPlanResponse.md)
 
 ### Authorization
 
@@ -225,7 +225,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **estimateTransport**
-> \Popsicle\Amazon\Model\EstimateTransportResponse estimateTransport($shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\EstimateTransportResponse estimateTransport($shipment_id)
 
 
 
@@ -236,7 +236,7 @@ Initiates the process of estimating the shipping cost for an inbound shipment by
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\EstimateTransportResponse**](../Model/EstimateTransportResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\EstimateTransportResponse**](../Model/EstimateTransportResponse.md)
 
 ### Authorization
 
@@ -274,7 +274,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getBillOfLading**
-> \Popsicle\Amazon\Model\GetBillOfLadingResponse getBillOfLading($shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetBillOfLadingResponse getBillOfLading($shipment_id)
 
 
 
@@ -285,7 +285,7 @@ Returns a bill of lading for a Less Than Truckload/Full Truckload (LTL/FTL) ship
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetBillOfLadingResponse**](../Model/GetBillOfLadingResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetBillOfLadingResponse**](../Model/GetBillOfLadingResponse.md)
 
 ### Authorization
 
@@ -323,7 +323,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getInboundGuidance**
-> \Popsicle\Amazon\Model\GetInboundGuidanceResponse getInboundGuidance($marketplace_id, $seller_sku_list, $asin_list)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetInboundGuidanceResponse getInboundGuidance($marketplace_id, $seller_sku_list, $asin_list)
 
 
 
@@ -334,7 +334,7 @@ Returns information that lets a seller know if Amazon recommends sending an item
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -362,7 +362,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetInboundGuidanceResponse**](../Model/GetInboundGuidanceResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetInboundGuidanceResponse**](../Model/GetInboundGuidanceResponse.md)
 
 ### Authorization
 
@@ -376,7 +376,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getLabels**
-> \Popsicle\Amazon\Model\GetLabelsResponse getLabels($shipment_id, $page_type, $label_type, $number_of_packages, $package_labels_to_print, $number_of_pallets, $page_size, $page_start_index)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetLabelsResponse getLabels($shipment_id, $page_type, $label_type, $number_of_packages, $package_labels_to_print, $number_of_pallets, $page_size, $page_start_index)
 
 
 
@@ -387,7 +387,7 @@ Returns package/pallet labels for faster and more accurate shipment processing a
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -425,7 +425,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetLabelsResponse**](../Model/GetLabelsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetLabelsResponse**](../Model/GetLabelsResponse.md)
 
 ### Authorization
 
@@ -439,7 +439,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPreorderInfo**
-> \Popsicle\Amazon\Model\GetPreorderInfoResponse getPreorderInfo($shipment_id, $marketplace_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetPreorderInfoResponse getPreorderInfo($shipment_id, $marketplace_id)
 
 
 
@@ -450,7 +450,7 @@ Returns pre-order information, including dates, that a seller needs before confi
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPreorderInfoResponse**](../Model/GetPreorderInfoResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetPreorderInfoResponse**](../Model/GetPreorderInfoResponse.md)
 
 ### Authorization
 
@@ -490,7 +490,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPrepInstructions**
-> \Popsicle\Amazon\Model\GetPrepInstructionsResponse getPrepInstructions($ship_to_country_code, $seller_sku_list, $asin_list)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetPrepInstructionsResponse getPrepInstructions($ship_to_country_code, $seller_sku_list, $asin_list)
 
 
 
@@ -501,7 +501,7 @@ Returns labeling requirements and item preparation instructions to help prepare 
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -529,7 +529,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPrepInstructionsResponse**](../Model/GetPrepInstructionsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetPrepInstructionsResponse**](../Model/GetPrepInstructionsResponse.md)
 
 ### Authorization
 
@@ -543,7 +543,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShipmentItems**
-> \Popsicle\Amazon\Model\GetShipmentItemsResponse getShipmentItems($query_type, $marketplace_id, $last_updated_after, $last_updated_before, $next_token)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentItemsResponse getShipmentItems($query_type, $marketplace_id, $last_updated_after, $last_updated_before, $next_token)
 
 
 
@@ -554,7 +554,7 @@ Returns a list of items in a specified inbound shipment, or a list of items that
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -586,7 +586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShipmentItemsResponse**](../Model/GetShipmentItemsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentItemsResponse**](../Model/GetShipmentItemsResponse.md)
 
 ### Authorization
 
@@ -600,7 +600,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShipmentItemsByShipmentId**
-> \Popsicle\Amazon\Model\GetShipmentItemsResponse getShipmentItemsByShipmentId($shipment_id, $marketplace_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentItemsResponse getShipmentItemsByShipmentId($shipment_id, $marketplace_id)
 
 
 
@@ -611,7 +611,7 @@ Returns a list of items in a specified inbound shipment.  **Usage Plan:**  | Rat
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -637,7 +637,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShipmentItemsResponse**](../Model/GetShipmentItemsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentItemsResponse**](../Model/GetShipmentItemsResponse.md)
 
 ### Authorization
 
@@ -651,7 +651,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getShipments**
-> \Popsicle\Amazon\Model\GetShipmentsResponse getShipments($query_type, $marketplace_id, $shipment_status_list, $shipment_id_list, $last_updated_after, $last_updated_before, $next_token)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentsResponse getShipments($query_type, $marketplace_id, $shipment_status_list, $shipment_id_list, $last_updated_after, $last_updated_before, $next_token)
 
 
 
@@ -662,7 +662,7 @@ Returns a list of inbound shipments based on criteria that you specify.  **Usage
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -698,7 +698,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetShipmentsResponse**](../Model/GetShipmentsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetShipmentsResponse**](../Model/GetShipmentsResponse.md)
 
 ### Authorization
 
@@ -712,7 +712,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getTransportDetails**
-> \Popsicle\Amazon\Model\GetTransportDetailsResponse getTransportDetails($shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\GetTransportDetailsResponse getTransportDetails($shipment_id)
 
 
 
@@ -723,7 +723,7 @@ Returns current transportation information about an inbound shipment.  **Usage P
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -747,7 +747,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetTransportDetailsResponse**](../Model/GetTransportDetailsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\GetTransportDetailsResponse**](../Model/GetTransportDetailsResponse.md)
 
 ### Authorization
 
@@ -761,7 +761,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **putTransportDetails**
-> \Popsicle\Amazon\Model\PutTransportDetailsResponse putTransportDetails($body, $shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\PutTransportDetailsResponse putTransportDetails($body, $shipment_id)
 
 
 
@@ -772,12 +772,12 @@ Sends transportation information to Amazon about an inbound shipment.  **Usage P
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PutTransportDetailsRequest(); // \Popsicle\Amazon\Model\PutTransportDetailsRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInboundV0\PutTransportDetailsRequest(); // \Popsicle\Amazon\Model\FulfillmentInboundV0\PutTransportDetailsRequest | 
 $shipment_id = "shipment_id_example"; // string | A shipment identifier originally returned by the createInboundShipmentPlan operation.
 
 try {
@@ -793,12 +793,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PutTransportDetailsRequest**](../Model/PutTransportDetailsRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInboundV0\PutTransportDetailsRequest**](../Model/PutTransportDetailsRequest.md)|  |
  **shipment_id** | **string**| A shipment identifier originally returned by the createInboundShipmentPlan operation. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PutTransportDetailsResponse**](../Model/PutTransportDetailsResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\PutTransportDetailsResponse**](../Model/PutTransportDetailsResponse.md)
 
 ### Authorization
 
@@ -812,23 +812,23 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateInboundShipment**
-> \Popsicle\Amazon\Model\InboundShipmentResponse updateInboundShipment($body, $shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentResponse updateInboundShipment($body, $shipment_id)
 
 
 
-Adds, updates, or removes items from the inbound shipment identified by the specified shipment identifier.   **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 2 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
+Updates or removes items from the inbound shipment identified by the specified shipment identifier. Adding new items is not supported.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 2 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\InboundShipmentRequest(); // \Popsicle\Amazon\Model\InboundShipmentRequest | 
+$body = new \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest(); // \Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest | 
 $shipment_id = "shipment_id_example"; // string | A shipment identifier originally returned by the createInboundShipmentPlan operation.
 
 try {
@@ -844,12 +844,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\InboundShipmentRequest**](../Model/InboundShipmentRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentRequest**](../Model/InboundShipmentRequest.md)|  |
  **shipment_id** | **string**| A shipment identifier originally returned by the createInboundShipmentPlan operation. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\InboundShipmentResponse**](../Model/InboundShipmentResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\InboundShipmentResponse**](../Model/InboundShipmentResponse.md)
 
 ### Authorization
 
@@ -863,7 +863,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **voidTransport**
-> \Popsicle\Amazon\Model\VoidTransportResponse voidTransport($shipment_id)
+> \Popsicle\Amazon\Model\FulfillmentInboundV0\VoidTransportResponse voidTransport($shipment_id)
 
 
 
@@ -874,7 +874,7 @@ Cancels a previously-confirmed request to ship an inbound shipment using an Amaz
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\FbaInboundApi(
+$apiInstance = new Popsicle\Amazon\Api\FulfillmentInboundV0\FbaInboundApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -898,7 +898,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\VoidTransportResponse**](../Model/VoidTransportResponse.md)
+[**\Popsicle\Amazon\Model\FulfillmentInboundV0\VoidTransportResponse**](../Model/VoidTransportResponse.md)
 
 ### Authorization
 

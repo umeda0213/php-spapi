@@ -10,9 +10,9 @@
  */
 
 /**
- * Selling Partner API for Authorization
+ * Selling Partner API for Retail Procurement Transaction Status
  *
- * The Selling Partner API for Authorization helps developers manage authorizations and check the specific permissions associated with a given authorization.
+ * The Selling Partner API for Retail Procurement Transaction Status provides programmatic access to status information on specific asynchronous POST transactions for vendors.
  *
  * OpenAPI spec version: v1
  * 
@@ -110,6 +110,15 @@ class Configuration
      */
     protected $tempFolderPath;
 
+    /** @var string|null */
+    protected $securityToken;
+    /** @var string|null */
+    protected $accessKey;
+    /** @var string|null */
+    protected $secretKey;
+    /** @var string|null */
+    protected $region;
+
     /**
      * Constructor
      */
@@ -129,6 +138,19 @@ class Configuration
     public function setApiKey($apiKeyIdentifier, $key)
     {
         $this->apiKeys[$apiKeyIdentifier] = $key;
+        if ('accessKey' == $apiKeyIdentifier) {
+            $this->setAccessKey($key);
+        }
+        if ('secretKey' == $apiKeyIdentifier) {
+            $this->setSecretKey($key);
+        }
+        if ('region' == $apiKeyIdentifier) {
+            $this->setRegion($key);
+        }
+        if ('sessionToken' == $apiKeyIdentifier || 'securityToken' == $apiKeyIdentifier) {
+            $this->setSecurityToken($key);
+        }
+
         return $this;
     }
 
@@ -424,5 +446,45 @@ class Configuration
         }
 
         return $keyWithPrefix;
+    }
+
+    public function getSecurityToken(): ?string
+    {
+        return $this->securityToken;
+    }
+
+    public function setSecurityToken(?string $securityToken): void
+    {
+        $this->securityToken = $securityToken;
+    }
+
+    public function getAccessKey(): ?string
+    {
+        return $this->accessKey;
+    }
+
+    public function setAccessKey(?string $accessKey): void
+    {
+        $this->accessKey = $accessKey;
+    }
+
+    public function getSecretKey(): ?string
+    {
+        return $this->secretKey;
+    }
+
+    public function setSecretKey(?string $secretKey): void
+    {
+        $this->secretKey = $secretKey;
+    }
+
+    public function getRegion(): ?string
+    {
+        return $this->region;
+    }
+
+    public function setRegion(?string $region): void
+    {
+        $this->region = $region;
     }
 }

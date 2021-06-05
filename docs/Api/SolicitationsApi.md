@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**getSolicitationActionsForOrder**](SolicitationsApi.md#getsolicitationactionsfororder) | **GET** /solicitations/v1/orders/{amazonOrderId} | 
 
 # **createProductReviewAndSellerFeedbackSolicitation**
-> \Popsicle\Amazon\Model\CreateProductReviewAndSellerFeedbackSolicitationResponse createProductReviewAndSellerFeedbackSolicitation($amazon_order_id, $marketplace_ids)
+> \Popsicle\Amazon\Model\Solicitations\CreateProductReviewAndSellerFeedbackSolicitationResponse createProductReviewAndSellerFeedbackSolicitation($amazon_order_id, $marketplace_ids)
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateProductReviewAndSellerFeedbackSolicitationResponse**](../Model/CreateProductReviewAndSellerFeedbackSolicitationResponse.md)
+[**\Popsicle\Amazon\Model\Solicitations\CreateProductReviewAndSellerFeedbackSolicitationResponse**](../Model/CreateProductReviewAndSellerFeedbackSolicitationResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSolicitationActionsForOrder**
-> \Popsicle\Amazon\Model\GetSolicitationActionsForOrderResponse getSolicitationActionsForOrder($amazon_order_id, $marketplace_ids)
+> \Popsicle\Amazon\Model\Solicitations\GetSolicitationActionsForOrderResponse getSolicitationActionsForOrder($amazon_order_id, $marketplace_ids)
 
 
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetSolicitationActionsForOrderResponse**](../Model/GetSolicitationActionsForOrderResponse.md)
+[**\Popsicle\Amazon\Model\Solicitations\GetSolicitationActionsForOrderResponse**](../Model/GetSolicitationActionsForOrderResponse.md)
 
 ### Authorization
 

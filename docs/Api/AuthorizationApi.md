@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getAuthorizationCode**](AuthorizationApi.md#getauthorizationcode) | **GET** /authorization/v1/authorizationCode | Returns the Login with Amazon (LWA) authorization code for an existing Amazon MWS authorization.
 
 # **getAuthorizationCode**
-> \Popsicle\Amazon\Model\GetAuthorizationCodeResponse getAuthorizationCode($selling_partner_id, $developer_id, $mws_auth_token)
+> \Popsicle\Amazon\Model\Authorization\GetAuthorizationCodeResponse getAuthorizationCode($selling_partner_id, $developer_id, $mws_auth_token)
 
 Returns the Login with Amazon (LWA) authorization code for an existing Amazon MWS authorization.
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetAuthorizationCodeResponse**](../Model/GetAuthorizationCodeResponse.md)
+[**\Popsicle\Amazon\Model\Authorization\GetAuthorizationCodeResponse**](../Model/GetAuthorizationCodeResponse.md)
 
 ### Authorization
 

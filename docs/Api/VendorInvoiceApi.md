@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**submitInvoice**](VendorInvoiceApi.md#submitinvoice) | **POST** /vendor/directFulfillment/payments/v1/invoices | 
 
 # **submitInvoice**
-> \Popsicle\Amazon\Model\SubmitInvoiceResponse submitInvoice($body)
+> \Popsicle\Amazon\Model\VendorDirectFulfillmentPaymentsV1\SubmitInvoiceResponse submitInvoice($body)
 
 
 
@@ -23,7 +23,7 @@ $apiInstance = new Popsicle\Amazon\Api\VendorInvoiceApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SubmitInvoiceRequest(); // \Popsicle\Amazon\Model\SubmitInvoiceRequest | 
+$body = new \Popsicle\Amazon\Model\VendorDirectFulfillmentPaymentsV1\SubmitInvoiceRequest(); // \Popsicle\Amazon\Model\VendorDirectFulfillmentPaymentsV1\SubmitInvoiceRequest | 
 
 try {
     $result = $apiInstance->submitInvoice($body);
@@ -38,11 +38,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SubmitInvoiceRequest**](../Model/SubmitInvoiceRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentPaymentsV1\SubmitInvoiceRequest**](../Model/SubmitInvoiceRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SubmitInvoiceResponse**](../Model/SubmitInvoiceResponse.md)
+[**\Popsicle\Amazon\Model\VendorDirectFulfillmentPaymentsV1\SubmitInvoiceResponse**](../Model/SubmitInvoiceResponse.md)
 
 ### Authorization
 

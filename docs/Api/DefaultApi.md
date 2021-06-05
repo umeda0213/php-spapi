@@ -10,18 +10,19 @@ Method | HTTP request | Description
 [**listFinancialEventsByOrderId**](DefaultApi.md#listfinancialeventsbyorderid) | **GET** /finances/v0/orders/{orderId}/financialEvents | 
 
 # **listFinancialEventGroups**
-> \Popsicle\Amazon\Model\ListFinancialEventGroupsResponse listFinancialEventGroups($max_results_per_page, $financial_event_group_started_before, $financial_event_group_started_after, $next_token)
+> \Popsicle\Amazon\Model\Finances\ListFinancialEventGroupsResponse listFinancialEventGroups($max_results_per_page, $financial_event_group_started_before, $financial_event_group_started_after, $next_token)
 
 
 
 Returns financial event groups for a given date range.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 0.5 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\DefaultApi(
+$apiInstance = new Popsicle\Amazon\Api\FinancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -51,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListFinancialEventGroupsResponse**](../Model/ListFinancialEventGroupsResponse.md)
+[**\Popsicle\Amazon\Model\Finances\ListFinancialEventGroupsResponse**](../Model/ListFinancialEventGroupsResponse.md)
 
 ### Authorization
 
@@ -65,18 +66,19 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFinancialEvents**
-> \Popsicle\Amazon\Model\ListFinancialEventsResponse listFinancialEvents($max_results_per_page, $posted_after, $posted_before, $next_token)
+> \Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse listFinancialEvents($max_results_per_page, $posted_after, $posted_before, $next_token)
 
 
 
 Returns financial events for the specified data range.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 0.5 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\DefaultApi(
+$apiInstance = new Popsicle\Amazon\Api\FinancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -106,7 +108,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
+[**\Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
 
 ### Authorization
 
@@ -120,18 +122,19 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFinancialEventsByGroupId**
-> \Popsicle\Amazon\Model\ListFinancialEventsResponse listFinancialEventsByGroupId($event_group_id, $max_results_per_page, $next_token)
+> \Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse listFinancialEventsByGroupId($event_group_id, $max_results_per_page, $next_token)
 
 
 
 Returns all financial events for the specified financial event group.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 0.5 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\DefaultApi(
+$apiInstance = new Popsicle\Amazon\Api\FinancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -159,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
+[**\Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
 
 ### Authorization
 
@@ -173,18 +176,19 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listFinancialEventsByOrderId**
-> \Popsicle\Amazon\Model\ListFinancialEventsResponse listFinancialEventsByOrderId($order_id, $max_results_per_page, $next_token)
+> \Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse listFinancialEventsByOrderId($order_id, $max_results_per_page, $next_token)
 
 
 
 Returns all financial events for the specified order.  **Usage Plan:**  | Rate (requests per second) | Burst | | ---- | ---- | | 0.5 | 30 |  For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Popsicle\Amazon\Api\DefaultApi(
+$apiInstance = new Popsicle\Amazon\Api\FinancesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -212,7 +216,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
+[**\Popsicle\Amazon\Model\Finances\ListFinancialEventsResponse**](../Model/ListFinancialEventsResponse.md)
 
 ### Authorization
 

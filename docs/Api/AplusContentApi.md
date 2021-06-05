@@ -16,7 +16,7 @@ Method | HTTP request | Description
 [**validateContentDocumentAsinRelations**](AplusContentApi.md#validatecontentdocumentasinrelations) | **POST** /aplus/2020-11-01/contentAsinValidations | 
 
 # **createContentDocument**
-> \Popsicle\Amazon\Model\PostContentDocumentResponse createContentDocument($body, $marketplace_id)
+> \Popsicle\Amazon\Model\AplusContent\PostContentDocumentResponse createContentDocument($body, $marketplace_id)
 
 
 
@@ -32,7 +32,7 @@ $apiInstance = new Popsicle\Amazon\Api\AplusContentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\PostContentDocumentRequest | The content document request details.
+$body = new \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest | The content document request details.
 $marketplace_id = "marketplace_id_example"; // string | The identifier for the marketplace where the A+ Content is published.
 
 try {
@@ -48,12 +48,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
+ **body** | [**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
  **marketplace_id** | **string**| The identifier for the marketplace where the A+ Content is published. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PostContentDocumentResponse**](../Model/PostContentDocumentResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentResponse**](../Model/PostContentDocumentResponse.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getContentDocument**
-> \Popsicle\Amazon\Model\GetContentDocumentResponse getContentDocument($content_reference_key, $marketplace_id, $included_data_set)
+> \Popsicle\Amazon\Model\AplusContent\GetContentDocumentResponse getContentDocument($content_reference_key, $marketplace_id, $included_data_set)
 
 
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetContentDocumentResponse**](../Model/GetContentDocumentResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\GetContentDocumentResponse**](../Model/GetContentDocumentResponse.md)
 
 ### Authorization
 
@@ -120,7 +120,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listContentDocumentAsinRelations**
-> \Popsicle\Amazon\Model\ListContentDocumentAsinRelationsResponse listContentDocumentAsinRelations($content_reference_key, $marketplace_id, $included_data_set, $asin_set, $page_token)
+> \Popsicle\Amazon\Model\AplusContent\ListContentDocumentAsinRelationsResponse listContentDocumentAsinRelations($content_reference_key, $marketplace_id, $included_data_set, $asin_set, $page_token)
 
 
 
@@ -163,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ListContentDocumentAsinRelationsResponse**](../Model/ListContentDocumentAsinRelationsResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\ListContentDocumentAsinRelationsResponse**](../Model/ListContentDocumentAsinRelationsResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postContentDocumentApprovalSubmission**
-> \Popsicle\Amazon\Model\PostContentDocumentApprovalSubmissionResponse postContentDocumentApprovalSubmission($content_reference_key, $marketplace_id)
+> \Popsicle\Amazon\Model\AplusContent\PostContentDocumentApprovalSubmissionResponse postContentDocumentApprovalSubmission($content_reference_key, $marketplace_id)
 
 
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PostContentDocumentApprovalSubmissionResponse**](../Model/PostContentDocumentApprovalSubmissionResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentApprovalSubmissionResponse**](../Model/PostContentDocumentApprovalSubmissionResponse.md)
 
 ### Authorization
 
@@ -228,7 +228,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postContentDocumentAsinRelations**
-> \Popsicle\Amazon\Model\PostContentDocumentAsinRelationsResponse postContentDocumentAsinRelations($body, $marketplace_id, $content_reference_key)
+> \Popsicle\Amazon\Model\AplusContent\PostContentDocumentAsinRelationsResponse postContentDocumentAsinRelations($body, $marketplace_id, $content_reference_key)
 
 
 
@@ -244,7 +244,7 @@ $apiInstance = new Popsicle\Amazon\Api\AplusContentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PostContentDocumentAsinRelationsRequest(); // \Popsicle\Amazon\Model\PostContentDocumentAsinRelationsRequest | The content document ASIN relations request details.
+$body = new \Popsicle\Amazon\Model\AplusContent\PostContentDocumentAsinRelationsRequest(); // \Popsicle\Amazon\Model\AplusContent\PostContentDocumentAsinRelationsRequest | The content document ASIN relations request details.
 $marketplace_id = "marketplace_id_example"; // string | The identifier for the marketplace where the A+ Content is published.
 $content_reference_key = "content_reference_key_example"; // string | The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ content identifier.
 
@@ -261,13 +261,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PostContentDocumentAsinRelationsRequest**](../Model/PostContentDocumentAsinRelationsRequest.md)| The content document ASIN relations request details. |
+ **body** | [**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentAsinRelationsRequest**](../Model/PostContentDocumentAsinRelationsRequest.md)| The content document ASIN relations request details. |
  **marketplace_id** | **string**| The identifier for the marketplace where the A+ Content is published. |
  **content_reference_key** | **string**| The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ content identifier. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PostContentDocumentAsinRelationsResponse**](../Model/PostContentDocumentAsinRelationsResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentAsinRelationsResponse**](../Model/PostContentDocumentAsinRelationsResponse.md)
 
 ### Authorization
 
@@ -281,7 +281,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **postContentDocumentSuspendSubmission**
-> \Popsicle\Amazon\Model\PostContentDocumentSuspendSubmissionResponse postContentDocumentSuspendSubmission($content_reference_key, $marketplace_id)
+> \Popsicle\Amazon\Model\AplusContent\PostContentDocumentSuspendSubmissionResponse postContentDocumentSuspendSubmission($content_reference_key, $marketplace_id)
 
 
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PostContentDocumentSuspendSubmissionResponse**](../Model/PostContentDocumentSuspendSubmissionResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentSuspendSubmissionResponse**](../Model/PostContentDocumentSuspendSubmissionResponse.md)
 
 ### Authorization
 
@@ -332,7 +332,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchContentDocuments**
-> \Popsicle\Amazon\Model\SearchContentDocumentsResponse searchContentDocuments($marketplace_id, $page_token)
+> \Popsicle\Amazon\Model\AplusContent\SearchContentDocumentsResponse searchContentDocuments($marketplace_id, $page_token)
 
 
 
@@ -369,7 +369,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SearchContentDocumentsResponse**](../Model/SearchContentDocumentsResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\SearchContentDocumentsResponse**](../Model/SearchContentDocumentsResponse.md)
 
 ### Authorization
 
@@ -383,7 +383,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **searchContentPublishRecords**
-> \Popsicle\Amazon\Model\SearchContentPublishRecordsResponse searchContentPublishRecords($marketplace_id, $asin, $page_token)
+> \Popsicle\Amazon\Model\AplusContent\SearchContentPublishRecordsResponse searchContentPublishRecords($marketplace_id, $asin, $page_token)
 
 
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SearchContentPublishRecordsResponse**](../Model/SearchContentPublishRecordsResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\SearchContentPublishRecordsResponse**](../Model/SearchContentPublishRecordsResponse.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateContentDocument**
-> \Popsicle\Amazon\Model\PostContentDocumentResponse updateContentDocument($body, $marketplace_id, $content_reference_key)
+> \Popsicle\Amazon\Model\AplusContent\PostContentDocumentResponse updateContentDocument($body, $marketplace_id, $content_reference_key)
 
 
 
@@ -452,7 +452,7 @@ $apiInstance = new Popsicle\Amazon\Api\AplusContentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\PostContentDocumentRequest | The content document request details.
+$body = new \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest | The content document request details.
 $marketplace_id = "marketplace_id_example"; // string | The identifier for the marketplace where the A+ Content is published.
 $content_reference_key = "content_reference_key_example"; // string | The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier.
 
@@ -469,13 +469,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
+ **body** | [**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
  **marketplace_id** | **string**| The identifier for the marketplace where the A+ Content is published. |
  **content_reference_key** | **string**| The unique reference key for the A+ Content document. A content reference key cannot form a permalink and may change in the future. A content reference key is not guaranteed to match any A+ Content identifier. |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\PostContentDocumentResponse**](../Model/PostContentDocumentResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentResponse**](../Model/PostContentDocumentResponse.md)
 
 ### Authorization
 
@@ -489,7 +489,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **validateContentDocumentAsinRelations**
-> \Popsicle\Amazon\Model\ValidateContentDocumentAsinRelationsResponse validateContentDocumentAsinRelations($body, $marketplace_id, $asin_set)
+> \Popsicle\Amazon\Model\AplusContent\ValidateContentDocumentAsinRelationsResponse validateContentDocumentAsinRelations($body, $marketplace_id, $asin_set)
 
 
 
@@ -505,7 +505,7 @@ $apiInstance = new Popsicle\Amazon\Api\AplusContentApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\PostContentDocumentRequest | The content document request details.
+$body = new \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest(); // \Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest | The content document request details.
 $marketplace_id = "marketplace_id_example"; // string | The identifier for the marketplace where the A+ Content is published.
 $asin_set = array("asin_set_example"); // string[] | The set of ASINs.
 
@@ -522,13 +522,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
+ **body** | [**\Popsicle\Amazon\Model\AplusContent\PostContentDocumentRequest**](../Model/PostContentDocumentRequest.md)| The content document request details. |
  **marketplace_id** | **string**| The identifier for the marketplace where the A+ Content is published. |
  **asin_set** | [**string[]**](../Model/string.md)| The set of ASINs. | [optional]
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\ValidateContentDocumentAsinRelationsResponse**](../Model/ValidateContentDocumentAsinRelationsResponse.md)
+[**\Popsicle\Amazon\Model\AplusContent\ValidateContentDocumentAsinRelationsResponse**](../Model/ValidateContentDocumentAsinRelationsResponse.md)
 
 ### Authorization
 

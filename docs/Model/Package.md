@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **manifest_id** | **string** | Carrier manifest Id (Applicable for LTL shipments). | [optional] 
 **manifest_date** | [**\DateTime**](\DateTime.md) | Carrier manifest Date (Applicable for LTL shipments). | [optional] 
 **ship_method** | **string** | Shipment method. | [optional] 
-**weight** | [**\Popsicle\Amazon\Model\Weight**](Weight.md) |  | 
-**dimensions** | [**\Popsicle\Amazon\Model\Dimensions**](Dimensions.md) |  | [optional] 
+**weight** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\Weight**](Weight.md) |  | 
+**dimensions** | [**\Popsicle\Amazon\Model\VendorDirectFulfillmentShippingV1\Dimensions**](Dimensions.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

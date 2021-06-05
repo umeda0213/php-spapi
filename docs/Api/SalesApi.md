@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getOrderMetrics**](SalesApi.md#getordermetrics) | **GET** /sales/v1/orderMetrics | 
 
 # **getOrderMetrics**
-> \Popsicle\Amazon\Model\GetOrderMetricsResponse getOrderMetrics($marketplace_ids, $interval, $granularity, $granularity_time_zone, $buyer_type, $fulfillment_network, $first_day_of_week, $asin, $sku)
+> \Popsicle\Amazon\Model\Sales\GetOrderMetricsResponse getOrderMetrics($marketplace_ids, $interval, $granularity, $granularity_time_zone, $buyer_type, $fulfillment_network, $first_day_of_week, $asin, $sku)
 
 
 
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetOrderMetricsResponse**](../Model/GetOrderMetricsResponse.md)
+[**\Popsicle\Amazon\Model\Sales\GetOrderMetricsResponse**](../Model/GetOrderMetricsResponse.md)
 
 ### Authorization
 

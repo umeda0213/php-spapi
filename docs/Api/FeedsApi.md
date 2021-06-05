@@ -60,7 +60,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFeed**
-> \Popsicle\Amazon\Model\CreateFeedResponse createFeed($body)
+> \Popsicle\Amazon\Model\Feeds\CreateFeedResponse createFeed($body)
 
 
 
@@ -76,7 +76,7 @@ $apiInstance = new Popsicle\Amazon\Api\FeedsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateFeedSpecification(); // \Popsicle\Amazon\Model\CreateFeedSpecification | 
+$body = new \Popsicle\Amazon\Model\Feeds\CreateFeedSpecification(); // \Popsicle\Amazon\Model\Feeds\CreateFeedSpecification | 
 
 try {
     $result = $apiInstance->createFeed($body);
@@ -91,11 +91,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateFeedSpecification**](../Model/CreateFeedSpecification.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Feeds\CreateFeedSpecification**](../Model/CreateFeedSpecification.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateFeedResponse**](../Model/CreateFeedResponse.md)
+[**\Popsicle\Amazon\Model\Feeds\CreateFeedResponse**](../Model/CreateFeedResponse.md)
 
 ### Authorization
 
@@ -109,7 +109,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **createFeedDocument**
-> \Popsicle\Amazon\Model\CreateFeedDocumentResponse createFeedDocument($body)
+> \Popsicle\Amazon\Model\Feeds\CreateFeedDocumentResponse createFeedDocument($body)
 
 
 
@@ -125,7 +125,7 @@ $apiInstance = new Popsicle\Amazon\Api\FeedsApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\CreateFeedDocumentSpecification(); // \Popsicle\Amazon\Model\CreateFeedDocumentSpecification | 
+$body = new \Popsicle\Amazon\Model\Feeds\CreateFeedDocumentSpecification(); // \Popsicle\Amazon\Model\Feeds\CreateFeedDocumentSpecification | 
 
 try {
     $result = $apiInstance->createFeedDocument($body);
@@ -140,11 +140,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\CreateFeedDocumentSpecification**](../Model/CreateFeedDocumentSpecification.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\Feeds\CreateFeedDocumentSpecification**](../Model/CreateFeedDocumentSpecification.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\CreateFeedDocumentResponse**](../Model/CreateFeedDocumentResponse.md)
+[**\Popsicle\Amazon\Model\Feeds\CreateFeedDocumentResponse**](../Model/CreateFeedDocumentResponse.md)
 
 ### Authorization
 
@@ -158,7 +158,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeed**
-> \Popsicle\Amazon\Model\Feed getFeed($feed_id)
+> \Popsicle\Amazon\Model\Feeds\Feed getFeed($feed_id)
 
 
 
@@ -193,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\Feed**](../Model/Feed.md)
+[**\Popsicle\Amazon\Model\Feeds\Feed**](../Model/Feed.md)
 
 ### Authorization
 
@@ -207,7 +207,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeedDocument**
-> \Popsicle\Amazon\Model\FeedDocument getFeedDocument($feed_document_id)
+> \Popsicle\Amazon\Model\Feeds\FeedDocument getFeedDocument($feed_document_id)
 
 
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\FeedDocument**](../Model/FeedDocument.md)
+[**\Popsicle\Amazon\Model\Feeds\FeedDocument**](../Model/FeedDocument.md)
 
 ### Authorization
 
@@ -256,7 +256,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getFeeds**
-> \Popsicle\Amazon\Model\GetFeedsResponse getFeeds($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token)
+> \Popsicle\Amazon\Model\Feeds\GetFeedsResponse getFeeds($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token)
 
 
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetFeedsResponse**](../Model/GetFeedsResponse.md)
+[**\Popsicle\Amazon\Model\Feeds\GetFeedsResponse**](../Model/GetFeedsResponse.md)
 
 ### Authorization
 

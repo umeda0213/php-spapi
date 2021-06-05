@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**submitAcknowledgement**](VendorOrdersApi.md#submitacknowledgement) | **POST** /vendor/orders/v1/acknowledgements | 
 
 # **getPurchaseOrder**
-> \Popsicle\Amazon\Model\GetPurchaseOrderResponse getPurchaseOrder($purchase_order_number)
+> \Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrderResponse getPurchaseOrder($purchase_order_number)
 
 
 
@@ -45,7 +45,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPurchaseOrderResponse**](../Model/GetPurchaseOrderResponse.md)
+[**\Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrderResponse**](../Model/GetPurchaseOrderResponse.md)
 
 ### Authorization
 
@@ -59,7 +59,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrders**
-> \Popsicle\Amazon\Model\GetPurchaseOrdersResponse getPurchaseOrders($limit, $created_after, $created_before, $sort_order, $next_token, $include_details, $changed_after, $changed_before, $po_item_state, $is_po_changed, $purchase_order_state, $ordering_vendor_code)
+> \Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrdersResponse getPurchaseOrders($limit, $created_after, $created_before, $sort_order, $next_token, $include_details, $changed_after, $changed_before, $po_item_state, $is_po_changed, $purchase_order_state, $ordering_vendor_code)
 
 
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPurchaseOrdersResponse**](../Model/GetPurchaseOrdersResponse.md)
+[**\Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrdersResponse**](../Model/GetPurchaseOrdersResponse.md)
 
 ### Authorization
 
@@ -130,7 +130,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPurchaseOrdersStatus**
-> \Popsicle\Amazon\Model\GetPurchaseOrdersStatusResponse getPurchaseOrdersStatus($limit, $sort_order, $next_token, $created_after, $created_before, $updated_after, $updated_before, $purchase_order_number, $purchase_order_status, $item_confirmation_status, $ordering_vendor_code, $ship_to_party_id)
+> \Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrdersStatusResponse getPurchaseOrdersStatus($limit, $sort_order, $next_token, $created_after, $created_before, $updated_after, $updated_before, $purchase_order_number, $purchase_order_status, $item_confirmation_status, $ordering_vendor_code, $ship_to_party_id)
 
 
 
@@ -187,7 +187,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\GetPurchaseOrdersStatusResponse**](../Model/GetPurchaseOrdersStatusResponse.md)
+[**\Popsicle\Amazon\Model\VendorOrders\GetPurchaseOrdersStatusResponse**](../Model/GetPurchaseOrdersStatusResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **submitAcknowledgement**
-> \Popsicle\Amazon\Model\SubmitAcknowledgementResponse submitAcknowledgement($body)
+> \Popsicle\Amazon\Model\VendorOrders\SubmitAcknowledgementResponse submitAcknowledgement($body)
 
 
 
@@ -217,7 +217,7 @@ $apiInstance = new Popsicle\Amazon\Api\VendorOrdersApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$body = new \Popsicle\Amazon\Model\SubmitAcknowledgementRequest(); // \Popsicle\Amazon\Model\SubmitAcknowledgementRequest | 
+$body = new \Popsicle\Amazon\Model\VendorOrders\SubmitAcknowledgementRequest(); // \Popsicle\Amazon\Model\VendorOrders\SubmitAcknowledgementRequest | 
 
 try {
     $result = $apiInstance->submitAcknowledgement($body);
@@ -232,11 +232,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Popsicle\Amazon\Model\SubmitAcknowledgementRequest**](../Model/SubmitAcknowledgementRequest.md)|  |
+ **body** | [**\Popsicle\Amazon\Model\VendorOrders\SubmitAcknowledgementRequest**](../Model/SubmitAcknowledgementRequest.md)|  |
 
 ### Return type
 
-[**\Popsicle\Amazon\Model\SubmitAcknowledgementResponse**](../Model/SubmitAcknowledgementResponse.md)
+[**\Popsicle\Amazon\Model\VendorOrders\SubmitAcknowledgementResponse**](../Model/SubmitAcknowledgementResponse.md)
 
 ### Authorization
 
