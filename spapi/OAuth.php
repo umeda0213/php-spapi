@@ -48,7 +48,7 @@ class OAuth
      *
      * @throws GuzzleException
      */
-    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret): ?string
+    public static function getAccessTokenFromRefreshToken($refreshToken, $clientId, $clientSecret)
     {
         $client = new Client();
         $params = [
