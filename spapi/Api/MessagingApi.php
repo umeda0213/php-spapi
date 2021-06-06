@@ -445,7 +445,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -808,7 +808,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1171,7 +1171,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1534,7 +1534,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1897,7 +1897,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -2260,7 +2260,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -2623,7 +2623,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -2972,7 +2972,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -3335,7 +3335,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -3698,7 +3698,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -4047,7 +4047,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -4396,7 +4396,7 @@ class MessagingApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 

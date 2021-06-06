@@ -394,7 +394,7 @@ class SmallAndLightApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -743,7 +743,7 @@ class SmallAndLightApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1092,7 +1092,7 @@ class SmallAndLightApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1410,7 +1410,7 @@ class SmallAndLightApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1759,7 +1759,7 @@ class SmallAndLightApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 

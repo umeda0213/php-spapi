@@ -376,7 +376,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -670,7 +670,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -996,7 +996,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1322,7 +1322,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1653,7 +1653,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -1984,7 +1984,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -2315,7 +2315,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -2645,7 +2645,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
@@ -3029,7 +3029,7 @@ class ReportsApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 

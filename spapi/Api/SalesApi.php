@@ -496,7 +496,7 @@ class SalesApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            isset($body) ? $body : ''
         );
     }
 
