@@ -328,6 +328,13 @@ class SmallAndLightApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -675,6 +682,13 @@ class SmallAndLightApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1024,6 +1038,13 @@ class SmallAndLightApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1337,6 +1358,13 @@ class SmallAndLightApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1688,6 +1716,13 @@ class SmallAndLightApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

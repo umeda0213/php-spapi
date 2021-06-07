@@ -375,6 +375,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -737,6 +744,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1099,6 +1113,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1461,6 +1482,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1823,6 +1851,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -2185,6 +2220,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -2547,6 +2589,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -2898,6 +2947,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -3257,6 +3313,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -3619,6 +3682,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -3971,6 +4041,13 @@ class MessagingApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/hal+json']
@@ -4318,6 +4395,13 @@ class MessagingApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

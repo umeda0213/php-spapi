@@ -389,6 +389,13 @@ class UploadsApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']

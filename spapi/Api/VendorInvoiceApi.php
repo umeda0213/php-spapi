@@ -338,6 +338,13 @@ class VendorInvoiceApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }

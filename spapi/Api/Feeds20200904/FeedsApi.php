@@ -347,6 +347,13 @@ class FeedsApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -668,6 +675,13 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -993,6 +1007,13 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1327,6 +1348,13 @@ class FeedsApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1656,6 +1684,13 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2039,6 +2074,13 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(

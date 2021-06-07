@@ -346,6 +346,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -698,6 +705,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1039,6 +1053,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1397,6 +1418,13 @@ class NotificationsApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json', 'Successful Operation Response']
@@ -1735,6 +1763,13 @@ class NotificationsApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json', 'Successful Response']
@@ -2053,6 +2088,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2383,6 +2425,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2740,6 +2789,13 @@ class NotificationsApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
