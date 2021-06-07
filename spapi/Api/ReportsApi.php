@@ -353,7 +353,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'DELETE';
@@ -647,7 +647,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'DELETE';
@@ -973,7 +973,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -1299,7 +1299,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -1630,7 +1630,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -1961,7 +1961,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2292,7 +2292,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2622,7 +2622,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -3006,7 +3006,7 @@ class ReportsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';

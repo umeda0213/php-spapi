@@ -412,7 +412,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -766,7 +766,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'PUT';
@@ -1105,7 +1105,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'PUT';
@@ -1444,7 +1444,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -1888,7 +1888,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2260,7 +2260,7 @@ class ServiceApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';

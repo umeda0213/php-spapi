@@ -393,7 +393,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -746,7 +746,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -1085,7 +1085,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'DELETE';
@@ -1443,7 +1443,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'DELETE';
@@ -1782,7 +1782,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2102,7 +2102,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2433,7 +2433,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2791,7 +2791,7 @@ class NotificationsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';

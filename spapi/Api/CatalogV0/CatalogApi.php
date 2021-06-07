@@ -397,7 +397,7 @@ class CatalogApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -734,7 +734,7 @@ class CatalogApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -1116,7 +1116,7 @@ class CatalogApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';

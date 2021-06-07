@@ -390,7 +390,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'DELETE';
@@ -716,7 +716,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -1042,7 +1042,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'POST';
@@ -1373,7 +1373,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -1704,7 +1704,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
@@ -2088,7 +2088,7 @@ class FeedsApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
         $method = 'GET';
