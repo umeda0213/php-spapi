@@ -364,7 +364,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -658,7 +658,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -984,7 +984,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1310,7 +1310,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1641,7 +1641,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1972,7 +1972,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2303,7 +2303,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2633,7 +2633,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -3017,7 +3017,7 @@ class ReportsApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,

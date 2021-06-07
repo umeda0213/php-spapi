@@ -423,7 +423,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -777,7 +777,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1116,7 +1116,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1455,7 +1455,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1899,7 +1899,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2271,7 +2271,7 @@ class ServiceApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,

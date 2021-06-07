@@ -393,7 +393,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -711,7 +711,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1015,7 +1015,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1333,7 +1333,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1656,7 +1656,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1979,7 +1979,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2316,7 +2316,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2634,7 +2634,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -2990,7 +2990,7 @@ class ShippingApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,

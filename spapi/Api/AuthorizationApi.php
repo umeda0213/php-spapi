@@ -431,7 +431,7 @@ class AuthorizationApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,

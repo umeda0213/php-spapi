@@ -408,7 +408,7 @@ class CatalogApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -745,7 +745,7 @@ class CatalogApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
@@ -1127,7 +1127,7 @@ class CatalogApi
             $method,
             $resourcePath,
             $query,
-            (string) $httpBody,
+            isset($body) ? (string) $body : '',
         );
         $headers = array_merge(
             $defaultHeaders,
