@@ -415,10 +415,9 @@ class UpdateInventoryApi
             $method,
             $resourcePath,
             $query,
-            isset($body) ? (string) $body : '',
+            (string) $httpBody
         );
         $headers = array_merge(
-            $defaultHeaders,
             $headerParams,
             $headers,
             $amazonHeader
