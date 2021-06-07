@@ -413,7 +413,7 @@ class CustomerInvoicesApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -783,7 +783,7 @@ class CustomerInvoicesApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 

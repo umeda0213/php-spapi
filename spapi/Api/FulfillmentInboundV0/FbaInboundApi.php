@@ -435,7 +435,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -758,7 +758,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1095,7 +1095,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1413,7 +1413,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1736,7 +1736,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2059,7 +2059,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2402,7 +2402,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2803,7 +2803,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -3141,7 +3141,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -3484,7 +3484,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -3845,7 +3845,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -4183,7 +4183,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -4568,7 +4568,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -4891,7 +4891,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -5228,7 +5228,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -5565,7 +5565,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -5888,7 +5888,7 @@ class FbaInboundApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 

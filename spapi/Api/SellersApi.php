@@ -394,7 +394,7 @@ class SellersApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 

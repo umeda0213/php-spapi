@@ -405,7 +405,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -728,7 +728,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1046,7 +1046,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1364,7 +1364,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1682,7 +1682,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2000,7 +2000,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2318,7 +2318,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2641,7 +2641,7 @@ class MerchantFulfillmentApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 

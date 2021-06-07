@@ -435,7 +435,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -789,7 +789,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1128,7 +1128,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1467,7 +1467,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -1911,7 +1911,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
@@ -2283,7 +2283,7 @@ class ServiceApi
             $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            isset($body) ? $body : ''
+            $httpBody
         );
     }
 
