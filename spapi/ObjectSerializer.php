@@ -253,7 +253,7 @@ class ObjectSerializer
             }
 
             return $values;
-        }/* elseif (method_exists($class, 'getSubClass')) {
+        } elseif (method_exists($class, 'getSubClass')) {
             $subClass = (new $class())->getSubClass();
             $values = [];
             foreach ($data as $key => $value) {
@@ -261,7 +261,7 @@ class ObjectSerializer
             }
 
             return $values;
-        } */elseif ($class === 'object') {
+        }elseif ($class === 'object') {
             settype($data, 'array');
             return $data;
         } elseif ($class === '\DateTime') {
