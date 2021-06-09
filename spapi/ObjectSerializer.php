@@ -230,7 +230,11 @@ class ObjectSerializer
     {
         if (null === $data) {
             return null;
-        } elseif (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
+        }
+        if (is_string($data)) {
+            $data = @json_decode($data) ?? $data;
+        }
+        if (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
             $inner = substr($class, 4, -1);
             $deserialized = [];
             if (strrpos($inner, ",") !== false) {
