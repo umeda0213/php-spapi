@@ -180,7 +180,7 @@ class NumberOfOfferListingsList implements ModelInterface, ArrayAccess, Iterable
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -264,5 +264,10 @@ class NumberOfOfferListingsList implements ModelInterface, ArrayAccess, Iterable
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+
+    public function getSubClass()
+    {
+        return OfferListingCountType::class;
     }
 }

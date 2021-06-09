@@ -180,7 +180,7 @@ class ItemList implements ModelInterface, ArrayAccess, IterableType
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }
@@ -264,5 +264,10 @@ class ItemList implements ModelInterface, ArrayAccess, IterableType
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+
+    public function getSubClass()
+    {
+        return Item::class;
     }
 }
