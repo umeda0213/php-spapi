@@ -67,7 +67,7 @@ class ShipmentEvent implements ModelInterface, ArrayAccess
 'order_fee_list' => '\Popsicle\Amazon\Model\Finances\FeeComponentList',
 'order_fee_adjustment_list' => '\Popsicle\Amazon\Model\Finances\FeeComponentList',
 'direct_payment_list' => '\Popsicle\Amazon\Model\Finances\DirectPaymentList',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'shipment_item_list' => '\Popsicle\Amazon\Model\Finances\ShipmentItemList',
 'shipment_item_adjustment_list' => '\Popsicle\Amazon\Model\Finances\ShipmentItemList'    ];
 
@@ -512,7 +512,7 @@ class ShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -522,7 +522,7 @@ class ShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

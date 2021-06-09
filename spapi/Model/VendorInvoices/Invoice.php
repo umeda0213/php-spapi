@@ -59,7 +59,7 @@ class Invoice implements ModelInterface, ArrayAccess
         'invoice_type' => 'string',
 'id' => 'string',
 'reference_number' => 'string',
-'date' => '\Popsicle\Amazon\Model\VendorInvoices\\DateTime',
+'date' => '\DateTime',
 'remit_to_party' => '\Popsicle\Amazon\Model\VendorInvoices\PartyIdentification',
 'ship_to_party' => '\Popsicle\Amazon\Model\VendorInvoices\PartyIdentification',
 'ship_from_party' => '\Popsicle\Amazon\Model\VendorInvoices\PartyIdentification',
@@ -400,7 +400,7 @@ self::INVOICE_TYPE_CREDIT_NOTE,        ];
     /**
      * Gets date
      *
-     * @return \Popsicle\Amazon\Model\VendorInvoices\\DateTime
+     * @return \DateTime
      */
     public function getDate()
     {
@@ -410,7 +410,7 @@ self::INVOICE_TYPE_CREDIT_NOTE,        ];
     /**
      * Sets date
      *
-     * @param \Popsicle\Amazon\Model\VendorInvoices\\DateTime $date date
+     * @param \DateTime $date date
      *
      * @return $this
      */

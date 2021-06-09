@@ -59,8 +59,8 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'recovery_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
 'original_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
-'group_begin_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
-'group_end_date' => '\Popsicle\Amazon\Model\Finances\\DateTime'    ];
+'group_begin_date' => '\DateTime',
+'group_end_date' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -266,7 +266,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
     /**
      * Gets group_begin_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getGroupBeginDate()
     {
@@ -276,7 +276,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
     /**
      * Sets group_begin_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $group_begin_date group_begin_date
+     * @param \DateTime $group_begin_date group_begin_date
      *
      * @return $this
      */
@@ -290,7 +290,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
     /**
      * Gets group_end_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getGroupEndDate()
     {
@@ -300,7 +300,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
     /**
      * Sets group_end_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $group_end_date group_end_date
+     * @param \DateTime $group_end_date group_end_date
      *
      * @return $this
      */

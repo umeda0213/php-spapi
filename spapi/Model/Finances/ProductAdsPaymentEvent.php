@@ -57,7 +57,7 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+        'posted_date' => '\DateTime',
 'transaction_type' => 'string',
 'invoice_id' => 'string',
 'base_value' => '\Popsicle\Amazon\Model\Finances\Currency',
@@ -230,7 +230,7 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -240,7 +240,7 @@ class ProductAdsPaymentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

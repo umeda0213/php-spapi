@@ -60,7 +60,7 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess
         'amazon_order_id' => 'string',
 'rental_event_type' => 'string',
 'extension_length' => 'int',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'rental_charge_list' => '\Popsicle\Amazon\Model\Finances\ChargeComponentList',
 'rental_fee_list' => '\Popsicle\Amazon\Model\Finances\FeeComponentList',
 'marketplace_name' => 'string',
@@ -326,7 +326,7 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -336,7 +336,7 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

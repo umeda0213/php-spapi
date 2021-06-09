@@ -57,7 +57,7 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+        'posted_date' => '\DateTime',
 'coupon_id' => 'string',
 'seller_coupon_description' => 'string',
 'clip_or_redemption_count' => 'int',
@@ -242,7 +242,7 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -252,7 +252,7 @@ class CouponPaymentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

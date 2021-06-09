@@ -60,7 +60,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess
         'reference_invoice_number' => 'string',
 'debit_note_number' => 'string',
 'returns_reference_number' => 'string',
-'goods_return_date' => '\Popsicle\Amazon\Model\VendorInvoices\\DateTime',
+'goods_return_date' => '\DateTime',
 'rma_id' => 'string',
 'coop_reference_number' => 'string',
 'consignors_reference_number' => 'string'    ];
@@ -308,7 +308,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess
     /**
      * Gets goods_return_date
      *
-     * @return \Popsicle\Amazon\Model\VendorInvoices\\DateTime
+     * @return \DateTime
      */
     public function getGoodsReturnDate()
     {
@@ -318,7 +318,7 @@ class CreditNoteDetails implements ModelInterface, ArrayAccess
     /**
      * Sets goods_return_date
      *
-     * @param \Popsicle\Amazon\Model\VendorInvoices\\DateTime $goods_return_date goods_return_date
+     * @param \DateTime $goods_return_date goods_return_date
      *
      * @return $this
      */

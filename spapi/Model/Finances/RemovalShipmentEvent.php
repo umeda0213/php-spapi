@@ -57,7 +57,7 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+        'posted_date' => '\DateTime',
 'order_id' => 'string',
 'transaction_type' => 'string',
 'removal_shipment_item_list' => '\Popsicle\Amazon\Model\Finances\RemovalShipmentItemList'    ];
@@ -218,7 +218,7 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -228,7 +228,7 @@ class RemovalShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

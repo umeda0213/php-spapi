@@ -58,7 +58,7 @@ class PayWithAmazonEvent implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'seller_order_id' => 'string',
-'transaction_posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'transaction_posted_date' => '\DateTime',
 'business_object_type' => 'string',
 'sales_channel' => 'string',
 'charge' => '\Popsicle\Amazon\Model\Finances\ChargeComponent',
@@ -278,7 +278,7 @@ class PayWithAmazonEvent implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getTransactionPostedDate()
     {
@@ -288,7 +288,7 @@ class PayWithAmazonEvent implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $transaction_posted_date transaction_posted_date
+     * @param \DateTime $transaction_posted_date transaction_posted_date
      *
      * @return $this
      */

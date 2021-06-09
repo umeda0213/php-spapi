@@ -62,12 +62,12 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
 'fund_transfer_status' => 'string',
 'original_total' => '\Popsicle\Amazon\Model\Finances\Currency',
 'converted_total' => '\Popsicle\Amazon\Model\Finances\Currency',
-'fund_transfer_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'fund_transfer_date' => '\DateTime',
 'trace_id' => 'string',
 'account_tail' => 'string',
 'beginning_balance' => '\Popsicle\Amazon\Model\Finances\Currency',
-'financial_event_group_start' => '\Popsicle\Amazon\Model\Finances\\DateTime',
-'financial_event_group_end' => '\Popsicle\Amazon\Model\Finances\\DateTime'    ];
+'financial_event_group_start' => '\DateTime',
+'financial_event_group_end' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -380,7 +380,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Gets fund_transfer_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getFundTransferDate()
     {
@@ -390,7 +390,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Sets fund_transfer_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $fund_transfer_date fund_transfer_date
+     * @param \DateTime $fund_transfer_date fund_transfer_date
      *
      * @return $this
      */
@@ -476,7 +476,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Gets financial_event_group_start
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getFinancialEventGroupStart()
     {
@@ -486,7 +486,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Sets financial_event_group_start
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $financial_event_group_start financial_event_group_start
+     * @param \DateTime $financial_event_group_start financial_event_group_start
      *
      * @return $this
      */
@@ -500,7 +500,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Gets financial_event_group_end
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getFinancialEventGroupEnd()
     {
@@ -510,7 +510,7 @@ class FinancialEventGroup implements ModelInterface, ArrayAccess
     /**
      * Sets financial_event_group_end
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $financial_event_group_end financial_event_group_end
+     * @param \DateTime $financial_event_group_end financial_event_group_end
      *
      * @return $this
      */

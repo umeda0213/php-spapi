@@ -58,7 +58,7 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'adjustment_type' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'adjustment_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
 'adjustment_item_list' => '\Popsicle\Amazon\Model\Finances\AdjustmentItemList'    ];
 
@@ -242,7 +242,7 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -252,7 +252,7 @@ class AdjustmentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

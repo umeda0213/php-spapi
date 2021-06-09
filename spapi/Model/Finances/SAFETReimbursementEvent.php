@@ -57,7 +57,7 @@ class SAFETReimbursementEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+        'posted_date' => '\DateTime',
 'safet_claim_id' => 'string',
 'reimbursed_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
 'reason_code' => 'string',
@@ -224,7 +224,7 @@ class SAFETReimbursementEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -234,7 +234,7 @@ class SAFETReimbursementEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

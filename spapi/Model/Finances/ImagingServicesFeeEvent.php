@@ -59,7 +59,7 @@ class ImagingServicesFeeEvent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'imaging_request_billing_item_id' => 'string',
 'asin' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'fee_list' => '\Popsicle\Amazon\Model\Finances\FeeComponentList'    ];
 
     /**
@@ -266,7 +266,7 @@ class ImagingServicesFeeEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -276,7 +276,7 @@ class ImagingServicesFeeEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

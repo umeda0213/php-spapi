@@ -57,7 +57,7 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+        'posted_date' => '\DateTime',
 'original_removal_order_id' => 'string',
 'liquidation_proceeds_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
 'liquidation_fee_amount' => '\Popsicle\Amazon\Model\Finances\Currency'    ];
@@ -218,7 +218,7 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -228,7 +228,7 @@ class FBALiquidationEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

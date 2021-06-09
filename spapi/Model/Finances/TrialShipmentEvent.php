@@ -59,7 +59,7 @@ class TrialShipmentEvent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'amazon_order_id' => 'string',
 'financial_event_group_id' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'sku' => 'string',
 'fee_list' => '\Popsicle\Amazon\Model\Finances\FeeComponentList'    ];
 
@@ -272,7 +272,7 @@ class TrialShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -282,7 +282,7 @@ class TrialShipmentEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

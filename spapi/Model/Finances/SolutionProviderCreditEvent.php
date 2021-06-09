@@ -66,7 +66,7 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess
 'provider_id' => 'string',
 'provider_store_name' => 'string',
 'transaction_amount' => '\Popsicle\Amazon\Model\Finances\Currency',
-'transaction_creation_date' => '\Popsicle\Amazon\Model\Finances\\DateTime'    ];
+'transaction_creation_date' => '\DateTime'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -470,7 +470,7 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess
     /**
      * Gets transaction_creation_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getTransactionCreationDate()
     {
@@ -480,7 +480,7 @@ class SolutionProviderCreditEvent implements ModelInterface, ArrayAccess
     /**
      * Sets transaction_creation_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $transaction_creation_date transaction_creation_date
+     * @param \DateTime $transaction_creation_date transaction_creation_date
      *
      * @return $this
      */

@@ -58,7 +58,7 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'transaction_type' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'net_co_transaction_id' => 'string',
 'swap_reason' => 'string',
 'asin' => 'string',
@@ -266,7 +266,7 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -276,7 +276,7 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

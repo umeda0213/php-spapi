@@ -59,7 +59,7 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'retrocharge_event_type' => 'string',
 'amazon_order_id' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'base_tax' => '\Popsicle\Amazon\Model\Finances\Currency',
 'shipping_tax' => '\Popsicle\Amazon\Model\Finances\Currency',
 'marketplace_name' => 'string',
@@ -284,7 +284,7 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -294,7 +294,7 @@ class RetrochargeEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */

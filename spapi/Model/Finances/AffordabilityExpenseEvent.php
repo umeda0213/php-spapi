@@ -58,7 +58,7 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'amazon_order_id' => 'string',
-'posted_date' => '\Popsicle\Amazon\Model\Finances\\DateTime',
+'posted_date' => '\DateTime',
 'marketplace_id' => 'string',
 'transaction_type' => 'string',
 'base_expense' => '\Popsicle\Amazon\Model\Finances\Currency',
@@ -281,7 +281,7 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess
     /**
      * Gets posted_date
      *
-     * @return \Popsicle\Amazon\Model\Finances\\DateTime
+     * @return \DateTime
      */
     public function getPostedDate()
     {
@@ -291,7 +291,7 @@ class AffordabilityExpenseEvent implements ModelInterface, ArrayAccess
     /**
      * Sets posted_date
      *
-     * @param \Popsicle\Amazon\Model\Finances\\DateTime $posted_date posted_date
+     * @param \DateTime $posted_date posted_date
      *
      * @return $this
      */
