@@ -57,8 +57,8 @@ class Item implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'asin' => '\Popsicle\Amazon\Model\Catalog\ItemAsin',
-'attributes' => '\Popsicle\Amazon\Model\Catalog\ItemAttributes',
+        'asin' => 'string',//'\Popsicle\Amazon\Model\Catalog\ItemAsin',
+'attributes' => 'object',//'\Popsicle\Amazon\Model\Catalog\ItemAttributes',
 'identifiers' => '\Popsicle\Amazon\Model\Catalog\ItemIdentifiers',
 'images' => '\Popsicle\Amazon\Model\Catalog\ItemImages',
 'product_types' => '\Popsicle\Amazon\Model\Catalog\ItemProductTypes',
