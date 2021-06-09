@@ -247,6 +247,15 @@ class ObjectSerializer
             foreach ($data as $key => $value) {
                 $values[] = self::deserialize($value, $subClass, null);
             }
+
+            return $values;
+        } elseif (method_exists($class, 'getSubClass')) {
+            $subClass = (new $class())->getSubClass();
+            $values = [];
+            foreach ($data as $key => $value) {
+                $values[] = self::deserialize($value, $subClass, null);
+            }
+
             return $values;
         } elseif ($class === 'object') {
             settype($data, 'array');

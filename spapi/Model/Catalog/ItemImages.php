@@ -29,6 +29,7 @@
 namespace Popsicle\Amazon\Model\Catalog;
 
 use \ArrayAccess;
+use Popsicle\Amazon\Model\IterableType;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
@@ -40,7 +41,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ItemImages implements ModelInterface, ArrayAccess
+class ItemImages implements ModelInterface, ArrayAccess, IterableType
 {
     const DISCRIMINATOR = null;
 
