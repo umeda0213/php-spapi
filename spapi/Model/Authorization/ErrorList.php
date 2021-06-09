@@ -41,7 +41,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ErrorList implements ModelInterface, ArrayAccess, IterableType
+class ErrorList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
