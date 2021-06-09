@@ -265,4 +265,9 @@ class RelationshipList implements ModelInterface, ArrayAccess, IterableType
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
+
+    public function getSubClass()
+    {
+        return RelationshipType::class;
+    }
 }
