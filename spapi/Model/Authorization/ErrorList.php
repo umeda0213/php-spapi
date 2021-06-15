@@ -58,8 +58,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'
-            ];
+        'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,7 +66,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-            ];
+        'errors' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
