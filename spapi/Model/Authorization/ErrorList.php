@@ -58,6 +58,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'
             ];
 
     /**
