@@ -46,25 +46,25 @@ class ErrorList implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $swaggerModelName = 'ErrorList';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerTypes = [
-        'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'];
+        'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'    ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $swaggerFormats = [
         'errors' => null    ];
 
@@ -95,7 +95,7 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-            ];
+        'errors' => 'errors'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -103,7 +103,7 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-            ];
+        'errors' => 'setErrors'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -111,7 +111,7 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-            ];
+        'errors' => 'getErrors'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -154,7 +154,7 @@ class ErrorList implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+
 
     /**
      * Associative array for storing property values
@@ -171,6 +171,7 @@ class ErrorList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -180,8 +181,11 @@ class ErrorList implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];//parent::listInvalidProperties();
+        $invalidProperties = [];
 
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -196,6 +200,30 @@ class ErrorList implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets errors
+     *
+     * @return \Popsicle\Amazon\Model\Feeds\Error[]
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \Popsicle\Amazon\Model\Feeds\Error[] $errors errors
+     *
+     * @return $this
+     */
+    public function setErrors($errors)
+    {
+        $this->container['errors'] = $errors;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
