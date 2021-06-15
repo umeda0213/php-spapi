@@ -58,7 +58,7 @@ class GetAuthorizationCodeResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'payload' => '\Popsicle\Amazon\Model\Authorization\AuthorizationCode',
-'errors' => '\Popsicle\Amazon\Model\Authorization\ErrorList'    ];
+'errors' => '\Popsicle\Amazon\Model\Feeds\Error[]'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
