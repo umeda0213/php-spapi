@@ -29,7 +29,6 @@
 namespace Popsicle\Amazon\Model\FulfillmentInbound;
 
 use \ArrayAccess;
-use Popsicle\Amazon\Model\IterableType;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
@@ -41,7 +40,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class UnfulfillablePreviewItemList implements ModelInterface, ArrayAccess, IterableType
+class UnfulfillablePreviewItemList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -264,10 +263,5 @@ class UnfulfillablePreviewItemList implements ModelInterface, ArrayAccess, Itera
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
-    }
-
-    public function getSubClass()
-    {
-        return UnfulfillablePreviewItem::class;
     }
 }

@@ -93,7 +93,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse
      */
     public function cancelFulfillmentOrder($seller_fulfillment_order_id)
     {
@@ -108,11 +108,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelFulfillmentOrderWithHttpInfo($seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse';
         $request = $this->cancelFulfillmentOrderRequest($seller_fulfillment_order_id);
 
         try {
@@ -164,7 +164,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -172,7 +172,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -180,7 +180,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -188,7 +188,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -196,7 +196,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -204,7 +204,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -212,7 +212,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -220,7 +220,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -262,7 +262,7 @@ class FbaOutboundApi
      */
     public function cancelFulfillmentOrderAsyncWithHttpInfo($seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CancelFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CancelFulfillmentOrderResponse';
         $request = $this->cancelFulfillmentOrderRequest($seller_fulfillment_order_id);
 
         return $this->client
@@ -418,11 +418,11 @@ class FbaOutboundApi
     /**
      * Operation createFulfillmentOrder
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body body (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse
      */
     public function createFulfillmentOrder($body)
     {
@@ -433,15 +433,15 @@ class FbaOutboundApi
     /**
      * Operation createFulfillmentOrderWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFulfillmentOrderWithHttpInfo($body)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse';
         $request = $this->createFulfillmentOrderRequest($body);
 
         try {
@@ -493,7 +493,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -501,7 +501,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -509,7 +509,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -517,7 +517,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -525,7 +525,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -533,7 +533,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -541,7 +541,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -549,7 +549,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -564,7 +564,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -584,14 +584,14 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createFulfillmentOrderAsyncWithHttpInfo($body)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderResponse';
         $request = $this->createFulfillmentOrderRequest($body);
 
         return $this->client
@@ -634,7 +634,7 @@ class FbaOutboundApi
     /**
      * Create request for operation 'createFulfillmentOrder'
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentOrderRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -742,12 +742,12 @@ class FbaOutboundApi
     /**
      * Operation createFulfillmentReturn
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body body (required)
      * @param  string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse
      */
     public function createFulfillmentReturn($body, $seller_fulfillment_order_id)
     {
@@ -758,16 +758,16 @@ class FbaOutboundApi
     /**
      * Operation createFulfillmentReturnWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body (required)
      * @param  string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFulfillmentReturnWithHttpInfo($body, $seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse';
         $request = $this->createFulfillmentReturnRequest($body, $seller_fulfillment_order_id);
 
         try {
@@ -819,7 +819,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -827,7 +827,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -835,7 +835,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -843,7 +843,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -851,7 +851,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -859,7 +859,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -867,7 +867,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -875,7 +875,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -890,7 +890,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body (required)
      * @param  string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. (required)
      *
      * @throws \InvalidArgumentException
@@ -911,7 +911,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body (required)
      * @param  string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. (required)
      *
      * @throws \InvalidArgumentException
@@ -919,7 +919,7 @@ class FbaOutboundApi
      */
     public function createFulfillmentReturnAsyncWithHttpInfo($body, $seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnResponse';
         $request = $this->createFulfillmentReturnRequest($body, $seller_fulfillment_order_id);
 
         return $this->client
@@ -962,7 +962,7 @@ class FbaOutboundApi
     /**
      * Create request for operation 'createFulfillmentReturn'
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\CreateFulfillmentReturnRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\CreateFulfillmentReturnRequest $body (required)
      * @param  string $seller_fulfillment_order_id An identifier assigned by the seller to the fulfillment order at the time it was created. The seller uses their own records to find the correct SellerFulfillmentOrderId value based on the buyer&#x27;s request to return items. (required)
      *
      * @throws \InvalidArgumentException
@@ -1091,7 +1091,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse
      */
     public function getFeatureInventory($marketplace_id, $feature_name, $next_token = null)
     {
@@ -1108,11 +1108,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeatureInventoryWithHttpInfo($marketplace_id, $feature_name, $next_token = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse';
         $request = $this->getFeatureInventoryRequest($marketplace_id, $feature_name, $next_token);
 
         try {
@@ -1164,7 +1164,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1172,7 +1172,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1180,7 +1180,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1188,7 +1188,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1196,7 +1196,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1204,7 +1204,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1212,7 +1212,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1220,7 +1220,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1266,7 +1266,7 @@ class FbaOutboundApi
      */
     public function getFeatureInventoryAsyncWithHttpInfo($marketplace_id, $feature_name, $next_token = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureInventoryResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureInventoryResponse';
         $request = $this->getFeatureInventoryRequest($marketplace_id, $feature_name, $next_token);
 
         return $this->client
@@ -1444,7 +1444,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse
      */
     public function getFeatureSKU($marketplace_id, $feature_name, $seller_sku)
     {
@@ -1461,11 +1461,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeatureSKUWithHttpInfo($marketplace_id, $feature_name, $seller_sku)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse';
         $request = $this->getFeatureSKURequest($marketplace_id, $feature_name, $seller_sku);
 
         try {
@@ -1517,7 +1517,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1525,7 +1525,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1533,7 +1533,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1541,7 +1541,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1549,7 +1549,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1557,7 +1557,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1565,7 +1565,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1573,7 +1573,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1619,7 +1619,7 @@ class FbaOutboundApi
      */
     public function getFeatureSKUAsyncWithHttpInfo($marketplace_id, $feature_name, $seller_sku)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeatureSkuResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeatureSkuResponse';
         $request = $this->getFeatureSKURequest($marketplace_id, $feature_name, $seller_sku);
 
         return $this->client
@@ -1805,7 +1805,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse
      */
     public function getFeatures($marketplace_id)
     {
@@ -1820,11 +1820,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeaturesWithHttpInfo($marketplace_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse';
         $request = $this->getFeaturesRequest($marketplace_id);
 
         try {
@@ -1876,7 +1876,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1884,7 +1884,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1892,7 +1892,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1900,7 +1900,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1908,7 +1908,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1916,7 +1916,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1924,7 +1924,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1932,7 +1932,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1974,7 +1974,7 @@ class FbaOutboundApi
      */
     public function getFeaturesAsyncWithHttpInfo($marketplace_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFeaturesResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFeaturesResponse';
         $request = $this->getFeaturesRequest($marketplace_id);
 
         return $this->client
@@ -2130,7 +2130,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse
      */
     public function getFulfillmentOrder($seller_fulfillment_order_id)
     {
@@ -2145,11 +2145,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFulfillmentOrderWithHttpInfo($seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse';
         $request = $this->getFulfillmentOrderRequest($seller_fulfillment_order_id);
 
         try {
@@ -2201,7 +2201,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2209,7 +2209,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2217,7 +2217,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2225,7 +2225,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2233,7 +2233,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2241,7 +2241,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2249,7 +2249,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2257,7 +2257,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2299,7 +2299,7 @@ class FbaOutboundApi
      */
     public function getFulfillmentOrderAsyncWithHttpInfo($seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentOrderResponse';
         $request = $this->getFulfillmentOrderRequest($seller_fulfillment_order_id);
 
         return $this->client
@@ -2455,11 +2455,11 @@ class FbaOutboundApi
     /**
      * Operation getFulfillmentPreview
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body body (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse
      */
     public function getFulfillmentPreview($body)
     {
@@ -2470,15 +2470,15 @@ class FbaOutboundApi
     /**
      * Operation getFulfillmentPreviewWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFulfillmentPreviewWithHttpInfo($body)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse';
         $request = $this->getFulfillmentPreviewRequest($body);
 
         try {
@@ -2530,7 +2530,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2538,7 +2538,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2546,7 +2546,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2554,7 +2554,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2562,7 +2562,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2570,7 +2570,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2578,7 +2578,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2586,7 +2586,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2601,7 +2601,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2621,14 +2621,14 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function getFulfillmentPreviewAsyncWithHttpInfo($body)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewResponse';
         $request = $this->getFulfillmentPreviewRequest($body);
 
         return $this->client
@@ -2671,7 +2671,7 @@ class FbaOutboundApi
     /**
      * Create request for operation 'getFulfillmentPreview'
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\GetFulfillmentPreviewRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\GetFulfillmentPreviewRequest $body (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2783,7 +2783,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse
      */
     public function getPackageTrackingDetails($package_number)
     {
@@ -2798,11 +2798,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPackageTrackingDetailsWithHttpInfo($package_number)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse';
         $request = $this->getPackageTrackingDetailsRequest($package_number);
 
         try {
@@ -2854,7 +2854,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2862,7 +2862,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2870,7 +2870,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2878,7 +2878,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2886,7 +2886,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2894,7 +2894,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2902,7 +2902,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2910,7 +2910,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2952,7 +2952,7 @@ class FbaOutboundApi
      */
     public function getPackageTrackingDetailsAsyncWithHttpInfo($package_number)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\GetPackageTrackingDetailsResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\GetPackageTrackingDetailsResponse';
         $request = $this->getPackageTrackingDetailsRequest($package_number);
 
         return $this->client
@@ -3109,7 +3109,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse
      */
     public function listAllFulfillmentOrders($query_start_date = null, $next_token = null)
     {
@@ -3125,11 +3125,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listAllFulfillmentOrdersWithHttpInfo($query_start_date = null, $next_token = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse';
         $request = $this->listAllFulfillmentOrdersRequest($query_start_date, $next_token);
 
         try {
@@ -3181,7 +3181,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3189,7 +3189,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3197,7 +3197,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3205,7 +3205,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3213,7 +3213,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3221,7 +3221,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3229,7 +3229,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3237,7 +3237,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3281,7 +3281,7 @@ class FbaOutboundApi
      */
     public function listAllFulfillmentOrdersAsyncWithHttpInfo($query_start_date = null, $next_token = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\ListAllFulfillmentOrdersResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\ListAllFulfillmentOrdersResponse';
         $request = $this->listAllFulfillmentOrdersRequest($query_start_date, $next_token);
 
         return $this->client
@@ -3439,7 +3439,7 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse
      */
     public function listReturnReasonCodes($seller_sku, $language, $marketplace_id = null, $seller_fulfillment_order_id = null)
     {
@@ -3457,11 +3457,11 @@ class FbaOutboundApi
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listReturnReasonCodesWithHttpInfo($seller_sku, $language, $marketplace_id = null, $seller_fulfillment_order_id = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse';
         $request = $this->listReturnReasonCodesRequest($seller_sku, $language, $marketplace_id, $seller_fulfillment_order_id);
 
         try {
@@ -3513,7 +3513,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3521,7 +3521,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3529,7 +3529,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3537,7 +3537,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3545,7 +3545,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3553,7 +3553,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3561,7 +3561,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3569,7 +3569,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3617,7 +3617,7 @@ class FbaOutboundApi
      */
     public function listReturnReasonCodesAsyncWithHttpInfo($seller_sku, $language, $marketplace_id = null, $seller_fulfillment_order_id = null)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\ListReturnReasonCodesResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\ListReturnReasonCodesResponse';
         $request = $this->listReturnReasonCodesRequest($seller_sku, $language, $marketplace_id, $seller_fulfillment_order_id);
 
         return $this->client
@@ -3790,12 +3790,12 @@ class FbaOutboundApi
     /**
      * Operation updateFulfillmentOrder
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest $body body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body body (required)
      * @param  string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse
+     * @return \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse
      */
     public function updateFulfillmentOrder($body, $seller_fulfillment_order_id)
     {
@@ -3806,16 +3806,16 @@ class FbaOutboundApi
     /**
      * Operation updateFulfillmentOrderWithHttpInfo
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body (required)
      * @param  string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \Popsicle\Amazon\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateFulfillmentOrderWithHttpInfo($body, $seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse';
         $request = $this->updateFulfillmentOrderRequest($body, $seller_fulfillment_order_id);
 
         try {
@@ -3867,7 +3867,7 @@ class FbaOutboundApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3875,7 +3875,7 @@ class FbaOutboundApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3883,7 +3883,7 @@ class FbaOutboundApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3891,7 +3891,7 @@ class FbaOutboundApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3899,7 +3899,7 @@ class FbaOutboundApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3907,7 +3907,7 @@ class FbaOutboundApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3915,7 +3915,7 @@ class FbaOutboundApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3923,7 +3923,7 @@ class FbaOutboundApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse',
+                        '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3938,7 +3938,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body (required)
      * @param  string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \InvalidArgumentException
@@ -3959,7 +3959,7 @@ class FbaOutboundApi
      *
      * 
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body (required)
      * @param  string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \InvalidArgumentException
@@ -3967,7 +3967,7 @@ class FbaOutboundApi
      */
     public function updateFulfillmentOrderAsyncWithHttpInfo($body, $seller_fulfillment_order_id)
     {
-        $returnType = '\Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderResponse';
+        $returnType = '\Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderResponse';
         $request = $this->updateFulfillmentOrderRequest($body, $seller_fulfillment_order_id);
 
         return $this->client
@@ -4010,7 +4010,7 @@ class FbaOutboundApi
     /**
      * Create request for operation 'updateFulfillmentOrder'
      *
-     * @param  \Popsicle\Amazon\Model\FulfillmentInbound\UpdateFulfillmentOrderRequest $body (required)
+     * @param  \Popsicle\Amazon\Model\FulfillmentOutbound\UpdateFulfillmentOrderRequest $body (required)
      * @param  string $seller_fulfillment_order_id The identifier assigned to the item by the seller when the fulfillment order was created. (required)
      *
      * @throws \InvalidArgumentException

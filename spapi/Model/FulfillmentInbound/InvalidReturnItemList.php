@@ -29,7 +29,6 @@
 namespace Popsicle\Amazon\Model\FulfillmentInbound;
 
 use \ArrayAccess;
-use Popsicle\Amazon\Model\IterableType;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
@@ -41,7 +40,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InvalidReturnItemList implements ModelInterface, ArrayAccess, IterableType
+class InvalidReturnItemList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -264,10 +263,5 @@ class InvalidReturnItemList implements ModelInterface, ArrayAccess, IterableType
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
-    }
-
-    public function getSubClass()
-    {
-        return InvalidReturnItem::class;
     }
 }
