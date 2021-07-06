@@ -23,7 +23,7 @@ class OAuth
             'grant_type' => 'client_credentials',
             'client_id' => $clientId,
             'client_secret' => $clientSecret,
-            'scope' => 'sellingpartnerapi::migration'
+            'scope' => ScopeConstants::SCOPE_MIGRATION_API . " " . ScopeConstants::SCOPE_NOTIFICATIONS_API
         ];
         $options = array_merge([
             RequestOptions::HEADERS => ['Accept' => 'application/json'],
