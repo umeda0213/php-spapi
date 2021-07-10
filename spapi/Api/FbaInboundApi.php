@@ -369,6 +369,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -412,23 +419,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'PUT';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'PUT',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation confirmTransport
@@ -683,6 +697,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -726,23 +747,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'POST';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'POST',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation createInboundShipment
@@ -1007,6 +1035,13 @@ class FbaInboundApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1054,23 +1089,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'POST';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'POST',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation createInboundShipmentPlan
@@ -1316,6 +1358,13 @@ class FbaInboundApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -1363,23 +1412,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'POST';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'POST',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation estimateTransport
@@ -1634,6 +1690,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1677,23 +1740,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'POST';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'POST',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getBillOfLading
@@ -1948,6 +2018,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -1991,23 +2068,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getInboundGuidance
@@ -2282,6 +2366,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -2325,23 +2416,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getLabels
@@ -2674,6 +2772,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -2717,23 +2822,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getPreorderInfo
@@ -3003,6 +3115,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3046,23 +3165,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getPrepInstructions
@@ -3337,6 +3463,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3380,23 +3513,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getShipmentItems
@@ -3689,6 +3829,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -3732,23 +3879,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getShipmentItemsByShipmentId
@@ -4018,6 +4172,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -4061,23 +4222,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getShipments
@@ -4394,6 +4562,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -4437,23 +4612,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation getTransportDetails
@@ -4708,6 +4890,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -4751,23 +4940,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'GET';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'GET',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation putTransportDetails
@@ -5032,6 +5228,13 @@ class FbaInboundApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -5079,23 +5282,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'PUT';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'PUT',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation updateInboundShipment
@@ -5360,6 +5570,13 @@ class FbaInboundApi
 
         // body params
         $_tempBody = null;
+
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
         if (isset($body)) {
             $_tempBody = $body;
         }
@@ -5407,23 +5624,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'PUT';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'PUT',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Operation voidTransport
@@ -5678,6 +5902,13 @@ class FbaInboundApi
         // body params
         $_tempBody = null;
 
+        if (null != $formParams) {
+            ksort($formParams);
+        }
+        if (null != $queryParams) {
+            ksort($queryParams);
+        }
+
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
@@ -5721,23 +5952,30 @@ class FbaInboundApi
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+            $defaultHeaders['user-agent'] = $this->config->getUserAgent();
         }
 
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
+        $method = 'POST';
+        $query = \GuzzleHttp\Psr7\Query::build($queryParams);
+        $amazonHeader = \Popsicle\Amazon\Signature::calculateSignature(
+            $this->config,
+            str_replace('https://', '', $this->config->getHost()),
+            $method,
+            $resourcePath,
+            $query,
+            (string) $httpBody
         );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $headers = array_merge(
+            $headerParams,
+            $headers,
+            $amazonHeader
+        );
         return new Request(
-            'POST',
+            $method,
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
-        );
-    }
+        );    }
 
     /**
      * Create http client option
