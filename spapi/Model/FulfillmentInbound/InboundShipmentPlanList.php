@@ -29,6 +29,7 @@
 namespace Popsicle\Amazon\Model\FulfillmentInbound;
 
 use \ArrayAccess;
+use Popsicle\Amazon\Model\IterableType;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
@@ -40,7 +41,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InboundShipmentPlanList implements ModelInterface, ArrayAccess
+class InboundShipmentPlanList implements ModelInterface, ArrayAccess, IterableType
 {
     const DISCRIMINATOR = null;
 
@@ -263,5 +264,10 @@ class InboundShipmentPlanList implements ModelInterface, ArrayAccess
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+
+    public function getSubClass()
+    {
+        return InboundShipmentPlan::class;
     }
 }

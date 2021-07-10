@@ -29,6 +29,7 @@
 namespace Popsicle\Amazon\Model\FulfillmentInbound;
 
 use \ArrayAccess;
+use Popsicle\Amazon\Model\IterableType;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
@@ -40,7 +41,7 @@ use \Popsicle\Amazon\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PartneredSmallParcelPackageInputList implements ModelInterface, ArrayAccess
+class PartneredSmallParcelPackageInputList implements ModelInterface, ArrayAccess, IterableType
 {
     const DISCRIMINATOR = null;
 
@@ -263,5 +264,10 @@ class PartneredSmallParcelPackageInputList implements ModelInterface, ArrayAcces
         }
 
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+    }
+
+    public function getSubClass()
+    {
+        return PartneredSmallParcelPackageInput::class;
     }
 }
