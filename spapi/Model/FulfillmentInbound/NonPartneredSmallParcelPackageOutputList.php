@@ -179,7 +179,7 @@ class NonPartneredSmallParcelPackageOutputList implements ModelInterface, ArrayA
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }
