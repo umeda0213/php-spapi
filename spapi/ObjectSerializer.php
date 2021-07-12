@@ -231,7 +231,7 @@ class ObjectSerializer
         if (null === $data) {
             return null;
         }
-        if (is_string($data)) {
+        if (is_string($data) && $data != "") {
             $data = @json_decode($data) ?? $data;
         }
         if (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
