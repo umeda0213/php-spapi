@@ -180,7 +180,7 @@ class SellerReviewEnrollmentPaymentEventList implements ModelInterface, ArrayAcc
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }

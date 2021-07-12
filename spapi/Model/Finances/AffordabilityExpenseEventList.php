@@ -180,7 +180,7 @@ class AffordabilityExpenseEventList implements ModelInterface, ArrayAccess, Iter
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];//parent::listInvalidProperties();
 
         return $invalidProperties;
     }
