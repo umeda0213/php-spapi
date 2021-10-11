@@ -78,7 +78,7 @@ class Item implements ModelInterface, ArrayAccess
 'identifiers' => null,
 'images' => null,
 'product_types' => null,
-'sales_ranks' => null,
+'ranks' => null,
 'summaries' => null,
 'variations' => null,
 'vendor_details' => null    ];
@@ -115,7 +115,7 @@ class Item implements ModelInterface, ArrayAccess
 'identifiers' => 'identifiers',
 'images' => 'images',
 'product_types' => 'productTypes',
-'sales_ranks' => 'salesRanks',
+'ranks' => 'ranks',
 'summaries' => 'summaries',
 'variations' => 'variations',
 'vendor_details' => 'vendorDetails'    ];
@@ -131,7 +131,7 @@ class Item implements ModelInterface, ArrayAccess
 'identifiers' => 'setIdentifiers',
 'images' => 'setImages',
 'product_types' => 'setProductTypes',
-'sales_ranks' => 'setSalesRanks',
+'ranks' => 'setRanks',
 'summaries' => 'setSummaries',
 'variations' => 'setVariations',
 'vendor_details' => 'setVendorDetails'    ];
@@ -147,7 +147,7 @@ class Item implements ModelInterface, ArrayAccess
 'identifiers' => 'getIdentifiers',
 'images' => 'getImages',
 'product_types' => 'getProductTypes',
-'sales_ranks' => 'getSalesRanks',
+'ranks' => 'getRanks',
 'summaries' => 'getSummaries',
 'variations' => 'getVariations',
 'vendor_details' => 'getVendorDetails'    ];
@@ -215,7 +215,7 @@ class Item implements ModelInterface, ArrayAccess
         $this->container['identifiers'] = isset($data['identifiers']) ? $data['identifiers'] : null;
         $this->container['images'] = isset($data['images']) ? $data['images'] : null;
         $this->container['product_types'] = isset($data['product_types']) ? $data['product_types'] : null;
-        $this->container['sales_ranks'] = isset($data['sales_ranks']) ? $data['sales_ranks'] : null;
+        $this->container['ranks'] = isset($data['ranks']) ? $data['ranks'] : null;
         $this->container['summaries'] = isset($data['summaries']) ? $data['summaries'] : null;
         $this->container['variations'] = isset($data['variations']) ? $data['variations'] : null;
         $this->container['vendor_details'] = isset($data['vendor_details']) ? $data['vendor_details'] : null;
@@ -369,25 +369,25 @@ class Item implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets sales_ranks
+     * Gets ranks
      *
      * @return \Popsicle\Amazon\Model\Catalog\ItemSalesRanks
      */
-    public function getSalesRanks()
+    public function getRanks()
     {
-        return $this->container['sales_ranks'];
+        return $this->container['ranks'];
     }
 
     /**
-     * Sets sales_ranks
+     * Sets ranks
      *
-     * @param \Popsicle\Amazon\Model\Catalog\ItemSalesRanks $sales_ranks sales_ranks
+     * @param \Popsicle\Amazon\Model\Catalog\ItemSalesRanks $ranks ranks
      *
      * @return $this
      */
-    public function setSalesRanks($sales_ranks)
+    public function setRanks($ranks)
     {
-        $this->container['sales_ranks'] = $sales_ranks;
+        $this->container['ranks'] = $ranks;
 
         return $this;
     }
