@@ -61,8 +61,11 @@ class ObjectSerializer
             if (!method_exists($data, 'swaggerFormats')) {
                 return $data;
             }
-            $values = [];
             $formats = $data::swaggerFormats();
+            if (empty($formats)) {
+            	return $data;
+            }
+            $values = [];
 
             foreach ($data::swaggerTypes() as $property => $swaggerType) {
                 $getter = $data::getters()[$property];
