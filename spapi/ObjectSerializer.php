@@ -58,7 +58,7 @@ class ObjectSerializer
             }
             return $data;
         } elseif (is_object($data)) {
-            if (class_implements($data, IterableType::class)) {
+            if ($data instanceof IterableType) {
                 $values = [];
                 foreach((array)$data as $sub_data) {
                     $values[] = self::sanitizeForSerialization($sub_data);
