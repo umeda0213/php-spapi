@@ -58,30 +58,40 @@ class ObjectSerializer
             }
             return $data;
         } elseif (is_object($data)) {
-            if (!method_exists($data, 'swaggerFormats')) {
-                return $data;
-            }
-            $formats = $data::swaggerFormats();
-            if (empty($formats)) {
-            	return $data;
-            }
-            $values = [];
+            if (class_implements($data, IterableType::class)) {
+                $values = [];
+                foreach((array)$data as $sub_data) {
+                    $values[] = self::sanitizeForSerialization($sub_data);
+                }
+                return $values;
+            } else {
+                $values = [];
 
-            foreach ($data::swaggerTypes() as $property => $swaggerType) {
-                $getter = $data::getters()[$property];
-                $value = $data->$getter();
-                if ($value !== null
-                    && !in_array($swaggerType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
-                    && method_exists($swaggerType, 'getAllowableEnumValues')
-                    && !in_array($value, $swaggerType::getAllowableEnumValues())) {
-                    $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
-                    throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
-                }
-                if ($value !== null) {
-                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
-                }
-            }
-            return (object)$values;
+	            if (!method_exists($data, 'swaggerFormats')) {
+	                return $data;
+	            }
+	            $formats = $data::swaggerFormats();
+	            if (empty($formats)) {
+	            	return $data;
+	            }
+
+	            foreach ($data::swaggerTypes() as $property => $swaggerType) {
+	                $getter = $data::getters()[$property];
+	                $value = $data->$getter();
+	                if ($value !== null
+	                    && !in_array($swaggerType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
+	                    && method_exists($swaggerType, 'getAllowableEnumValues')
+	                    && !in_array($value, $swaggerType::getAllowableEnumValues())) {
+	                    $imploded = implode("', '", $swaggerType::getAllowableEnumValues());
+	                    throw new \InvalidArgumentException("Invalid value for enum '$swaggerType', must be one of: '$imploded'");
+	                }
+	                if ($value !== null) {
+	                    $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $swaggerType, $formats[$property]);
+	                }
+	            }
+	            return (object)$values;
+	        }
+            
         } else {
             return (string)$data;
         }
