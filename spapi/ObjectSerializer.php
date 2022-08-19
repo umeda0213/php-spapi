@@ -251,6 +251,7 @@ class ObjectSerializer
         if (null === $data) {
             return null;
         }
+        $org_data = $data;
         if (is_string($data) && $data != "") {
             $data = @json_decode($data) ?? $data;
         }
@@ -298,7 +299,7 @@ class ObjectSerializer
             }
         } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
             if ($class == 'string' && (is_array($data) || is_object($data))) {
-                $data = json_encode($data);
+                $data = $org_data;
             }
             settype($data, $class);
 
