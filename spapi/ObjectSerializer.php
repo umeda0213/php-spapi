@@ -298,7 +298,11 @@ class ObjectSerializer
                 return null;
             }
         } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
-            $data = $org_data;
+            if (is_object($org_data)) {
+                $data = "";
+            } else {
+                $data = $org_data;
+            }
 //
 //            if ($class == 'string' && (is_array($data) || is_object($data))) {
 //                $data = $org_data;
