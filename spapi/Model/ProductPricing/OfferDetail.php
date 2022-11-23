@@ -56,10 +56,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'seller_id' => 'string',
-'my_offer' => 'bool',
+        'my_offer' => 'bool',
 'offer_type' => '\Popsicle\Amazon\Model\ProductPricing\OfferCustomerType',
 'sub_condition' => 'string',
+'seller_id' => 'string',
+'condition_notes' => 'string',
 'seller_feedback_rating' => '\Popsicle\Amazon\Model\ProductPricing\SellerFeedbackType',
 'shipping_time' => '\Popsicle\Amazon\Model\ProductPricing\DetailedShippingTimeType',
 'listing_price' => '\Popsicle\Amazon\Model\ProductPricing\MoneyType',
@@ -68,6 +69,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
 'shipping' => '\Popsicle\Amazon\Model\ProductPricing\MoneyType',
 'ships_from' => '\Popsicle\Amazon\Model\ProductPricing\ShipsFromType',
 'is_fulfilled_by_amazon' => 'bool',
+'prime_information' => '\Popsicle\Amazon\Model\ProductPricing\PrimeInformationType',
 'is_buy_box_winner' => 'bool',
 'is_featured_merchant' => 'bool'    ];
 
@@ -77,10 +79,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'seller_id' => null,
-'my_offer' => null,
+        'my_offer' => null,
 'offer_type' => null,
 'sub_condition' => null,
+'seller_id' => null,
+'condition_notes' => null,
 'seller_feedback_rating' => null,
 'shipping_time' => null,
 'listing_price' => null,
@@ -89,6 +92,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
 'shipping' => null,
 'ships_from' => null,
 'is_fulfilled_by_amazon' => null,
+'prime_information' => null,
 'is_buy_box_winner' => null,
 'is_featured_merchant' => null    ];
 
@@ -119,10 +123,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'seller_id' => 'sellerId',
-'my_offer' => 'MyOffer',
+        'my_offer' => 'MyOffer',
 'offer_type' => 'offerType',
 'sub_condition' => 'SubCondition',
+'seller_id' => 'SellerId',
+'condition_notes' => 'ConditionNotes',
 'seller_feedback_rating' => 'SellerFeedbackRating',
 'shipping_time' => 'ShippingTime',
 'listing_price' => 'ListingPrice',
@@ -131,6 +136,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
 'shipping' => 'Shipping',
 'ships_from' => 'ShipsFrom',
 'is_fulfilled_by_amazon' => 'IsFulfilledByAmazon',
+'prime_information' => 'PrimeInformation',
 'is_buy_box_winner' => 'IsBuyBoxWinner',
 'is_featured_merchant' => 'IsFeaturedMerchant'    ];
 
@@ -140,10 +146,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'seller_id' => 'setSellerId',
-'my_offer' => 'setMyOffer',
+        'my_offer' => 'setMyOffer',
 'offer_type' => 'setOfferType',
 'sub_condition' => 'setSubCondition',
+'seller_id' => 'setSellerId',
+'condition_notes' => 'setConditionNotes',
 'seller_feedback_rating' => 'setSellerFeedbackRating',
 'shipping_time' => 'setShippingTime',
 'listing_price' => 'setListingPrice',
@@ -152,6 +159,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
 'shipping' => 'setShipping',
 'ships_from' => 'setShipsFrom',
 'is_fulfilled_by_amazon' => 'setIsFulfilledByAmazon',
+'prime_information' => 'setPrimeInformation',
 'is_buy_box_winner' => 'setIsBuyBoxWinner',
 'is_featured_merchant' => 'setIsFeaturedMerchant'    ];
 
@@ -161,10 +169,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'seller_id' => 'getSellerId',
-'my_offer' => 'getMyOffer',
+        'my_offer' => 'getMyOffer',
 'offer_type' => 'getOfferType',
 'sub_condition' => 'getSubCondition',
+'seller_id' => 'getSellerId',
+'condition_notes' => 'getConditionNotes',
 'seller_feedback_rating' => 'getSellerFeedbackRating',
 'shipping_time' => 'getShippingTime',
 'listing_price' => 'getListingPrice',
@@ -173,6 +182,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
 'shipping' => 'getShipping',
 'ships_from' => 'getShipsFrom',
 'is_fulfilled_by_amazon' => 'getIsFulfilledByAmazon',
+'prime_information' => 'getPrimeInformation',
 'is_buy_box_winner' => 'getIsBuyBoxWinner',
 'is_featured_merchant' => 'getIsFeaturedMerchant'    ];
 
@@ -234,10 +244,11 @@ class OfferDetail implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
         $this->container['my_offer'] = isset($data['my_offer']) ? $data['my_offer'] : null;
         $this->container['offer_type'] = isset($data['offer_type']) ? $data['offer_type'] : null;
         $this->container['sub_condition'] = isset($data['sub_condition']) ? $data['sub_condition'] : null;
+        $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
+        $this->container['condition_notes'] = isset($data['condition_notes']) ? $data['condition_notes'] : null;
         $this->container['seller_feedback_rating'] = isset($data['seller_feedback_rating']) ? $data['seller_feedback_rating'] : null;
         $this->container['shipping_time'] = isset($data['shipping_time']) ? $data['shipping_time'] : null;
         $this->container['listing_price'] = isset($data['listing_price']) ? $data['listing_price'] : null;
@@ -246,6 +257,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
         $this->container['shipping'] = isset($data['shipping']) ? $data['shipping'] : null;
         $this->container['ships_from'] = isset($data['ships_from']) ? $data['ships_from'] : null;
         $this->container['is_fulfilled_by_amazon'] = isset($data['is_fulfilled_by_amazon']) ? $data['is_fulfilled_by_amazon'] : null;
+        $this->container['prime_information'] = isset($data['prime_information']) ? $data['prime_information'] : null;
         $this->container['is_buy_box_winner'] = isset($data['is_buy_box_winner']) ? $data['is_buy_box_winner'] : null;
         $this->container['is_featured_merchant'] = isset($data['is_featured_merchant']) ? $data['is_featured_merchant'] : null;
     }
@@ -288,30 +300,6 @@ class OfferDetail implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets seller_id
-     *
-     * @return string
-     */
-    public function getSellerId()
-    {
-        return $this->container['seller_id'];
-    }
-
-    /**
-     * Sets seller_id
-     *
-     * @param string $seller_id The seller identifier for the offer.
-     *
-     * @return $this
-     */
-    public function setSellerId($seller_id)
-    {
-        $this->container['seller_id'] = $seller_id;
-
-        return $this;
-    }
 
     /**
      * Gets my_offer
@@ -381,6 +369,54 @@ class OfferDetail implements ModelInterface, ArrayAccess
     public function setSubCondition($sub_condition)
     {
         $this->container['sub_condition'] = $sub_condition;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_id
+     *
+     * @return string
+     */
+    public function getSellerId()
+    {
+        return $this->container['seller_id'];
+    }
+
+    /**
+     * Sets seller_id
+     *
+     * @param string $seller_id The seller identifier for the offer.
+     *
+     * @return $this
+     */
+    public function setSellerId($seller_id)
+    {
+        $this->container['seller_id'] = $seller_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets condition_notes
+     *
+     * @return string
+     */
+    public function getConditionNotes()
+    {
+        return $this->container['condition_notes'];
+    }
+
+    /**
+     * Sets condition_notes
+     *
+     * @param string $condition_notes Information about the condition of the item.
+     *
+     * @return $this
+     */
+    public function setConditionNotes($condition_notes)
+    {
+        $this->container['condition_notes'] = $condition_notes;
 
         return $this;
     }
@@ -573,6 +609,30 @@ class OfferDetail implements ModelInterface, ArrayAccess
     public function setIsFulfilledByAmazon($is_fulfilled_by_amazon)
     {
         $this->container['is_fulfilled_by_amazon'] = $is_fulfilled_by_amazon;
+
+        return $this;
+    }
+
+    /**
+     * Gets prime_information
+     *
+     * @return \Popsicle\Amazon\Model\ProductPricing\PrimeInformationType
+     */
+    public function getPrimeInformation()
+    {
+        return $this->container['prime_information'];
+    }
+
+    /**
+     * Sets prime_information
+     *
+     * @param \Popsicle\Amazon\Model\ProductPricing\PrimeInformationType $prime_information prime_information
+     *
+     * @return $this
+     */
+    public function setPrimeInformation($prime_information)
+    {
+        $this->container['prime_information'] = $prime_information;
 
         return $this;
     }

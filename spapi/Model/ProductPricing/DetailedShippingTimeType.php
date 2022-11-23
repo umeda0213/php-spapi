@@ -59,7 +59,7 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'minimum_hours' => 'int',
 'maximum_hours' => 'int',
-'available_date' => 'float',
+'available_date' => 'string',
 'availability_type' => 'string'    ];
 
     /**
@@ -289,7 +289,7 @@ self::AVAILABILITY_TYPE_FUTURE_WITH_DATE,        ];
     /**
      * Gets available_date
      *
-     * @return float
+     * @return string
      */
     public function getAvailableDate()
     {
@@ -299,7 +299,7 @@ self::AVAILABILITY_TYPE_FUTURE_WITH_DATE,        ];
     /**
      * Sets available_date
      *
-     * @param float $available_date The date when the item will be available for shipping. Only displayed for items that are not currently available for shipping.
+     * @param string $available_date The date when the item will be available for shipping. Only displayed for items that are not currently available for shipping.
      *
      * @return $this
      */
