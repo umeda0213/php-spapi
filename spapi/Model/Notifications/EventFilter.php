@@ -1,6 +1,6 @@
 <?php
 /**
- * DestinationResource
+ * EventFilter
  *
  * PHP version 5
  *
@@ -27,20 +27,18 @@
  */
 
 namespace Popsicle\Amazon\Model\Notifications;
-
-use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * DestinationResource Class Doc Comment
+ * EventFilter Class Doc Comment
  *
  * @category Class
- * @description The destination resource types.
+ * @description A notificationType specific filter. This object contains all of the currently available filters and properties that you can use to define a notificationType specific filter.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DestinationResource implements ModelInterface, ArrayAccess
+class EventFilter extends AggregationFilter 
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +47,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DestinationResource';
+    protected static $swaggerModelName = 'EventFilter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +55,8 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sqs' => '\Popsicle\Amazon\Model\Notifications\SqsResource',
-'event_bridge' => '\Popsicle\Amazon\Model\Notifications\EventBridgeResource'    ];
+        'marketplace_ids' => '\Popsicle\Amazon\Model\Notifications\MarketplaceIds',
+'event_filter_type' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +64,8 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sqs' => null,
-'event_bridge' => null    ];
+        'marketplace_ids' => null,
+'event_filter_type' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -76,7 +74,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public static function swaggerTypes()
     {
-        return self::$swaggerTypes;
+        return self::$swaggerTypes + parent::swaggerTypes();
     }
 
     /**
@@ -86,7 +84,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public static function swaggerFormats()
     {
-        return self::$swaggerFormats;
+        return self::$swaggerFormats + parent::swaggerFormats();
     }
 
     /**
@@ -96,8 +94,8 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sqs' => 'sqs',
-'event_bridge' => 'eventBridge'    ];
+        'marketplace_ids' => 'marketplaceIds',
+'event_filter_type' => 'eventFilterType'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +103,8 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sqs' => 'setSqs',
-'event_bridge' => 'setEventBridge'    ];
+        'marketplace_ids' => 'setMarketplaceIds',
+'event_filter_type' => 'setEventFilterType'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +112,8 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sqs' => 'getSqs',
-'event_bridge' => 'getEventBridge'    ];
+        'marketplace_ids' => 'getMarketplaceIds',
+'event_filter_type' => 'getEventFilterType'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -125,7 +123,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public static function attributeMap()
     {
-        return self::$attributeMap;
+        return parent::attributeMap() + self::$attributeMap;
     }
 
     /**
@@ -135,7 +133,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public static function setters()
     {
-        return self::$setters;
+        return parent::setters() + self::$setters;
     }
 
     /**
@@ -145,7 +143,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public static function getters()
     {
-        return self::$getters;
+        return parent::getters() + self::$getters;
     }
 
     /**
@@ -160,12 +158,6 @@ class DestinationResource implements ModelInterface, ArrayAccess
 
     
 
-    /**
-     * Associative array for storing property values
-     *
-     * @var mixed[]
-     */
-    protected $container = [];
 
     /**
      * Constructor
@@ -175,8 +167,10 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sqs'] = isset($data['sqs']) ? $data['sqs'] : null;
-        $this->container['event_bridge'] = isset($data['event_bridge']) ? $data['event_bridge'] : null;
+        parent::__construct($data);
+
+        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
+        $this->container['event_filter_type'] = isset($data['event_filter_type']) ? $data['event_filter_type'] : null;
     }
 
     /**
@@ -186,8 +180,11 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = [];
+        $invalidProperties = parent::listInvalidProperties();
 
+        if ($this->container['event_filter_type'] === null) {
+            $invalidProperties[] = "'event_filter_type' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +201,49 @@ class DestinationResource implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sqs
+     * Gets marketplace_ids
      *
-     * @return \Popsicle\Amazon\Model\Notifications\SqsResource
+     * @return \Popsicle\Amazon\Model\Notifications\MarketplaceIds
      */
-    public function getSqs()
+    public function getMarketplaceIds()
     {
-        return $this->container['sqs'];
+        return $this->container['marketplace_ids'];
     }
 
     /**
-     * Sets sqs
+     * Sets marketplace_ids
      *
-     * @param \Popsicle\Amazon\Model\Notifications\SqsResource $sqs sqs
+     * @param \Popsicle\Amazon\Model\Notifications\MarketplaceIds $marketplace_ids marketplace_ids
      *
      * @return $this
      */
-    public function setSqs($sqs)
+    public function setMarketplaceIds($marketplace_ids)
     {
-        $this->container['sqs'] = $sqs;
+        $this->container['marketplace_ids'] = $marketplace_ids;
 
         return $this;
     }
 
     /**
-     * Gets event_bridge
+     * Gets event_filter_type
      *
-     * @return \Popsicle\Amazon\Model\Notifications\EventBridgeResource
+     * @return string
      */
-    public function getEventBridge()
+    public function getEventFilterType()
     {
-        return $this->container['event_bridge'];
+        return $this->container['event_filter_type'];
     }
 
     /**
-     * Sets event_bridge
+     * Sets event_filter_type
      *
-     * @param \Popsicle\Amazon\Model\Notifications\EventBridgeResource $event_bridge event_bridge
+     * @param string $event_filter_type An eventFilterType value that is supported by the specific notificationType. This is used by the subscription service to determine the type of event filter. Refer to the section of the [Notifications Use Case Guide](doc:notifications-api-v1-use-case-guide) that describes the specific notificationType to determine if an eventFilterType is supported.
      *
      * @return $this
      */
-    public function setEventBridge($event_bridge)
+    public function setEventFilterType($event_filter_type)
     {
-        $this->container['event_bridge'] = $event_bridge;
+        $this->container['event_filter_type'] = $event_filter_type;
 
         return $this;
     }

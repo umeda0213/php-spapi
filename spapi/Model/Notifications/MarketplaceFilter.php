@@ -1,6 +1,6 @@
 <?php
 /**
- * DestinationResource
+ * MarketplaceFilter
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * DestinationResource Class Doc Comment
+ * MarketplaceFilter Class Doc Comment
  *
  * @category Class
- * @description The destination resource types.
+ * @description Use this event filter to customize your subscription to send notifications for only the specified marketplaceId&#x27;s.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DestinationResource implements ModelInterface, ArrayAccess
+class MarketplaceFilter implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DestinationResource';
+    protected static $swaggerModelName = 'MarketplaceFilter';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sqs' => '\Popsicle\Amazon\Model\Notifications\SqsResource',
-'event_bridge' => '\Popsicle\Amazon\Model\Notifications\EventBridgeResource'    ];
+        'marketplace_ids' => '\Popsicle\Amazon\Model\Notifications\MarketplaceIds'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +65,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sqs' => null,
-'event_bridge' => null    ];
+        'marketplace_ids' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +94,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sqs' => 'sqs',
-'event_bridge' => 'eventBridge'    ];
+        'marketplace_ids' => 'marketplaceIds'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +102,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sqs' => 'setSqs',
-'event_bridge' => 'setEventBridge'    ];
+        'marketplace_ids' => 'setMarketplaceIds'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +110,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sqs' => 'getSqs',
-'event_bridge' => 'getEventBridge'    ];
+        'marketplace_ids' => 'getMarketplaceIds'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +170,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sqs'] = isset($data['sqs']) ? $data['sqs'] : null;
-        $this->container['event_bridge'] = isset($data['event_bridge']) ? $data['event_bridge'] : null;
+        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
     }
 
     /**
@@ -204,49 +198,25 @@ class DestinationResource implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sqs
+     * Gets marketplace_ids
      *
-     * @return \Popsicle\Amazon\Model\Notifications\SqsResource
+     * @return \Popsicle\Amazon\Model\Notifications\MarketplaceIds
      */
-    public function getSqs()
+    public function getMarketplaceIds()
     {
-        return $this->container['sqs'];
+        return $this->container['marketplace_ids'];
     }
 
     /**
-     * Sets sqs
+     * Sets marketplace_ids
      *
-     * @param \Popsicle\Amazon\Model\Notifications\SqsResource $sqs sqs
+     * @param \Popsicle\Amazon\Model\Notifications\MarketplaceIds $marketplace_ids marketplace_ids
      *
      * @return $this
      */
-    public function setSqs($sqs)
+    public function setMarketplaceIds($marketplace_ids)
     {
-        $this->container['sqs'] = $sqs;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_bridge
-     *
-     * @return \Popsicle\Amazon\Model\Notifications\EventBridgeResource
-     */
-    public function getEventBridge()
-    {
-        return $this->container['event_bridge'];
-    }
-
-    /**
-     * Sets event_bridge
-     *
-     * @param \Popsicle\Amazon\Model\Notifications\EventBridgeResource $event_bridge event_bridge
-     *
-     * @return $this
-     */
-    public function setEventBridge($event_bridge)
-    {
-        $this->container['event_bridge'] = $event_bridge;
+        $this->container['marketplace_ids'] = $marketplace_ids;
 
         return $this;
     }

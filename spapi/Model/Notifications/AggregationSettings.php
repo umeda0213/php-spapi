@@ -1,6 +1,6 @@
 <?php
 /**
- * DestinationResource
+ * AggregationSettings
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * DestinationResource Class Doc Comment
+ * AggregationSettings Class Doc Comment
  *
  * @category Class
- * @description The destination resource types.
+ * @description A container that holds all of the necessary properties to configure the aggregation of notifications.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DestinationResource implements ModelInterface, ArrayAccess
+class AggregationSettings implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'DestinationResource';
+    protected static $swaggerModelName = 'AggregationSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'sqs' => '\Popsicle\Amazon\Model\Notifications\SqsResource',
-'event_bridge' => '\Popsicle\Amazon\Model\Notifications\EventBridgeResource'    ];
+        'aggregation_time_period' => '\Popsicle\Amazon\Model\Notifications\AggregationTimePeriod'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +65,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'sqs' => null,
-'event_bridge' => null    ];
+        'aggregation_time_period' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +94,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sqs' => 'sqs',
-'event_bridge' => 'eventBridge'    ];
+        'aggregation_time_period' => 'aggregationTimePeriod'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +102,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sqs' => 'setSqs',
-'event_bridge' => 'setEventBridge'    ];
+        'aggregation_time_period' => 'setAggregationTimePeriod'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +110,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sqs' => 'getSqs',
-'event_bridge' => 'getEventBridge'    ];
+        'aggregation_time_period' => 'getAggregationTimePeriod'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +170,7 @@ class DestinationResource implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sqs'] = isset($data['sqs']) ? $data['sqs'] : null;
-        $this->container['event_bridge'] = isset($data['event_bridge']) ? $data['event_bridge'] : null;
+        $this->container['aggregation_time_period'] = isset($data['aggregation_time_period']) ? $data['aggregation_time_period'] : null;
     }
 
     /**
@@ -188,6 +182,9 @@ class DestinationResource implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['aggregation_time_period'] === null) {
+            $invalidProperties[] = "'aggregation_time_period' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +201,25 @@ class DestinationResource implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sqs
+     * Gets aggregation_time_period
      *
-     * @return \Popsicle\Amazon\Model\Notifications\SqsResource
+     * @return \Popsicle\Amazon\Model\Notifications\AggregationTimePeriod
      */
-    public function getSqs()
+    public function getAggregationTimePeriod()
     {
-        return $this->container['sqs'];
+        return $this->container['aggregation_time_period'];
     }
 
     /**
-     * Sets sqs
+     * Sets aggregation_time_period
      *
-     * @param \Popsicle\Amazon\Model\Notifications\SqsResource $sqs sqs
+     * @param \Popsicle\Amazon\Model\Notifications\AggregationTimePeriod $aggregation_time_period aggregation_time_period
      *
      * @return $this
      */
-    public function setSqs($sqs)
+    public function setAggregationTimePeriod($aggregation_time_period)
     {
-        $this->container['sqs'] = $sqs;
-
-        return $this;
-    }
-
-    /**
-     * Gets event_bridge
-     *
-     * @return \Popsicle\Amazon\Model\Notifications\EventBridgeResource
-     */
-    public function getEventBridge()
-    {
-        return $this->container['event_bridge'];
-    }
-
-    /**
-     * Sets event_bridge
-     *
-     * @param \Popsicle\Amazon\Model\Notifications\EventBridgeResource $event_bridge event_bridge
-     *
-     * @return $this
-     */
-    public function setEventBridge($event_bridge)
-    {
-        $this->container['event_bridge'] = $event_bridge;
+        $this->container['aggregation_time_period'] = $aggregation_time_period;
 
         return $this;
     }
