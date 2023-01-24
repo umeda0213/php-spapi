@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * OrderRegulatedInfo
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * OrderRegulatedInfo Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description The order&#x27;s regulated information along with its verification status.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class OrderRegulatedInfo implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'OrderRegulatedInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'amazon_order_id' => 'string',
+'regulated_information' => '\Popsicle\Amazon\Model\Orders\RegulatedInformation',
+'requires_dosage_label' => 'bool',
+'regulated_order_verification_status' => '\Popsicle\Amazon\Model\Orders\RegulatedOrderVerificationStatus'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +68,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'amazon_order_id' => null,
+'regulated_information' => null,
+'requires_dosage_label' => null,
+'regulated_order_verification_status' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +100,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'amazon_order_id' => 'AmazonOrderId',
+'regulated_information' => 'RegulatedInformation',
+'requires_dosage_label' => 'RequiresDosageLabel',
+'regulated_order_verification_status' => 'RegulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +111,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'amazon_order_id' => 'setAmazonOrderId',
+'regulated_information' => 'setRegulatedInformation',
+'requires_dosage_label' => 'setRequiresDosageLabel',
+'regulated_order_verification_status' => 'setRegulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +122,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'amazon_order_id' => 'getAmazonOrderId',
+'regulated_information' => 'getRegulatedInformation',
+'requires_dosage_label' => 'getRequiresDosageLabel',
+'regulated_order_verification_status' => 'getRegulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +185,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['amazon_order_id'] = isset($data['amazon_order_id']) ? $data['amazon_order_id'] : null;
+        $this->container['regulated_information'] = isset($data['regulated_information']) ? $data['regulated_information'] : null;
+        $this->container['requires_dosage_label'] = isset($data['requires_dosage_label']) ? $data['requires_dosage_label'] : null;
+        $this->container['regulated_order_verification_status'] = isset($data['regulated_order_verification_status']) ? $data['regulated_order_verification_status'] : null;
     }
 
     /**
@@ -188,6 +200,18 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['amazon_order_id'] === null) {
+            $invalidProperties[] = "'amazon_order_id' can't be null";
+        }
+        if ($this->container['regulated_information'] === null) {
+            $invalidProperties[] = "'regulated_information' can't be null";
+        }
+        if ($this->container['requires_dosage_label'] === null) {
+            $invalidProperties[] = "'requires_dosage_label' can't be null";
+        }
+        if ($this->container['regulated_order_verification_status'] === null) {
+            $invalidProperties[] = "'regulated_order_verification_status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +228,97 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets amazon_order_id
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return string
      */
-    public function getPayload()
+    public function getAmazonOrderId()
     {
-        return $this->container['payload'];
+        return $this->container['amazon_order_id'];
     }
 
     /**
-     * Sets payload
+     * Sets amazon_order_id
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param string $amazon_order_id An Amazon-defined order identifier, in 3-7-7 format.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setAmazonOrderId($amazon_order_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['amazon_order_id'] = $amazon_order_id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets regulated_information
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return \Popsicle\Amazon\Model\Orders\RegulatedInformation
      */
-    public function getErrors()
+    public function getRegulatedInformation()
     {
-        return $this->container['errors'];
+        return $this->container['regulated_information'];
     }
 
     /**
-     * Sets errors
+     * Sets regulated_information
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param \Popsicle\Amazon\Model\Orders\RegulatedInformation $regulated_information regulated_information
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setRegulatedInformation($regulated_information)
     {
-        $this->container['errors'] = $errors;
+        $this->container['regulated_information'] = $regulated_information;
+
+        return $this;
+    }
+
+    /**
+     * Gets requires_dosage_label
+     *
+     * @return bool
+     */
+    public function getRequiresDosageLabel()
+    {
+        return $this->container['requires_dosage_label'];
+    }
+
+    /**
+     * Sets requires_dosage_label
+     *
+     * @param bool $requires_dosage_label When true, the order requires attaching a dosage information label when shipped.
+     *
+     * @return $this
+     */
+    public function setRequiresDosageLabel($requires_dosage_label)
+    {
+        $this->container['requires_dosage_label'] = $requires_dosage_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets regulated_order_verification_status
+     *
+     * @return \Popsicle\Amazon\Model\Orders\RegulatedOrderVerificationStatus
+     */
+    public function getRegulatedOrderVerificationStatus()
+    {
+        return $this->container['regulated_order_verification_status'];
+    }
+
+    /**
+     * Sets regulated_order_verification_status
+     *
+     * @param \Popsicle\Amazon\Model\Orders\RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
+     *
+     * @return $this
+     */
+    public function setRegulatedOrderVerificationStatus($regulated_order_verification_status)
+    {
+        $this->container['regulated_order_verification_status'] = $regulated_order_verification_status;
 
         return $this;
     }

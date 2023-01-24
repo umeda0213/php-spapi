@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * AutomatedShippingSettings
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * AutomatedShippingSettings Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description Contains information regarding the Shipping Settings Automation program, such as whether the order&#x27;s shipping settings were generated automatically, and what those settings are.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class AutomatedShippingSettings implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'AutomatedShippingSettings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'has_automated_shipping_settings' => 'bool',
+'automated_carrier' => 'string',
+'automated_ship_method' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +67,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'has_automated_shipping_settings' => null,
+'automated_carrier' => null,
+'automated_ship_method' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +98,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'has_automated_shipping_settings' => 'HasAutomatedShippingSettings',
+'automated_carrier' => 'AutomatedCarrier',
+'automated_ship_method' => 'AutomatedShipMethod'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +108,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'has_automated_shipping_settings' => 'setHasAutomatedShippingSettings',
+'automated_carrier' => 'setAutomatedCarrier',
+'automated_ship_method' => 'setAutomatedShipMethod'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +118,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'has_automated_shipping_settings' => 'getHasAutomatedShippingSettings',
+'automated_carrier' => 'getAutomatedCarrier',
+'automated_ship_method' => 'getAutomatedShipMethod'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +180,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['has_automated_shipping_settings'] = isset($data['has_automated_shipping_settings']) ? $data['has_automated_shipping_settings'] : null;
+        $this->container['automated_carrier'] = isset($data['automated_carrier']) ? $data['automated_carrier'] : null;
+        $this->container['automated_ship_method'] = isset($data['automated_ship_method']) ? $data['automated_ship_method'] : null;
     }
 
     /**
@@ -204,49 +210,73 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets has_automated_shipping_settings
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return bool
      */
-    public function getPayload()
+    public function getHasAutomatedShippingSettings()
     {
-        return $this->container['payload'];
+        return $this->container['has_automated_shipping_settings'];
     }
 
     /**
-     * Sets payload
+     * Sets has_automated_shipping_settings
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param bool $has_automated_shipping_settings When true, this order has automated shipping settings generated by Amazon. This order could be identified as an SSA order.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setHasAutomatedShippingSettings($has_automated_shipping_settings)
     {
-        $this->container['payload'] = $payload;
+        $this->container['has_automated_shipping_settings'] = $has_automated_shipping_settings;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets automated_carrier
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getAutomatedCarrier()
     {
-        return $this->container['errors'];
+        return $this->container['automated_carrier'];
     }
 
     /**
-     * Sets errors
+     * Sets automated_carrier
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $automated_carrier Auto-generated carrier for SSA orders.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setAutomatedCarrier($automated_carrier)
     {
-        $this->container['errors'] = $errors;
+        $this->container['automated_carrier'] = $automated_carrier;
+
+        return $this;
+    }
+
+    /**
+     * Gets automated_ship_method
+     *
+     * @return string
+     */
+    public function getAutomatedShipMethod()
+    {
+        return $this->container['automated_ship_method'];
+    }
+
+    /**
+     * Sets automated_ship_method
+     *
+     * @param string $automated_ship_method Auto-generated ship method for SSA orders.
+     *
+     * @return $this
+     */
+    public function setAutomatedShipMethod($automated_ship_method)
+    {
+        $this->container['automated_ship_method'] = $automated_ship_method;
 
         return $this;
     }

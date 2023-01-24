@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * UpdateVerificationStatusRequestBody
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * UpdateVerificationStatusRequestBody Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description The updated values of the VerificationStatus field.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'UpdateVerificationStatusRequestBody';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'status' => '\Popsicle\Amazon\Model\Orders\VerificationStatus',
+'external_reviewer_id' => 'string',
+'rejection_reason_id' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +67,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'status' => null,
+'external_reviewer_id' => null,
+'rejection_reason_id' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +98,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'status' => 'status',
+'external_reviewer_id' => 'externalReviewerId',
+'rejection_reason_id' => 'rejectionReasonId'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +108,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'status' => 'setStatus',
+'external_reviewer_id' => 'setExternalReviewerId',
+'rejection_reason_id' => 'setRejectionReasonId'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +118,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'status' => 'getStatus',
+'external_reviewer_id' => 'getExternalReviewerId',
+'rejection_reason_id' => 'getRejectionReasonId'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +180,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['external_reviewer_id'] = isset($data['external_reviewer_id']) ? $data['external_reviewer_id'] : null;
+        $this->container['rejection_reason_id'] = isset($data['rejection_reason_id']) ? $data['rejection_reason_id'] : null;
     }
 
     /**
@@ -188,6 +194,12 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['external_reviewer_id'] === null) {
+            $invalidProperties[] = "'external_reviewer_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +216,73 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets status
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return \Popsicle\Amazon\Model\Orders\VerificationStatus
      */
-    public function getPayload()
+    public function getStatus()
     {
-        return $this->container['payload'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets payload
+     * Sets status
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param \Popsicle\Amazon\Model\Orders\VerificationStatus $status status
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setStatus($status)
     {
-        $this->container['payload'] = $payload;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets external_reviewer_id
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getExternalReviewerId()
     {
-        return $this->container['errors'];
+        return $this->container['external_reviewer_id'];
     }
 
     /**
-     * Sets errors
+     * Sets external_reviewer_id
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $external_reviewer_id The identifier for the order's regulated information reviewer.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setExternalReviewerId($external_reviewer_id)
     {
-        $this->container['errors'] = $errors;
+        $this->container['external_reviewer_id'] = $external_reviewer_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets rejection_reason_id
+     *
+     * @return string
+     */
+    public function getRejectionReasonId()
+    {
+        return $this->container['rejection_reason_id'];
+    }
+
+    /**
+     * Sets rejection_reason_id
+     *
+     * @param string $rejection_reason_id The unique identifier for the rejection reason used for rejecting the order's regulated information. Only required if the new status is rejected.
+     *
+     * @return $this
+     */
+    public function setRejectionReasonId($rejection_reason_id)
+    {
+        $this->container['rejection_reason_id'] = $rejection_reason_id;
 
         return $this;
     }

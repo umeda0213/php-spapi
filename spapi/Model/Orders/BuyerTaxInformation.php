@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * BuyerTaxInformation
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * BuyerTaxInformation Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description Contains the business invoice tax information. Available only in the TR marketplace.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class BuyerTaxInformation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'BuyerTaxInformation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'buyer_legal_company_name' => 'string',
+'buyer_business_address' => 'string',
+'buyer_tax_registration_id' => 'string',
+'buyer_tax_office' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +68,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'buyer_legal_company_name' => null,
+'buyer_business_address' => null,
+'buyer_tax_registration_id' => null,
+'buyer_tax_office' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +100,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'buyer_legal_company_name' => 'BuyerLegalCompanyName',
+'buyer_business_address' => 'BuyerBusinessAddress',
+'buyer_tax_registration_id' => 'BuyerTaxRegistrationId',
+'buyer_tax_office' => 'BuyerTaxOffice'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +111,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'buyer_legal_company_name' => 'setBuyerLegalCompanyName',
+'buyer_business_address' => 'setBuyerBusinessAddress',
+'buyer_tax_registration_id' => 'setBuyerTaxRegistrationId',
+'buyer_tax_office' => 'setBuyerTaxOffice'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +122,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'buyer_legal_company_name' => 'getBuyerLegalCompanyName',
+'buyer_business_address' => 'getBuyerBusinessAddress',
+'buyer_tax_registration_id' => 'getBuyerTaxRegistrationId',
+'buyer_tax_office' => 'getBuyerTaxOffice'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +185,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['buyer_legal_company_name'] = isset($data['buyer_legal_company_name']) ? $data['buyer_legal_company_name'] : null;
+        $this->container['buyer_business_address'] = isset($data['buyer_business_address']) ? $data['buyer_business_address'] : null;
+        $this->container['buyer_tax_registration_id'] = isset($data['buyer_tax_registration_id']) ? $data['buyer_tax_registration_id'] : null;
+        $this->container['buyer_tax_office'] = isset($data['buyer_tax_office']) ? $data['buyer_tax_office'] : null;
     }
 
     /**
@@ -204,49 +216,97 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets buyer_legal_company_name
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return string
      */
-    public function getPayload()
+    public function getBuyerLegalCompanyName()
     {
-        return $this->container['payload'];
+        return $this->container['buyer_legal_company_name'];
     }
 
     /**
-     * Sets payload
+     * Sets buyer_legal_company_name
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param string $buyer_legal_company_name Business buyer's company legal name.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setBuyerLegalCompanyName($buyer_legal_company_name)
     {
-        $this->container['payload'] = $payload;
+        $this->container['buyer_legal_company_name'] = $buyer_legal_company_name;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets buyer_business_address
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getBuyerBusinessAddress()
     {
-        return $this->container['errors'];
+        return $this->container['buyer_business_address'];
     }
 
     /**
-     * Sets errors
+     * Sets buyer_business_address
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $buyer_business_address Business buyer's address.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setBuyerBusinessAddress($buyer_business_address)
     {
-        $this->container['errors'] = $errors;
+        $this->container['buyer_business_address'] = $buyer_business_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_tax_registration_id
+     *
+     * @return string
+     */
+    public function getBuyerTaxRegistrationId()
+    {
+        return $this->container['buyer_tax_registration_id'];
+    }
+
+    /**
+     * Sets buyer_tax_registration_id
+     *
+     * @param string $buyer_tax_registration_id Business buyer's tax registration ID.
+     *
+     * @return $this
+     */
+    public function setBuyerTaxRegistrationId($buyer_tax_registration_id)
+    {
+        $this->container['buyer_tax_registration_id'] = $buyer_tax_registration_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_tax_office
+     *
+     * @return string
+     */
+    public function getBuyerTaxOffice()
+    {
+        return $this->container['buyer_tax_office'];
+    }
+
+    /**
+     * Sets buyer_tax_office
+     *
+     * @param string $buyer_tax_office Business buyer's tax office.
+     *
+     * @return $this
+     */
+    public function setBuyerTaxOffice($buyer_tax_office)
+    {
+        $this->container['buyer_tax_office'] = $buyer_tax_office;
 
         return $this;
     }

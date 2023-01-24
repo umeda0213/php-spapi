@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * OrderItemsInner
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * OrderItemsInner Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class OrderItemsInner implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'OrderItems_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +56,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'order_item_id' => 'string',
+'quantity' => 'int'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +65,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'order_item_id' => null,
+'quantity' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +95,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'order_item_id' => 'orderItemId',
+'quantity' => 'quantity'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +104,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'order_item_id' => 'setOrderItemId',
+'quantity' => 'setQuantity'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +113,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'order_item_id' => 'getOrderItemId',
+'quantity' => 'getQuantity'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +174,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['order_item_id'] = isset($data['order_item_id']) ? $data['order_item_id'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -204,49 +203,49 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets order_item_id
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return string
      */
-    public function getPayload()
+    public function getOrderItemId()
     {
-        return $this->container['payload'];
+        return $this->container['order_item_id'];
     }
 
     /**
-     * Sets payload
+     * Sets order_item_id
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param string $order_item_id The unique identifier of the order item.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setOrderItemId($order_item_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['order_item_id'] = $order_item_id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets quantity
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return int
      */
-    public function getErrors()
+    public function getQuantity()
     {
-        return $this->container['errors'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets errors
+     * Sets quantity
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param int $quantity The quantity for which to update the shipment status.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setQuantity($quantity)
     {
-        $this->container['errors'] = $errors;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }

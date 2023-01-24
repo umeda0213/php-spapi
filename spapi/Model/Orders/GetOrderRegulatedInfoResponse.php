@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * GetOrderRegulatedInfoResponse
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * GetOrderRegulatedInfoResponse Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description The response schema for the getOrderRegulatedInfo operation.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class GetOrderRegulatedInfoResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'GetOrderRegulatedInfoResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +57,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
+        'payload' => '\Popsicle\Amazon\Model\Orders\OrderRegulatedInfo',
 'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
 
     /**
@@ -206,7 +206,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return \Popsicle\Amazon\Model\Orders\OrderRegulatedInfo
      */
     public function getPayload()
     {
@@ -216,7 +216,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param \Popsicle\Amazon\Model\Orders\OrderRegulatedInfo $payload payload
      *
      * @return $this
      */

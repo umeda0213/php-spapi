@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * UpdateVerificationStatusRequest
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * UpdateVerificationStatusRequest Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description The request body for the updateVerificationStatus operation.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'UpdateVerificationStatusRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'regulated_order_verification_status' => '\Popsicle\Amazon\Model\Orders\UpdateVerificationStatusRequestBody'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +65,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'regulated_order_verification_status' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +94,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'regulated_order_verification_status' => 'regulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +102,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'regulated_order_verification_status' => 'setRegulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +110,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'regulated_order_verification_status' => 'getRegulatedOrderVerificationStatus'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +170,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['regulated_order_verification_status'] = isset($data['regulated_order_verification_status']) ? $data['regulated_order_verification_status'] : null;
     }
 
     /**
@@ -188,6 +182,9 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['regulated_order_verification_status'] === null) {
+            $invalidProperties[] = "'regulated_order_verification_status' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +201,25 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets regulated_order_verification_status
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return \Popsicle\Amazon\Model\Orders\UpdateVerificationStatusRequestBody
      */
-    public function getPayload()
+    public function getRegulatedOrderVerificationStatus()
     {
-        return $this->container['payload'];
+        return $this->container['regulated_order_verification_status'];
     }
 
     /**
-     * Sets payload
+     * Sets regulated_order_verification_status
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param \Popsicle\Amazon\Model\Orders\UpdateVerificationStatusRequestBody $regulated_order_verification_status regulated_order_verification_status
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setRegulatedOrderVerificationStatus($regulated_order_verification_status)
     {
-        $this->container['payload'] = $payload;
-
-        return $this;
-    }
-
-    /**
-     * Gets errors
-     *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
-     */
-    public function getErrors()
-    {
-        return $this->container['errors'];
-    }
-
-    /**
-     * Sets errors
-     *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
-     *
-     * @return $this
-     */
-    public function setErrors($errors)
-    {
-        $this->container['errors'] = $errors;
+        $this->container['regulated_order_verification_status'] = $regulated_order_verification_status;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * RegulatedInformationField
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * RegulatedInformationField Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description A field collected from the regulatory form.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class RegulatedInformationField implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'RegulatedInformationField';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'field_id' => 'string',
+'field_label' => 'string',
+'field_type' => 'string',
+'field_value' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +68,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'field_id' => null,
+'field_label' => null,
+'field_type' => null,
+'field_value' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +100,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'field_id' => 'FieldId',
+'field_label' => 'FieldLabel',
+'field_type' => 'FieldType',
+'field_value' => 'FieldValue'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +111,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'field_id' => 'setFieldId',
+'field_label' => 'setFieldLabel',
+'field_type' => 'setFieldType',
+'field_value' => 'setFieldValue'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +122,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'field_id' => 'getFieldId',
+'field_label' => 'getFieldLabel',
+'field_type' => 'getFieldType',
+'field_value' => 'getFieldValue'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -158,7 +168,20 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const FIELD_TYPE_TEXT = 'Text';
+const FIELD_TYPE_FILE_ATTACHMENT = 'FileAttachment';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getFieldTypeAllowableValues()
+    {
+        return [
+            self::FIELD_TYPE_TEXT,
+self::FIELD_TYPE_FILE_ATTACHMENT,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -175,8 +198,10 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['field_id'] = isset($data['field_id']) ? $data['field_id'] : null;
+        $this->container['field_label'] = isset($data['field_label']) ? $data['field_label'] : null;
+        $this->container['field_type'] = isset($data['field_type']) ? $data['field_type'] : null;
+        $this->container['field_value'] = isset($data['field_value']) ? $data['field_value'] : null;
     }
 
     /**
@@ -188,6 +213,26 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['field_id'] === null) {
+            $invalidProperties[] = "'field_id' can't be null";
+        }
+        if ($this->container['field_label'] === null) {
+            $invalidProperties[] = "'field_label' can't be null";
+        }
+        if ($this->container['field_type'] === null) {
+            $invalidProperties[] = "'field_type' can't be null";
+        }
+        $allowedValues = $this->getFieldTypeAllowableValues();
+        if (!is_null($this->container['field_type']) && !in_array($this->container['field_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'field_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['field_value'] === null) {
+            $invalidProperties[] = "'field_value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +249,106 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets field_id
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return string
      */
-    public function getPayload()
+    public function getFieldId()
     {
-        return $this->container['payload'];
+        return $this->container['field_id'];
     }
 
     /**
-     * Sets payload
+     * Sets field_id
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param string $field_id The unique identifier for the field.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setFieldId($field_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['field_id'] = $field_id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets field_label
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getFieldLabel()
     {
-        return $this->container['errors'];
+        return $this->container['field_label'];
     }
 
     /**
-     * Sets errors
+     * Sets field_label
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $field_label The name for the field.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setFieldLabel($field_label)
     {
-        $this->container['errors'] = $errors;
+        $this->container['field_label'] = $field_label;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_type
+     *
+     * @return string
+     */
+    public function getFieldType()
+    {
+        return $this->container['field_type'];
+    }
+
+    /**
+     * Sets field_type
+     *
+     * @param string $field_type The type of field.
+     *
+     * @return $this
+     */
+    public function setFieldType($field_type)
+    {
+        $allowedValues = $this->getFieldTypeAllowableValues();
+        if (!in_array($field_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'field_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['field_type'] = $field_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets field_value
+     *
+     * @return string
+     */
+    public function getFieldValue()
+    {
+        return $this->container['field_value'];
+    }
+
+    /**
+     * Sets field_value
+     *
+     * @param string $field_value The content of the field as collected in regulatory form. Note that FileAttachment type fields will contain a URL to download the attachment here.
+     *
+     * @return $this
+     */
+    public function setFieldValue($field_value)
+    {
+        $this->container['field_value'] = $field_value;
 
         return $this;
     }

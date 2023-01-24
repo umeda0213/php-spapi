@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * RejectionReason
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * RejectionReason Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description The reason for rejecting the order&#x27;s regulated information. Not present if the order isn&#x27;t rejected.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class RejectionReason implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'RejectionReason';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'rejection_reason_id' => 'string',
+'rejection_reason_description' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +66,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'rejection_reason_id' => null,
+'rejection_reason_description' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +96,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'rejection_reason_id' => 'RejectionReasonId',
+'rejection_reason_description' => 'RejectionReasonDescription'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +105,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'rejection_reason_id' => 'setRejectionReasonId',
+'rejection_reason_description' => 'setRejectionReasonDescription'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +114,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'rejection_reason_id' => 'getRejectionReasonId',
+'rejection_reason_description' => 'getRejectionReasonDescription'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +175,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['rejection_reason_id'] = isset($data['rejection_reason_id']) ? $data['rejection_reason_id'] : null;
+        $this->container['rejection_reason_description'] = isset($data['rejection_reason_description']) ? $data['rejection_reason_description'] : null;
     }
 
     /**
@@ -188,6 +188,12 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['rejection_reason_id'] === null) {
+            $invalidProperties[] = "'rejection_reason_id' can't be null";
+        }
+        if ($this->container['rejection_reason_description'] === null) {
+            $invalidProperties[] = "'rejection_reason_description' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -204,49 +210,49 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets rejection_reason_id
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return string
      */
-    public function getPayload()
+    public function getRejectionReasonId()
     {
-        return $this->container['payload'];
+        return $this->container['rejection_reason_id'];
     }
 
     /**
-     * Sets payload
+     * Sets rejection_reason_id
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param string $rejection_reason_id The unique identifier for the rejection reason.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setRejectionReasonId($rejection_reason_id)
     {
-        $this->container['payload'] = $payload;
+        $this->container['rejection_reason_id'] = $rejection_reason_id;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets rejection_reason_description
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getRejectionReasonDescription()
     {
-        return $this->container['errors'];
+        return $this->container['rejection_reason_description'];
     }
 
     /**
-     * Sets errors
+     * Sets rejection_reason_description
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $rejection_reason_description The description of this rejection reason.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setRejectionReasonDescription($rejection_reason_description)
     {
-        $this->container['errors'] = $errors;
+        $this->container['rejection_reason_description'] = $rejection_reason_description;
 
         return $this;
     }

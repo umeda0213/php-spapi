@@ -1,6 +1,6 @@
 <?php
 /**
- * GetOrderAddressResponse
+ * BuyerRequestedCancel
  *
  * PHP version 5
  *
@@ -32,15 +32,15 @@ use \ArrayAccess;
 use \Popsicle\Amazon\ObjectSerializer;
 
 /**
- * GetOrderAddressResponse Class Doc Comment
+ * BuyerRequestedCancel Class Doc Comment
  *
  * @category Class
- * @description The response schema for the getOrderAddress operation.
+ * @description Information about whether or not a buyer requested cancellation.
  * @package  Popsicle\Amazon
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetOrderAddressResponse implements ModelInterface, ArrayAccess
+class BuyerRequestedCancel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'GetOrderAddressResponse';
+    protected static $swaggerModelName = 'BuyerRequestedCancel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'payload' => '\Popsicle\Amazon\Model\Orders\OrderAddress',
-'errors' => '\Popsicle\Amazon\Model\Orders\ErrorList'    ];
+        'is_buyer_requested_cancel' => 'bool',
+'buyer_cancel_reason' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -66,8 +66,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'payload' => null,
-'errors' => null    ];
+        'is_buyer_requested_cancel' => null,
+'buyer_cancel_reason' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -96,8 +96,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'payload' => 'payload',
-'errors' => 'errors'    ];
+        'is_buyer_requested_cancel' => 'IsBuyerRequestedCancel',
+'buyer_cancel_reason' => 'BuyerCancelReason'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -105,8 +105,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'payload' => 'setPayload',
-'errors' => 'setErrors'    ];
+        'is_buyer_requested_cancel' => 'setIsBuyerRequestedCancel',
+'buyer_cancel_reason' => 'setBuyerCancelReason'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -114,8 +114,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'payload' => 'getPayload',
-'errors' => 'getErrors'    ];
+        'is_buyer_requested_cancel' => 'getIsBuyerRequestedCancel',
+'buyer_cancel_reason' => 'getBuyerCancelReason'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -175,8 +175,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['payload'] = isset($data['payload']) ? $data['payload'] : null;
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['is_buyer_requested_cancel'] = isset($data['is_buyer_requested_cancel']) ? $data['is_buyer_requested_cancel'] : null;
+        $this->container['buyer_cancel_reason'] = isset($data['buyer_cancel_reason']) ? $data['buyer_cancel_reason'] : null;
     }
 
     /**
@@ -204,49 +204,49 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets payload
+     * Gets is_buyer_requested_cancel
      *
-     * @return \Popsicle\Amazon\Model\Orders\OrderAddress
+     * @return bool
      */
-    public function getPayload()
+    public function getIsBuyerRequestedCancel()
     {
-        return $this->container['payload'];
+        return $this->container['is_buyer_requested_cancel'];
     }
 
     /**
-     * Sets payload
+     * Sets is_buyer_requested_cancel
      *
-     * @param \Popsicle\Amazon\Model\Orders\OrderAddress $payload payload
+     * @param bool $is_buyer_requested_cancel When true, the buyer has requested cancellation.
      *
      * @return $this
      */
-    public function setPayload($payload)
+    public function setIsBuyerRequestedCancel($is_buyer_requested_cancel)
     {
-        $this->container['payload'] = $payload;
+        $this->container['is_buyer_requested_cancel'] = $is_buyer_requested_cancel;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets buyer_cancel_reason
      *
-     * @return \Popsicle\Amazon\Model\Orders\ErrorList
+     * @return string
      */
-    public function getErrors()
+    public function getBuyerCancelReason()
     {
-        return $this->container['errors'];
+        return $this->container['buyer_cancel_reason'];
     }
 
     /**
-     * Sets errors
+     * Sets buyer_cancel_reason
      *
-     * @param \Popsicle\Amazon\Model\Orders\ErrorList $errors errors
+     * @param string $buyer_cancel_reason The reason that the buyer requested cancellation.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setBuyerCancelReason($buyer_cancel_reason)
     {
-        $this->container['errors'] = $errors;
+        $this->container['buyer_cancel_reason'] = $buyer_cancel_reason;
 
         return $this;
     }
